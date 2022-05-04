@@ -1,0 +1,173 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+!theme mars
+
+!include <logos/kafka>
+!include <logos/elasticsearch>
+!include <logos/nginx>
+!include <logos/redis>
+!include <logos/postgresql>
+!include <logos/flask>
+!include <logos/gunicorn>
+!include <logos/jaeger>
+!include <logos/django>
+!include <logos/kibana>
+!include <logos/python>
+!include <logos/mongodb>
+!include <logos/rabbitmq>
+
+skinparam actor {
+BorderColor black
+BackgroundColor Gold
+}
+skinparam database {
+BorderColor black
+BackgroundColor Aquamarine
+}
+
+title Схема архитектуры сервиса уведомлений онлайн-кинотеатра
+
+:Manager:/ as Admin
+
+node "Админ-панель управления рассылкой уведомлений" as admin_panel #palegreen;line:green;text:blue {
+
+    component "<$nginx>" as nginx_notification_admin
+    component "<$gunicorn>\nuWSGI web server" as gunicorn {
+    component "<$django>\nnotification_admin" as django
+    }
+    database "<$redis>\nCache" as redis_admin
+
+    nginx_notification_admin <--> gunicorn
+    django <-> redis_admin
+}
+
+node "Сервис Notification API" as notification_api #palegreen;line:green;text:blue {
+    component "<$nginx>" as nginx_notification
+    component "<$gunicorn>\nuASGI web server" as uvicorn {
+    component "<img:FastAPI.png>\nNotification-API" as notification_web_api
+    }
+    database "<$redis>\nCache" as redis_notification
+
+    uvicorn <-up-> nginx_notification
+    notification_web_api <-> redis_notification
+}
+
+node "Кластер базы данных уведомлений" as notification_db #palegreen;line:green;text:blue {
+    database "<$mongodb>\nPrimary" as mongodb_notification_primary
+    database "<$mongodb>\nSecondary" as mongodb_notification_secondary_1
+    database "<$mongodb>\nSecondary" as mongodb_notification_secondary_2
+    database "<$mongodb>\nSecondary hidden" as mongodb_notification_secondary_3
+
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_1
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_2
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_3
+}
+
+node "Генератор автоматических уведомлений" as scheduler #palegreen;line:green;text:blue {
+    component "<$python>\nScheduler" as script_scheduler
+    component "<img:cron.png>\nCron" as crontab
+    database "<$redis>\nCache" as redis_scheduler
+
+    crontab -> script_scheduler
+    script_scheduler <-> redis_scheduler
+}
+
+node "Брокер отчетных событий" as queues_reporting_events #aliceblue;line:blue;text:blue {
+    queue "<$rabbitmq>\nReporting events queues                      " as rabbitmq_reporting_events
+}
+
+node "Брокер уведомлений" as queue_events #palegreen;line:green;text:blue {
+    queue "<$rabbitmq>\nHigh, Medium, Low Priority Message Queues" as rabbitmq_message_queues
+}
+
+node "Обработчики исходящих сообщений (workers)" as workers #palegreen;line:green;text:blue {
+component "Websocket workers" as websocket_workers {
+    component "<$python>\nWS worker 1...\nWS worker n" as ws_workers
+    }
+component "Email workers" as email_workers {
+    component "<$python>\nE-mail worker 1...\nE-mail worker n" as em_workers
+    }
+    database "<$redis>\nCache" as redis_workers
+'    websocket_workers -- email_workers #white
+    websocket_workers <--> redis_workers
+    email_workers <--> redis_workers
+}
+'node "Кластер базы данных Redis" as cluster_redis {
+'    database "<$redis>\nMaster1" as redis_M1
+'    database "<$redis>\nMaster2" as redis_M2
+'    database "<$redis>\nMaster3" as redis_M3
+'    database "<$redis>\nSlave1" as redis_S1
+'    database "<$redis>\nSlave2" as redis_S2
+'    database "<$redis>\nSlave3" as redis_S3
+'
+'    redis_M1 - redis_M2 #red;line.dotted
+'    redis_M2 - redis_M3 #red;line.dotted
+'    redis_S1 - redis_S2 #red;line.dotted
+'    redis_S2 - redis_S3 #red;line.dotted
+'    redis_M1 -- redis_S1 #red;line.dotted
+'    redis_M1 -- redis_S2 #red;line.dotted
+'    redis_M1 -- redis_S3 #red;line.dotted
+'    redis_M2 -- redis_S1 #red;line.dotted
+'    redis_M2 -- redis_S2 #red;line.dotted
+'    redis_M2 -- redis_S3 #red;line.dotted
+'    redis_M3 -- redis_S1 #red;line.dotted
+'    redis_M3 -- redis_S2 #red;line.dotted
+'    redis_M3 -- redis_S3 #red;line.dotted
+'}
+node "Сервис UGC" as ugc_service #aliceblue;line:blue;text:blue {
+    note "Пользовательские события,\nтребующие отправки уведомления\n(Лайки или дизлайки рецензий и др.)" as N3
+}
+node "Сервис Auth API" as auth_service #aliceblue;line:blue;text:blue {
+    note "Предоставление расширенной\nинформации о пользователе\n(Имя, фамилия, адрес электронной почты, телефон и т.д.)" as N2
+}
+node "Сервис Async API" as async_service #aliceblue;line:blue;text:blue {
+    note "Предоставление расширенной\nинформации о фильмах\n(название, жанры, год выпуска и т.д.)" as N1
+}
+
+node "Админ-панель управления контентом онлайн-кинотеатра" as movies_admin_service #aliceblue;line:blue;text:blue {
+    note "Автоматические уведомления\n о добавлении новых фильмов,\n выходе новой серии и т.д." as N4
+}
+
+node "Кластер базы данных сервиса UGC" as ugc_db #aliceblue;line:blue;text:blue {
+    database "<$mongodb>\nPrimary" as mongodb_ugc_primary
+    database "<$mongodb>\nSecondary" as mongodb_ugc_secondary_1
+    database "<$mongodb>\nSecondary" as mongodb_ugc_secondary_2
+
+    mongodb_ugc_primary <-down-> mongodb_ugc_secondary_1
+    mongodb_ugc_primary <-down-> mongodb_ugc_secondary_2
+}
+
+
+Admin <--> nginx_notification_admin
+
+
+
+rabbitmq_reporting_events <-|> notification_web_api #green;line.bold
+rabbitmq_reporting_events <|-up-> movies_admin_service #green
+rabbitmq_reporting_events <|-up-> ugc_service #green
+
+nginx_notification <|-up-> auth_service #green :Уведомление о регистрации пользователя
+
+
+django <--> mongodb_notification_primary #blue
+notification_web_api <-down-> mongodb_notification_primary #blue
+script_scheduler <--> mongodb_notification_primary #blue
+ws_workers <--- mongodb_notification_secondary_2 #blue
+em_workers <--- mongodb_notification_secondary_2 #blue
+
+script_scheduler <-up-|> rabbitmq_message_queues #red;line.bold
+rabbitmq_message_queues <|-> notification_web_api #red;line.bold
+ws_workers <|-> rabbitmq_message_queues #red;line.bold
+em_workers <|-> rabbitmq_message_queues #red;line.bold
+
+script_scheduler <--> mongodb_ugc_secondary_1 #blue
+
+ws_workers <..> auth_service #brown :Доп. инф. о пользователях
+ws_workers <..> async_service #orange :Доп. инф. о фильмах
+em_workers <..> auth_service #brown :Доп. инф. о пользователях
+em_workers <..> async_service #orange :Доп. инф. о фильмах
+
+ugc_service <--> mongodb_ugc_primary
+
+nginx_notification_admin <-down-|> nginx_notification :Нажата кнопка\n Запустить рассылку
+@enduml
