@@ -1,5 +1,6 @@
 @startuml
 'https://plantuml.com/deployment-diagram
+!theme mars
 
 !include <logos/kafka>
 !include <logos/elasticsearch>
@@ -14,31 +15,41 @@
 !include <logos/python>
 !include <logos/mongodb>
 !include <logos/rabbitmq>
-skinparam roundCorner 15
-title Схема архитектуры сервиса уведомлений
 
+
+skinparam roundCorner 15
+skinparam actor {
+BorderColor black
+BackgroundColor Gold
+}
+skinparam database {
+BorderColor black
+BackgroundColor Aquamarine
+}
+
+title <size:32>Схема архитектуры сервиса уведомлений
+
+
+'Перечень основных узлов и компонентов диаграммы
 actor/ Manager
 node "Админ-панель" as admin_panel #palegreen;line:green;text:blue {
     component "<$nginx>" as nginx_notification_admin
-    component "<$gunicorn>\nuWSGI web server" as gunicorn {
-    component "<$django>\nnotification_admin" as django
+    component "<$gunicorn>\nuWSGI web server" as gunicorn #lightyellow {
+    component "<$django>\nnotify_app" as django
     }
-    database "<$redis>\nCache" as redis_admin
-
-    nginx_notification_admin <--> gunicorn
-    django <-> redis_admin
+    nginx_notification_admin <==> gunicorn
 }
 node "Сервис Notification API" as notification_api #palegreen;line:green;text:blue {
     component "<$nginx>" as nginx_notification
-    component "<$gunicorn>\nuASGI web server" as uvicorn {
+    component "<$gunicorn>\nuASGI web server" as uvicorn #lightyellow {
     component "<img:FastAPI.png>\nNotification-API" as notification_web_api
     }
     database "<$redis>\nCache" as redis_notification
 
-    nginx_notification <--> uvicorn
+    nginx_notification <==> uvicorn
     notification_web_api <-> redis_notification
 }
-node "Кластер базы данных уведомлений" as notification_db {
+node "Кластер базы данных уведомлений" as notification_db #palegreen;line:green;text:blue {
     database "<$mongodb>\nPrimary" as mongodb_notification_primary
     database "<$mongodb>\nSecondary" as mongodb_notification_secondary_1
     database "<$mongodb>\nSecondary" as mongodb_notification_secondary_2
@@ -48,15 +59,15 @@ node "Кластер базы данных уведомлений" as notificati
     mongodb_notification_primary <-down-> mongodb_notification_secondary_2
     mongodb_notification_primary <-down-> mongodb_notification_secondary_3
 }
-node "Генератор автоматических уведомлений" as scheduler {
-    component "<$python>\nScheduler" as script_scheduler
+node "Генератор автоматических уведомлений" as scheduler #palegreen;line:green;text:blue {
+    collections "<$python>\nScheduler" as script_scheduler
     component "<img:cron.png>\nCron" as crontab
     database "<$redis>\nCache" as redis_scheduler
 
     crontab -> script_scheduler
-    script_scheduler <-> redis_scheduler
+    redis_scheduler <-> script_scheduler
 }
-node "Брокер отчетных событий" as queues_reporting_events #aliceblue;line:blue;text:blue {
+node "Брокер отчетных событий" as queues_reporting_events #palegreen;line:green;text:blue {
     queue "<$rabbitmq>\nReporting events queues                      " as rabbitmq_reporting_events
 }
 
@@ -64,11 +75,11 @@ node "Брокер уведомлений" as queue_events #palegreen;line:green
     queue "<$rabbitmq>\nHigh, Medium, Low Priority Message Queues" as rabbitmq_message_queues
 }
 
-node "Обработчики уведомлений (workers)" as workers {
-component "Websocket workers" as websocket_workers {
+node "Обработчики уведомлений (workers)" as workers #palegreen;line:green;text:blue {
+component "Websocket workers" as websocket_workers #yellow {
     collections "<$python>\nWS worker 1...\nWS worker n" as ws_workers
     }
-component "Email workers" as email_workers {
+component "Email workers" as email_workers #yellow {
     collections "<$python>\nE-mail worker 1...\nE-mail worker n" as em_workers
     }
     database "<$redis>\nCache" as redis_workers
@@ -76,37 +87,40 @@ component "Email workers" as email_workers {
     ws_workers <--> redis_workers
     em_workers <--> redis_workers
 }
-node "Внешние сервисы" as other_services {
-    node "Сервис UGC" as ugc_service #aliceblue;line:blue;text:blue {
-        note as note1
-        Пользовательские события,
-        требующие отправки уведомления
-        (лайки|дизлайки рецензий и др.)
-        end note
-    }
-    node "Сервис Auth API" as auth_service #aliceblue;line:blue;text:blue {
-        note as note2
-        Предоставление расширенной
-        информации о пользователе
-        (Имя, фамилия, адрес электронной
-        почты, телефон и т.д.)
-        end note
 
-    }
-    node "Сервис Async API" as async_service #aliceblue;line:blue;text:blue {
-        note as note3
-        Предоставление расширенной
-        информации о фильмах
-        (название, жанры, год выпуска и т.д.)
-        end note
-    }
-    node "Админ-панель управления\nконтентом онлайн-кинотеатра" as movies_admin_service #aliceblue;line:blue;text:blue {
-        note "Автоматические уведомления\n о добавлении новых фильмов,\n выходе новой серии и т.д." as N4
-    }
-    ugc_service -[hidden]- movies_admin_service
-    movies_admin_service -[hidden]- auth_service
-    auth_service -[hidden]- async_service
+node "Сервис UGC" as ugc_service #aliceblue;line:blue;text:blue {
+    note as note1
+    Пользовательские события,
+    требующие отправки уведомления
+    end note
 }
+node "Сервис Auth API" as auth_service #aliceblue;line:blue;text:blue {
+    note as note2
+    Предоставление расширенной
+    информации о пользователе
+    (Имя, фамилия, адрес электронной
+    почты, телефон и т.д.)
+    end note
+
+}
+node "Сервис Async API" as async_service #aliceblue;line:blue;text:blue {
+    note as note3
+    Предоставление расширенной
+    информации о фильмах
+    (название, жанры, год выпуска и т.д.)
+    end note
+}
+node "Админ-панель управления\nконтентом онлайн-кинотеатра" as movies_admin_service #aliceblue;line:blue;text:blue {
+    note as note4
+    Автоматические уведомления
+    о добавлении новых фильмов,
+    выходе новой серии и т.д.
+    end note
+}
+ugc_service -[hidden]- movies_admin_service
+movies_admin_service -[hidden]- auth_service
+auth_service -[hidden]- async_service
+
 node "Кластер базы данных сервиса UGC" as ugc_db #aliceblue;line:blue;text:blue {
     database "<$mongodb>\nPrimary" as mongodb_ugc_primary
     database "<$mongodb>\nSecondary" as mongodb_ugc_secondary_1
@@ -115,11 +129,63 @@ node "Кластер базы данных сервиса UGC" as ugc_db #aliceb
     mongodb_ugc_primary <--> mongodb_ugc_secondary_1
     mongodb_ugc_primary <--> mongodb_ugc_secondary_2
 }
+
+node "Сервис Auth API - signup" as auth_service1 #aliceblue;line:blue;text:blue {
+    note as note5
+    http-запрос с данными
+    для подтверждения e-mail
+    пользователя при регистрации
+    end note
+}
+
+component external_email_service #aliceblue;line:blue;text:blue [
+<b>Внешний сервис
+<b>e-mail рассылок
+---
+REST API для отправки
+почтовых сообщений и
+отслеживания доставки,
+прочтения
+]
+
+component ws_clients #aliceblue;line:blue;text:blue [
+<b>WebSocket клиент
+---
+Отправка уведомлений
+в браузер клиента
+]
+
+'Связи между компонентами
 Manager <--> nginx_notification_admin
+django <=[#brown,thickness=4]=> mongodb_notification_primary
 
-rabbitmq_reporting_events <- ugc_service #green;line.bold
-rabbitmq_reporting_events <- movies_admin_service #green;line.bold
+notification_web_api <-[#brown,dashed,thickness=4]-> mongodb_notification_primary
+ugc_service <<-[#green,dashed,thickness=4]-|> rabbitmq_reporting_events
+rabbitmq_reporting_events <|-[#green,dashed,thickness=4]->> movies_admin_service
 
-rabbitmq_reporting_events -up-> notification_web_api
+rabbitmq_reporting_events <<-[#red,dashed,thickness=4]-|> notification_web_api
+rabbitmq_reporting_events <<-[#red,dashed,thickness=4]-|> notification_web_api
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> ws_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> ws_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> em_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> em_workers
+em_workers <-[#blue,dashed,thickness=3]-> external_email_service
+
+notification_web_api <<-[#green,dashed,thickness=8]-|> rabbitmq_message_queues
+nginx_notification_admin <==> nginx_notification
+
+mongodb_notification_primary <-[#brown,dashed,thickness=4]-> ws_workers
+mongodb_notification_primary <-[#brown,dashed,thickness=4]-> em_workers
+ws_workers <.[thickness=3].> async_service
+em_workers <.[thickness=3].> async_service
+ws_workers <.[thickness=3].> auth_service
+em_workers <.[thickness=3].> auth_service
+
+script_scheduler <-[#brown,dashed,thickness=4]-> mongodb_notification_secondary_3
+mongodb_ugc_secondary_1 <-[#brown,dashed,thickness=4]-> script_scheduler
+django ==> crontab
+nginx_notification <.[thickness=3].> script_scheduler
+auth_service1 <.[thickness=3].> nginx_notification
+ws_workers -> ws_clients
 
 @enduml
