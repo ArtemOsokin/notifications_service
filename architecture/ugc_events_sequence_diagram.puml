@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+== Отправка автоматического уведомления о событии ==
+autonumber
+Movies_loader -> RabbitMQ_reporting_queue : Направление отчетного события\nо добавлении новой серии\nброкеру отчетных событий\n
+note right
+film_id, event_time, request_id, routing key
+end note
+RabbitMQ_reporting_queue -> RabbitMQ_reporting_queue : Маршрутизация отчетного события\nв соответствующую очередь
+Notification_API -> RabbitMQ_reporting_queue : Подписка на соответствующие очереди
+Notification_API <- RabbitMQ_reporting_queue ++ : Получение отчетного события из очереди
+Notification_API -> Notification_API : Определение типа и валидация\n формата отчетного события
+Notification_API -> Notification_API : Определение приоритета
+Notification_API -> Notification_DB : Создание уведомления о событии\n(content_id, event_time, request_id,\npriority and etc.) со статусом\n "created"
+Notification_API <-- Notification_DB : Подтверждение, notification_id
+Notification_API --> RabbitMQ_reporting_queue -- : Подтверждение о получении\nи обработке события
+RabbitMQ_reporting_queue -> RabbitMQ_reporting_queue : Удаление отчетного\nсобытия из очереди
+Notification_API -> Notification_DB : Чтение информации об уведомлении
+Notification_API -> Notification_API : Формирование формата сообщения\nдля загрузки в брокер сообщений
+Notification_API -> RabbitMQ_message_queue : Публикация уведомления
+note right
+notification_id, content_id, event_time,
+version, request_id, routing key
+end note
+RabbitMQ_message_queue -> RabbitMQ_message_queue : Маршрутизация уведомления в очередь с заданным приоритетом
+Email_worker -> RabbitMQ_message_queue : Подписка на очередь
+Email_worker -> RabbitMQ_message_queue ++ : Получение отчетного события из очереди
+Email_worker -> Email_worker : Определение типа сообщения\n и алгоритма его обработки
+
+@enduml
