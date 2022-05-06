@@ -149,10 +149,10 @@ REST API для отправки
 ]
 
 component ws_clients #aliceblue;line:blue;text:blue [
-<b>WebSocket клиент
+<b>WebSocket-клиенты
 ---
-Отправка уведомлений
-в браузер клиента
+Отображение уведомлений
+в браузере клиента
 ]
 
 'Связи между компонентами
