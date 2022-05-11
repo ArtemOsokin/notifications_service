@@ -72,9 +72,13 @@ class Template(TimeStampedIDModel):
         managed = True
 
 
-class NotificationStatus(models.TextChoices):
+class NotificationType(models.TextChoices):
     to_immediate_send = 'To immediate send', _('для немедленной отправки')
     to_scheduled_send = 'To scheduled send', _('для отправки планировщиком')
+
+
+class NotificationStatus(models.TextChoices):
+    pending = 'Pending', _('ожидает обработки')
     in_processing = 'In processing', _('в процессе обработки')
     completed = 'Completed', _('успешно завершена')
     cancelled = 'Cancelled', _('отменена')
@@ -87,6 +91,7 @@ class NotificationPriority(models.TextChoices):
 
 
 class RepeatFrequency(models.TextChoices):
+    one_time = 'one_time', _('однократно')
     daily = 'daily', _('ежедневно')
     weekly = 'weekly', _('еженедельно')
     monthly = 'monthly', _('ежемесячно')
@@ -95,11 +100,17 @@ class RepeatFrequency(models.TextChoices):
 class MailingTask(TimeStampedIDModel):
     """Рассылка"""
     title = models.CharField(_('наименование рассылки'), max_length=120, blank=False, null=True)
+    type_mailing = models.CharField(
+        _('вид рассылки'),
+        max_length=250,
+        choices=NotificationType.choices,
+        default=NotificationType.to_scheduled_send,
+    )
     status = models.CharField(
         _('статус рассылки'),
         max_length=250,
         choices=NotificationStatus.choices,
-        default=NotificationStatus.to_scheduled_send,
+        default=NotificationStatus.pending,
     )
     is_promo = models.BooleanField(_('рекламная рассылка'), default=True)
     priority = models.CharField(
@@ -130,6 +141,6 @@ class MailingTask(TimeStampedIDModel):
 
     class Meta:
         db_table = "notification\".\"mailing_tasks"
-        verbose_name = _('задача рассылки')
+        verbose_name = _('задачу рассылки')
         verbose_name_plural = _('задачи рассылки')
         managed = True
