@@ -1,3 +1,5 @@
+# type: ignore
+
 import uuid
 
 from django.db import models
