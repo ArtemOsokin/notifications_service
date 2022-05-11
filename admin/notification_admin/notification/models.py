@@ -120,7 +120,7 @@ class MailingTask(TimeStampedIDModel):
         default=NotificationPriority.low,
     )
     template = models.ForeignKey(Template, on_delete=models.SET_NULL, null=True, verbose_name=_('шаблон уведомления'))
-    context = JSONField(_('контекст рассылки'), default=dict())
+    context = JSONField(_('контекст рассылки'), default=dict)
     scheduled_datetime = models.DateTimeField(_('плановые дата и время рассылки'), blank=True, null=True)
     repeat_frequency = models.CharField(
         _('периодичность рассылки'),
