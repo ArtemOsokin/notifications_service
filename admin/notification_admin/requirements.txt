@@ -6,3 +6,4 @@ typing_extensions==4.0.1
 django-extensions==3.1.5
 django-tinymce==3.4.0
 jinja2==3.0.3
+django-stubs==1.10.1
