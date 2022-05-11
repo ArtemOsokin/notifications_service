@@ -21,7 +21,7 @@ class MailingTaskAdmin(admin.ModelAdmin):
         'title', 'status', 'is_promo', 'priority', 'scheduled_datetime', 'repeat_frequency', 'execution_datetime'
     )
     fields = (
-        'title', 'status', 'is_promo', 'priority', 'template', 'context',
+        'title', 'type_mailing', 'is_promo', 'priority', 'template', 'context',
         'scheduled_datetime', 'repeat_frequency',
     )
     list_per_page = 20
