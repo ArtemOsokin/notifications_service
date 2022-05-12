@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 from uuid import UUID
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class Notification(ORJSONModel):
     priority: str = Field(..., description='Приоритет отправки уведомления')
     template_id: UUID = Field(..., description='Уникальный идентификатор шаблона уведомления')
     context: dict = Field({}, description='Статический контекст шаблона уведомления')
-    user_ids: list[UUID] = Field(..., description='Список уникальных идентификаторов пользователей - получателей '
+    user_ids: List[UUID] = Field(..., description='Список уникальных идентификаторов пользователей - получателей '
                                                   'уведомления')
     _created_at: datetime = Field(
         datetime.utcnow(), title='Время создания', description='Время создания уведомления'

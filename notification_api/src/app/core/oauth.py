@@ -1,3 +1,4 @@
+from typing import List
 from uuid import UUID
 
 from fastapi import Depends, HTTPException
@@ -17,7 +18,7 @@ class AccessTokenData(BaseModel):
     sub: UUID
     is_admin: bool = False
     is_staff: bool = False
-    roles: list[str] = []
+    roles: List[str] = []
 
 
 async def decode_jwt(
