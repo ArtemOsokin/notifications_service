@@ -47,9 +47,10 @@ http://127.0.0.1:8000/admin
 
 ```json
 {
-  "pk": "28587313-2552-497e-8ed9-9d613bf156ed",
+  "id": "28587313-2552-497e-8ed9-9d613bf156ed",
   "created_at": "2022-05-10T20:17:05.290Z",
   "updated_at": "2022-05-10T20:18:59.025Z",
+  "template_type": "monthly_personal_statistic",
   "title": "Ежемесячная персональная статистика",
   "subject": "Новинки Practix",
   "from_email": "noreply@example.com",
@@ -57,8 +58,7 @@ http://127.0.0.1:8000/admin
   "plain_text": "",
   "is_html": true,
   "is_text": false,
-  "template_key": "monthly_personal_statistic_views",
-  "adapter": "email"
+  "channel": "email"
 }
 ```
 
@@ -68,11 +68,12 @@ http://127.0.0.1:8000/admin
 
 ```json
 {
-  "pk": "4478cd72-c09b-4ad1-8ef1-881e4db535c1"
+  "id": "4478cd72-c09b-4ad1-8ef1-881e4db535c1",
+  "service": "admin_panel",
   "created_at": "2022-05-10T20:28:16.117Z",
   "updated_at": "2022-05-10T20:36:35.589Z",
   "title": "Ежемесячная рассылка за май 2022",
-  "mailing_type": "To scheduled send",
+  "type_mailing": "To scheduled send",
   "status": "Pending",
   "is_promo": true,
   "priority": "low",
@@ -81,14 +82,13 @@ http://127.0.0.1:8000/admin
     "user_categories": ["active", "subscriber"]
   },
   "scheduled_datetime": "2022-05-31T12:00:00Z",
-  "repeat_frequency": "monthly",
   "execution_datetime": null
 }
 ```
 
 При создании задания задается его наименование, выбирается приоритет для рассылки, способ рассылки 
 (e-mail, sms, websocket и т.п.), используемый шаблон уведомления, задается контент для шаблона, дата и время плановой 
-рассылки, ее периодичность или немедленная рассылка.
+рассылки или немедленная отправка.
 
 На основании этих данных планировщик автоматических уведомлений формирует уведомления и направляет их в Notification API
 для дальнейшей обработки и отправки.
