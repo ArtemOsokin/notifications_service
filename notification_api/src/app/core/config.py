@@ -1,3 +1,5 @@
+# type: ignore
+
 import os
 
 from app.core.dev import DevelopmentSettings

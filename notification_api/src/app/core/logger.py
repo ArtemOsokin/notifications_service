@@ -1,3 +1,5 @@
+# type: ignore
+
 from app.core.config import settings
 
 LOG_DEFAULT_HANDLERS = [
