@@ -1,5 +1,3 @@
-# type: ignore
-
 from fastapi import FastAPI
 from opentelemetry import trace
 from opentelemetry.exporter.jaeger.thrift import JaegerExporter

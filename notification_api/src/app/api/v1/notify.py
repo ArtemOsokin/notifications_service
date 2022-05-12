@@ -1,5 +1,3 @@
-# type: ignore
-
 from logging import getLogger
 
 from fastapi import APIRouter

@@ -1,5 +1,3 @@
-# type: ignore
-
 import logging
 from logging import config as logging_config
 from urllib.parse import quote_plus as quote

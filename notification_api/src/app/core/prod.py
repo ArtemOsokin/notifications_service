@@ -1,5 +1,3 @@
-# type: ignore
-
 from app.core.base import CommonSettings
 
 
