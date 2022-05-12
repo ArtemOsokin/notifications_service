@@ -1,3 +1,4 @@
+# type: ignore
 import orjson
 from pydantic import BaseModel
 
