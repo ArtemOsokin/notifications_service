@@ -3,6 +3,7 @@
     "model": "notification.template",
     "pk": "1948c629-8233-4c26-bf2b-09f4c9b59fae",
     "fields": {
+      "template_type": "wellcome_letter",
       "created_at": "2022-05-10T19:46:24.477Z",
       "updated_at": "2022-05-10T19:59:01.701Z",
       "title": "Приветствие нового пользователя",
@@ -12,14 +13,14 @@
       "plain_text": "",
       "is_html": true,
       "is_text": false,
-      "template_key": "email_confirmation",
-      "adapter": "email"
+      "channel": "email"
     }
   },
   {
     "model": "notification.template",
     "pk": "28587313-2552-497e-8ed9-9d613bf156ed",
     "fields": {
+      "template_type": "monthly_personal_statistic",
       "created_at": "2022-05-10T20:17:05.290Z",
       "updated_at": "2022-05-10T20:18:59.025Z",
       "title": "Ежемесячная персональная статистика",
@@ -29,14 +30,14 @@
       "plain_text": "",
       "is_html": true,
       "is_text": false,
-      "template_key": "monthly_personal_statistic_views",
-      "adapter": "email"
+      "channel": "email"
     }
   },
   {
     "model": "notification.template",
     "pk": "91b5a97a-c20b-4665-9624-a49033d387af",
     "fields": {
+      "template_type": "weekly_new_movies",
       "created_at": "2022-05-10T19:57:15.299Z",
       "updated_at": "2022-05-10T20:17:20.050Z",
       "title": "Еженедельная подборка фильмов",
@@ -46,14 +47,14 @@
       "plain_text": "",
       "is_html": true,
       "is_text": false,
-      "template_key": "weekly_personal_mailing_movies",
-      "adapter": "email"
+      "channel": "email"
     }
   },
   {
     "model": "notification.mailingtask",
     "pk": "4478cd72-c09b-4ad1-8ef1-881e4db535c1",
     "fields": {
+      "service": "admin_panel",
       "created_at": "2022-05-10T20:28:16.117Z",
       "updated_at": "2022-05-10T20:36:35.589Z",
       "title": "Ежемесячная рассылка за май 2022",
@@ -66,7 +67,6 @@
         "user_categories": ["active", "subscriber"]
       },
       "scheduled_datetime": "2022-05-31T12:00:00Z",
-      "repeat_frequency": "monthly",
       "execution_datetime": null
     }
   },
@@ -74,6 +74,7 @@
     "model": "notification.mailingtask",
     "pk": "5c1bac6d-f508-4ce7-988a-25f2f4e17a77",
     "fields": {
+      "service": "admin_panel",
       "created_at": "2022-05-10T20:22:32.477Z",
       "updated_at": "2022-05-10T20:36:48.811Z",
       "title": "Еженедельная рассылка за 19 неделю 2022",
@@ -86,7 +87,6 @@
         "user_categories": ["active"]
       },
       "scheduled_datetime": "2022-05-13T18:00:00Z",
-      "repeat_frequency": "weekly",
       "execution_datetime": null
     }
   }
