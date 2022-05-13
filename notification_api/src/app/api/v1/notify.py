@@ -3,7 +3,7 @@ from logging import getLogger
 from fastapi import APIRouter
 from starlette import status
 
-from app.models.notify import Notification
+from app.models.notify import BaseNotification, ServicesEnum
 
 logger = getLogger(__name__)
 
@@ -19,6 +19,9 @@ router = APIRouter()
     status_code=status.HTTP_201_CREATED
 )
 async def notification_add(
-    notification: Notification,
+    notification: BaseNotification,
 ):
-    pass
+    if notification.service == ServicesEnum.auth.value:
+        pass
+    elif notification.service == ServicesEnum.admin_panel.value:
+        pass

@@ -23,3 +23,4 @@ pydantic-stubs==0.1.0
 types-orjson==3.6.2
 backoff-stubs==1.11.1
 pymongo-stubs==0.2.0
+email-validator==1.2.1
