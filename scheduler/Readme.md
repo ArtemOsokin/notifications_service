@@ -16,25 +16,41 @@
 
 Входные данные для модуля:
 ```json
-{
-  "id": "5c1bac6d-f508-4ce7-988a-25f2f4e17a77",
-  "created_at": "2022-05-10T20:22:32.477Z",
-  "updated_at": "2022-05-10T20:36:48.811Z",
-  "title": "Еженедельная рассылка за 19 неделю 2022",
-  "type_mailing": "To scheduled send",
-  "status": "Pending",
-  "is_promo": true,
-  "priority": "low",
-  "template": "91b5a97a-c20b-4665-9624-a49033d387af",
-  "context": {
-    "user_categories": [
-      "active"
-    ]
+[
+  {
+      "id": "5c1bac6d-f508-4ce7-988a-25f2f4e17a77",
+      "created_at": "2022-05-10T20:22:32.477Z",
+      "updated_at": "2022-05-10T20:36:48.811Z",
+      "title": "Еженедельная рассылка за 19 неделю 2022",
+      "type_mailing": "To scheduled send",
+      "status": "Pending",
+      "is_promo": true,
+      "priority": "low",
+      "template": "91b5a97a-c20b-4665-9624-a49033d387af",
+      "context": {
+        "user_categories": [
+          "active"
+        ]
+      },
+      "scheduled_datetime": "2022-05-13T18:00:00Z",
+      "repeat_frequency": "weekly",
+      "execution_datetime": null
   },
-  "scheduled_datetime": "2022-05-13T18:00:00Z",
-  "repeat_frequency": "weekly",
-  "execution_datetime": null
-}
+  {
+      "id": "91b5a97a-c20b-4665-9624-a49033d387af",
+      "created_at": "2022-05-10T19:57:15.299Z",
+      "updated_at": "2022-05-10T20:17:20.050Z",
+      "title": "Еженедельная подборка фильмов",
+      "subject": "Подборка фильмов на выходные",
+      "from_email": "noreply@example.com",
+      "html_template": "<p><img class=\"mcnImage\" style=\"text-align: center; max-width: 221px; padding-bottom: 0px; vertical-align: bottom; display: block; margin-left: auto; margin-right: auto;\" src=\"https://mcusercontent.com/597bc5462e8302e1e9db1d857/images/7307dfb2-ccc5-4923-937b-4f833c61c341.png\" alt=\"\" width=\"221\" align=\"center\" /></p>\r\n<table style=\"border-collapse: collapse; width: 100%; height: 189.578px; background-color: #c2e0f4;\" border=\"1\">\r\n<tbody>\r\n<tr style=\"text-align: center; height: 34.1562px;\">\r\n<td style=\"width: 100%; height: 34.1562px;\" colspan=\"2\">\r\n<h3 style=\"line-height: 1;\"><span style=\"color: #3e4ff4;\">Здравствуйте, {{ username }}!</span></h3>\r\n</td>\r\n</tr>\r\n<tr style=\"height: 110.641px;\">\r\n<td style=\"width: 100%; height: 110.641px;\" colspan=\"2\">\r\n<p style=\"text-align: center; line-height: 1;\">Вечер пятницы, а это значит что пора отдохнуть от рабочей недели. Закажите пиццу и подумайте какой фильм вам бы хотелось посмотреть. И уж если с пиццей мы вам не сможем облегчить муки выбора, то вполне справимся с фильмом.</p>\r\n<h3 style=\"text-align: center; line-height: 1;\"><span style=\"color: #3e4ff4;\">Ловите персональную подборку</span></h3>\r\n</td>\r\n</tr>\r\n<tr style=\"height: 22.3906px;\">\r\n<td style=\"width: 49.9459%; height: 22.3906px; text-align: center;\">Довод</td>\r\n<td style=\"width: 50.0541%; height: 22.3906px; text-align: center;\">Бегущий по лезвию</td>\r\n</tr>\r\n<tr style=\"height: 22.3906px;\">\r\n<td style=\"width: 49.9459%; height: 22.3906px; text-align: center;\">Апгрейд</td>\r\n<td style=\"width: 50.0541%; height: 22.3906px; text-align: center;\">Электрические сны</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p style=\"text-align: center;\">Чтобы мы писали реже, вы можете <span style=\"text-decoration: underline;\">отписаться от рассылки</span>.</p>",
+      "plain_text": "",
+      "is_html": true,
+      "is_text": false,
+      "template_key": "weekly_personal_mailing_movies",
+      "adapter": "email"
+  }
+]
 ```
 
 Содержание тела запроса для направления в сервис Notification API:
@@ -44,7 +60,7 @@
   "mailing_id": "5c1bac6d-f508-4ce7-988a-25f2f4e17a77",
   "total_chunk": 21,
   "chunk_id": 3,
-  "title": "Еженедельная рассылка за 19 неделю 2022",
+  "subject": "Еженедельная рассылка за 19 неделю 2022",
   "is_promo": true,
   "priority": "low",
   "template": "91b5a97a-c20b-4665-9624-a49033d387af",

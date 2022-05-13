@@ -18,24 +18,25 @@ class TimeStampedIDModel(models.Model):
         abstract = True
 
 
-class TemplateKeys(models.TextChoices):
-    """Перечень кодов шаблонов"""
+class TemplateTypes(models.TextChoices):
+    """Вид шаблона"""
+    weekly_new_movies = 'weekly_new_movies', _('еженедельная подборка новых фильмов')
+    monthly_personal_statistic = 'monthly_personal_statistic', _('ежемесячная статистика просмотров')
+    daily_personal_statistic = 'daily_personal_statistic', _('ежедневная статистика по лайкам рецензий')
+    wellcome_letter = 'wellcome_letter', _('приветственное письмо при регистрации')
 
-    weekly_personal_mailing_movies = 'weekly_personal_mailing_movies', _('еженедельная персональная подборка фильмов')
-    monthly_personal_statistic_views = 'monthly_personal_statistic_views', _('ежемесячная персональная статистика просмотров')
-    daily_personal_statistic_likes = 'daily_personal_statistic_likes', _('ежедневная персональная статистика по лайкам рецензий')
-    email_confirmation = 'email_confirmation', _('подтверждение адреса электронной почты при регистрации')
 
-
-class AdapterTypes(models.TextChoices):
-    """Типы адаптеров для отправки уведомлений"""
-    email = 'email'
-    sms = 'sms'
-    websocket = 'websocket'
+class Channels(models.TextChoices):
+    """Каналы для отправки уведомлений"""
+    email = 'email', _('Электронная почта')
+    sms = 'sms', _('SMS')
+    websocket = 'websocket', _('Websocket')
+    push = 'push', _('Push-уведомления')
 
 
 class Template(TimeStampedIDModel):
     """Шаблоны уведомлений"""
+    template_type = models.CharField(_('вид шаблона'), choices=TemplateTypes.choices, max_length=50)
     title = models.CharField(_('наименование шаблона уведомления'), max_length=120, blank=False, null=True)
     subject = models.CharField(_('тема уведомления'), max_length=120, blank=True, null=True)
     from_email = models.CharField(_('электронная почта отправителя'), max_length=120, blank=True, null=True)
@@ -43,12 +44,11 @@ class Template(TimeStampedIDModel):
     plain_text = models.TextField(_('содержание текстового шаблона'), blank=True, null=True)
     is_html = models.BooleanField(default=False)
     is_text = models.BooleanField(default=False)
-    template_key = models.CharField(_('вид шаблона'), choices=TemplateKeys.choices, max_length=50)
-    adapter = models.CharField(
-        _('используемый адаптер для отправки уведомления'),
-        choices=AdapterTypes.choices,
+    channel = models.CharField(
+        _('канал для отправки уведомления'),
+        choices=Channels.choices,
         max_length=50,
-        default=AdapterTypes.email,
+        default=Channels.email,
     )
 
     def save(self, *args, **kwargs):
@@ -65,7 +65,7 @@ class Template(TimeStampedIDModel):
         return self.html_template
 
     def __str__(self):
-        return f'Template <{self.title}> for sending by <{self.adapter}>'
+        return f'Template <{self.template_type}> for sending by <{self.channel}>'
 
     class Meta:
         db_table = "notification\".\"templates"
@@ -92,15 +92,9 @@ class NotificationPriority(models.TextChoices):
     low = 'low', _('низкий приоритет')
 
 
-class RepeatFrequency(models.TextChoices):
-    one_time = 'one_time', _('однократно')
-    daily = 'daily', _('ежедневно')
-    weekly = 'weekly', _('еженедельно')
-    monthly = 'monthly', _('ежемесячно')
-
-
 class MailingTask(TimeStampedIDModel):
     """Рассылка"""
+    service = models.CharField(_('источник рассылки'), max_length=50, default='admin_panel')
     title = models.CharField(_('наименование рассылки'), max_length=120, blank=False, null=True)
     type_mailing = models.CharField(
         _('вид рассылки'),
@@ -124,11 +118,6 @@ class MailingTask(TimeStampedIDModel):
     template = models.ForeignKey(Template, on_delete=models.SET_NULL, null=True, verbose_name=_('шаблон уведомления'))
     context = JSONField(_('контекст рассылки'), default=dict)
     scheduled_datetime = models.DateTimeField(_('плановые дата и время рассылки'), blank=True, null=True)
-    repeat_frequency = models.CharField(
-        _('периодичность рассылки'),
-        max_length=20,
-        choices=RepeatFrequency.choices,
-    )
     execution_datetime = models.DateTimeField(_('фактическое время завершения рассылки'), blank=True, null=True)
 
     def save(self, *args, **kwargs):

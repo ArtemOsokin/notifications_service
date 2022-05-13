@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.10
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python_ver }}
@@ -48,7 +48,7 @@ jobs:
         run: |
           mkdir .mypy_cache
           pip install mypy
-          mypy --install-types --non-interactive . |& tee ./mypy_output
+          mypy --install-types --non-interactive --ignore-missing-imports . |& tee ./mypy_output
           exit_code="${PIPESTATUS[0]}"
           exit "$exit_code"
 
