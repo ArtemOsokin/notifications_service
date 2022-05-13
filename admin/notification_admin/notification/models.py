@@ -23,7 +23,7 @@ class TemplateTypes(models.TextChoices):
     weekly_new_movies = 'weekly_new_movies', _('еженедельная подборка новых фильмов')
     monthly_personal_statistic = 'monthly_personal_statistic', _('ежемесячная статистика просмотров')
     daily_personal_statistic = 'daily_personal_statistic', _('ежедневная статистика по лайкам рецензий')
-    wellcome_letter = 'wellcome_letter', _('приветственное письмо при регистрации')
+    welcome_letter = 'welcome_letter', _('приветственное письмо при регистрации')
 
 
 class Channels(models.TextChoices):

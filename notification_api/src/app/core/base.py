@@ -71,18 +71,6 @@ class RabbitMQSettings(BaseSettings):
     BLOCKED_CONNECTION_TIMEOUT: int = Field(300, description='Таймаут для блокирующего соединения')
     EXCHANGE: str = Field('', description='Имя обменника RabbitMQ')
     EXCHANGE_TYPE: ExchangeTypeEnum = Field(ExchangeTypeEnum.direct, description='Тип обменника RabbitMQ')
-    HIGH_EVENTS_QUEUE_NAME: str = Field(
-        'high_priority',
-        description='Имя очереди для уведомлений с высоким приоритетом'
-    )
-    MEDIUM_EVENTS_QUEUE_NAME: str = Field(
-        'medium_priority',
-        description='Имя очереди для уведомлений со средним приоритетом'
-    )
-    LOW_EVENTS_QUEUE_NAME: str = Field(
-        'low_priority',
-        description='Имя очереди для уведомлений с низким приоритетом'
-    )
 
     class Config:
         env_prefix = 'RABBIT_'
@@ -108,3 +96,11 @@ class CommonSettings(BaseSettings):
     MONGO: MongoDBSettings = MongoDBSettings()
     RABBIT: RabbitMQSettings = RabbitMQSettings()
     REDIS: RedisSettings = RedisSettings()
+
+
+# Список кортежей из значений ('имя очереди RabbitMQ', 'ключ маршрутизации')
+queues = [
+    ('emails.send-welcome', 'user.create.profile'),  # очередь для писем подтверждения e-mail при регистрации
+    ('emails.send-mailing.high', 'mailing.create.important.event'),  # очередь для писем с важными сообщениями
+    ('emails.send-mailing.low', 'mailing.create.promo.event'),  # очередь для писем рекламных рассылок
+]

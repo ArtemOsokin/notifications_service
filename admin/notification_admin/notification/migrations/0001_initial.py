@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='дата создания')),
                 ('updated_at', models.DateTimeField(auto_now=True, verbose_name='дата обновления')),
-                ('template_type', models.CharField(choices=[('weekly_new_movies', 'еженедельная подборка новых фильмов'), ('monthly_personal_statistic', 'ежемесячная статистика просмотров'), ('daily_personal_statistic', 'ежедневная статистика по лайкам рецензий'), ('wellcome_letter', 'приветственное письмо при регистрации')], max_length=50, verbose_name='вид шаблона')),
+                ('template_type', models.CharField(choices=[('weekly_new_movies', 'еженедельная подборка новых фильмов'), ('monthly_personal_statistic', 'ежемесячная статистика просмотров'), ('daily_personal_statistic', 'ежедневная статистика по лайкам рецензий'), ('welcome_letter', 'приветственное письмо при регистрации')], max_length=50, verbose_name='вид шаблона')),
                 ('title', models.CharField(max_length=120, null=True, verbose_name='наименование шаблона уведомления')),
                 ('subject', models.CharField(blank=True, max_length=120, null=True, verbose_name='тема уведомления')),
                 ('from_email', models.CharField(blank=True, max_length=120, null=True, verbose_name='электронная почта отправителя')),

@@ -13,6 +13,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from app.api.v1 import notify
 from app.core.backoff_handler import backoff_hdlr, backoff_hdlr_success
+from app.core.base import queues
 from app.core.config import settings
 from app.core.logger import LOGGING
 from app.core.oauth import decode_jwt
@@ -100,10 +101,12 @@ def init_queue():
         exchange_type=settings.RABBIT.EXCHANGE_TYPE,
         durable=True,
     )
-    channel.queue_declare(queue=settings.RABBIT.HIGH_EVENTS_QUEUE_NAME, durable=True)
-    channel.queue_declare(queue=settings.RABBIT.MEDIUM_EVENTS_QUEUE_NAME, durable=True)
-    channel.queue_declare(queue=settings.RABBIT.LOW_EVENTS_QUEUE_NAME, durable=True)
-
+    for queue_name, routing_key in queues:
+        channel.queue_declare(queue=queue_name, durable=True)
+        channel.queue_bind(queue=queue_name, exchange=settings.RABBIT.EXCHANGE, routing_key=routing_key)
+        logger.info(
+            'Binding queue "%s" to exchange "%s" with routing_key "%s"', queue_name, settings.RABBIT.EXCHANGE, routing_key
+        )
     logger.info('Connected to queues RabbitMQ')
 
 
