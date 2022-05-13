@@ -90,6 +90,15 @@ class RabbitMQSettings(BaseSettings):
         use_enum_values = True
 
 
+class RedisSettings(BaseSettings):
+    HOST: str = Field('127.0.0.1', description='Адрес хоста DB Redis')
+    PORT: str = Field(6379, description='Порт хоста DB Redis')
+
+    class Config:
+        env_prefix = 'REDIS_'
+        env_file = '.env'
+
+
 class CommonSettings(BaseSettings):
     LOG_LEVEL: str = Field('INFO', description='Уровень логирования сервисов приложения')
     APP: APPSettings = APPSettings()
@@ -98,3 +107,4 @@ class CommonSettings(BaseSettings):
     BACKOFF: BackoffSettings = BackoffSettings()
     MONGO: MongoDBSettings = MongoDBSettings()
     RABBIT: RabbitMQSettings = RabbitMQSettings()
+    REDIS: RedisSettings = RedisSettings()

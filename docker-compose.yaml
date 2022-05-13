@@ -87,6 +87,20 @@ services:
     networks:
       - backend_network
 
+  redis:
+    image: redis:6.2.5
+    container_name: notification_redis
+    env_file:
+      - ./notification_api/.env
+    volumes:
+      - ./redis/conf/etc:/usr/local/etc/redis
+    expose:
+      - "6379"
+    command:
+      - redis-server
+    networks:
+      - backend_network
+
 networks:
   backend_network:
   web-service:

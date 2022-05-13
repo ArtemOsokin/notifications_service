@@ -2,6 +2,7 @@ import logging
 from logging import config as logging_config
 from urllib.parse import quote_plus as quote
 
+import aioredis
 import backoff
 import pika
 from pika import exceptions
@@ -17,6 +18,7 @@ from app.core.logger import LOGGING
 from app.core.oauth import decode_jwt
 from app.db import mongodb
 from app.jaeger_service import init_tracer
+from app.db.cache import redis
 
 logging_config.dictConfig(LOGGING)
 logger = logging.getLogger(__name__)
@@ -40,7 +42,7 @@ url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
 
 
 @app.on_event('startup')
-async def startup_mongodb():
+async def startup():
     mongodb.mongo_client = backoff.on_exception(
         wait_gen=backoff.expo,
         max_tries=settings.BACKOFF.RETRIES,
@@ -49,6 +51,16 @@ async def startup_mongodb():
         on_backoff=backoff_hdlr,
         on_success=backoff_hdlr_success,
     )(AsyncIOMotorClient)(url, tlsCAFile=settings.MONGO.CACERT)
+    redis.redis = await backoff.on_exception(
+        wait_gen=backoff.expo,
+        max_tries=settings.BACKOFF.RETRIES,
+        max_time=settings.BACKOFF.MAX_TIME,
+        exception=Exception,
+        on_backoff=backoff_hdlr,
+        on_success=backoff_hdlr_success,
+    )(aioredis.create_redis_pool)(
+        (settings.REDIS.HOST, settings.REDIS.PORT), minsize=10, maxsize=20
+    )
 
 
 @app.on_event('startup')
@@ -96,8 +108,10 @@ def init_queue():
 
 
 @app.on_event('shutdown')
-async def shutdown_mongodb():
+async def shutdown():
     mongodb.mongo_client.close()
+    redis.redis.close()
+    await redis.redis.wait_closed()
 
 
 @app.on_event('shutdown')
