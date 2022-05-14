@@ -44,9 +44,9 @@ class Scheduler:
             ids.extend([user['id'] for user in data['users']])
         return ids
 
-    def mark_event_as_done(self, item_id: UUID):
+    def mark_event_as_in_processing(self, item_id: UUID):
         query = f"""update mailing_tasks
-                           set status = 'Done',
+                           set status = 'In processing',
                            execution_datetime = current_timestamp
                            where id = {item_id}"""
 
@@ -116,7 +116,7 @@ class Scheduler:
             for chunk in self._chunker(event):
                 self.load(chunk.dict(exclude={'user_categories'}))
 
-            self.mark_event_as_done(event.id)
+            self.mark_event_as_in_processing(event.id)
 
 
 def main():

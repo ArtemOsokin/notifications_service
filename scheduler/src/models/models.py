@@ -12,13 +12,6 @@ class Priority(Enum):
     LOW = 'low'
 
 
-class RepeatFrequency(Enum):
-    MONTHLY = 'monthly'
-    WEEKLY = 'weekly'
-    DAILY = 'daily'
-    ONCE = 'once'
-
-
 class TimeStampMixin(BaseModel):
     created_at: datetime
     updated_at: datetime
@@ -26,6 +19,7 @@ class TimeStampMixin(BaseModel):
 
 class Event(TimeStampMixin):
     id: UUID
+    service: str
     title: str
     type_mailing: str
     status: str
@@ -36,7 +30,6 @@ class Event(TimeStampMixin):
     user_categories: Optional[List[str]]
     context: Dict[str, Any]
     scheduled_datetime: datetime
-    repeat_frequency: RepeatFrequency
     execution_datetime: datetime
 
     class Config:

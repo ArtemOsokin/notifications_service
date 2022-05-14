@@ -13,3 +13,4 @@ class Extractor:
                     data = [dict(item) for item in cur.fetchall()]
                 except psycopg2.ProgrammingError:
                     data = None
+        return data
