@@ -100,3 +100,4 @@ class ErrorsMessages(Enum):
     TOKEN_REVOKED_OR_EXPIRED = 'Пользователь не авторизован!'
     WRONG_TOKEN = 'Недопустимый токен'
     AUTHORIZATION_HEADER = 'Отсутствует или некорректный заголовок авторизации'
+    BAD_SIGNATURE = 'Ссылка для подтверждения недействительна или срок ее действия истек.'

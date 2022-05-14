@@ -5,10 +5,8 @@ from flask_jwt_extended import jwt_required
 from flask_restx import Resource, marshal
 
 from app.api.v1.admin import users_namespace
-from app.api.v1.admin.parsers import (authorization_parser,
-                                      pagination_request_parser)
-from app.api.v1.admin.schemes import (users_paginator_response,
-                                      users_role_schema)
+from app.api.v1.admin.parsers import authorization_parser, pagination_request_parser
+from app.api.v1.admin.schemes import users_paginator_response, users_role_schema
 from app.api.v1.base_view import BaseView
 from app.database import session_scope
 from app.datastore import user_datastore

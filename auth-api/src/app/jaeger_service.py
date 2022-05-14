@@ -43,4 +43,3 @@ if settings.JAEGER.ENABLED:
 def span_callback(span: Span, response: requests.Response):
     if span and span.is_recording():
         span.set_attribute('http.request_id', request.headers.get('X-Request-Id'))
-        span.set_attribute('http.response.headers', str(response.headers))

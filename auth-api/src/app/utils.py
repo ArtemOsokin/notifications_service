@@ -3,12 +3,17 @@ from functools import wraps
 from http import HTTPStatus
 from logging import Logger
 
+import requests as requests
 from flask import request
 from flask_jwt_extended import get_jwt, verify_jwt_in_request
-from flask_jwt_extended.exceptions import (JWTDecodeError,
-                                           NoAuthorizationError,
-                                           RevokedTokenError, WrongTokenError)
+from flask_jwt_extended.exceptions import (
+    JWTDecodeError,
+    NoAuthorizationError,
+    RevokedTokenError,
+    WrongTokenError,
+)
 from flask_restx import abort
+from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 from jwt.exceptions import ExpiredSignatureError, InvalidSignatureError
 from opentelemetry.trace import SpanKind
 from redis.exceptions import ConnectionError
@@ -136,6 +141,7 @@ def traced(name: str):
     :param name: Имя трассировки для визуальной индентификации спана в JAEGER.
     Рекомендуется указывать в формате <Имя класса>.<имя декорируемой функции>
     """
+
     def wrapper(fn):
         @wraps(fn)
         def decorator(*args, **kwargs):
@@ -149,3 +155,31 @@ def traced(name: str):
         return decorator
 
     return wrapper
+
+
+def generate_confirmation_token(email):
+    serializer = URLSafeTimedSerializer(secret_key=settings.SECURITY.SECRET_KEY)
+    return serializer.dumps(email, salt=settings.SECURITY.PASSWORD_SALT)
+
+
+def confirm_token(token, expiration=3600):
+    serializer = URLSafeTimedSerializer(settings.SECURITY.SECRET_KEY)
+    try:
+        email = serializer.loads(
+            token, salt=settings.SECURITY.PASSWORD_SALT, max_age=expiration
+        )
+    except (SignatureExpired, BadSignature):
+        return False
+    return email
+
+
+def send_notification(payload: dict):
+    data = {
+        'sender': 'auth',
+        'template_type': 'welcome_letter',
+        'channel': 'email',
+        'request_id': request.headers.get('X-Request-Id'),
+        'payload': payload,
+    }
+    response = requests.post(settings.NOTIFICATION_APP_URL, json=data)
+    response.raise_for_status()

@@ -5,8 +5,12 @@ from flask_jwt_extended import create_access_token, create_refresh_token
 from user_agents import parse
 
 from app.database import db, session_scope
-from app.errors import (AccountsServiceError, AuthorizationError,
-                        InvalidTokenError, TokenStorageError)
+from app.errors import (
+    AccountsServiceError,
+    AuthorizationError,
+    InvalidTokenError,
+    TokenStorageError,
+)
 from app.models.history import HistoryUserAuth, PlatformEnum
 from app.models.user import User
 from app.services.storages import token_storage

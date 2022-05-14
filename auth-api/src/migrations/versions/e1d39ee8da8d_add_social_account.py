@@ -5,6 +5,7 @@ Revises: 48d7e8a37706
 Create Date: 2022-03-12 08:31:48.181241
 
 """
+# type: ignore
 import sqlalchemy as sa
 from alembic import op
 from sqlalchemy.dialects import postgresql
@@ -34,14 +35,20 @@ def upgrade():
         sa.UniqueConstraint('social_id', 'social_name'),
         schema='auth',
     )
-    op.execute("""CREATE TABLE IF NOT EXISTS auth."users_auth_history_pc" 
-                  PARTITION OF auth."users_auth_history" FOR VALUES IN ('pc');""")
+    op.execute(
+        """CREATE TABLE IF NOT EXISTS auth."users_auth_history_pc"
+                  PARTITION OF auth."users_auth_history" FOR VALUES IN ('pc');"""
+    )
 
-    op.execute("""CREATE TABLE IF NOT EXISTS auth."users_auth_history_mobile" 
-                  PARTITION OF auth."users_auth_history" FOR VALUES IN ('mobile');""")
+    op.execute(
+        """CREATE TABLE IF NOT EXISTS auth."users_auth_history_mobile"
+                  PARTITION OF auth."users_auth_history" FOR VALUES IN ('mobile');"""
+    )
 
-    op.execute("""CREATE TABLE IF NOT EXISTS auth."users_auth_history_tablet" 
-                  PARTITION OF auth."users_auth_history" FOR VALUES IN ('tablet');""")
+    op.execute(
+        """CREATE TABLE IF NOT EXISTS auth."users_auth_history_tablet"
+                  PARTITION OF auth."users_auth_history" FOR VALUES IN ('tablet');"""
+    )
 
     # ### end Alembic commands ###
 

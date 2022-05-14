@@ -5,6 +5,7 @@ Revises:
 Create Date: 2022-02-26 19:52:47.470353
 
 """
+# type: ignore
 from uuid import uuid4
 
 import sqlalchemy as sa
@@ -45,6 +46,8 @@ def upgrade():
         sa.Column('first_name', sa.String(length=255), nullable=True),
         sa.Column('last_name', sa.String(length=255), nullable=True),
         sa.Column('active', sa.Boolean(), nullable=True),
+        sa.Column('confirmed', sa.Boolean(), nullable=False, default=False),
+        sa.Column('confirmed_on', sa.DateTime(), nullable=True),
         sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
         sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
         sa.PrimaryKeyConstraint('id', name=op.f('pk__users')),
@@ -81,7 +84,7 @@ def upgrade():
         sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
         sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
         schema='auth',
-        postgresql_partition_by='LIST (platform)'
+        postgresql_partition_by='LIST (platform)',
     )
 
     # Ищем существующую таблицу

@@ -1,5 +1,4 @@
-from pydantic import (AnyUrl, BaseSettings, Field, PostgresDsn, RedisDsn,
-                      validator)
+from pydantic import AnyUrl, BaseSettings, Field, PostgresDsn, RedisDsn, validator
 
 
 class BaseDSNSettings(BaseSettings):
@@ -71,6 +70,10 @@ class SecuritySettings(BaseSettings):
     )
     DEFAULT_ADMIN_USERNAME: str = Field(
         'super_test', description='Пароль администратора по умолчанию'
+    )
+    PASSWORD_SALT: str = Field(
+        'RYkggksd&%549mFTUKLNVDLrrjgb3602s*(',
+        description='Соль для генерации токена подтверждения e-mail',
     )
 
     class Config:
@@ -164,7 +167,9 @@ class CommonSettings(BaseSettings):
     DEBUG: bool = Field(True, description='Флаг режима отладки')
     TESTING: bool = Field(False, description='Флаг режима тестирования')
     LOG_LEVEL: str = Field('INFO', description='Уровень сообщений лога')
-
+    NOTIFICATION_APP_URL: AnyUrl = Field(
+        'http://127.0.0.11:8888/api/v1/notifier/user_registration'
+    )
     REDIS: RedisSettings = RedisSettings()
     DB: DatabaseSettings = DatabaseSettings()
     JWT: JWTSettings = JWTSettings()

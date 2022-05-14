@@ -6,12 +6,13 @@ from flask_jwt_extended import jwt_required
 from flask_restx import Resource, marshal
 
 from app.api.v1.admin import roles_namespace
-from app.api.v1.admin.parsers import (authorization_parser,
-                                      pagination_request_parser,
-                                      role_request_create_parser,
-                                      role_request_update_parser)
-from app.api.v1.admin.schemes import (RoleItem, roles_paginator_response,
-                                      roles_role_schema)
+from app.api.v1.admin.parsers import (
+    authorization_parser,
+    pagination_request_parser,
+    role_request_create_parser,
+    role_request_update_parser,
+)
+from app.api.v1.admin.schemes import RoleItem, roles_paginator_response, roles_role_schema
 from app.api.v1.base_view import BaseView
 from app.database import session_scope
 from app.datastore import user_datastore

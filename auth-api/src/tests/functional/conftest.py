@@ -21,9 +21,9 @@ from app.settings.config import settings
 from tests.functional.settings import TEST_SRC_DIR_PATH, test_settings
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope='session', autouse=True)
 def disable_apm(session_mocker: MockerFixture):
-    session_mocker.patch.object(settings.JAEGER, "ENABLED", False)
+    session_mocker.patch.object(settings.JAEGER, 'ENABLED', False)
 
 
 @pytest.fixture(scope='session')

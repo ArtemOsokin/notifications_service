@@ -51,3 +51,4 @@ history_request_parser.add_argument(
 history_request_parser.add_argument(
     'per_page', type=int, default=settings.PAGINATION.PAGE_SIZE,
 )
+confirm_email_request_parser = authorization_parser.copy()

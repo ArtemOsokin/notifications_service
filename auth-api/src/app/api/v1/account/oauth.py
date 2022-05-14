@@ -4,8 +4,7 @@ from flask import jsonify, request, url_for
 from flask_restx import Resource
 
 from app.api.v1.account import namespace
-from app.errors import (APINotFoundError, APIUnauthorizedError,
-                        OAuthServiceError)
+from app.errors import APINotFoundError, APIUnauthorizedError, OAuthServiceError
 from app.oauth import oauth
 from app.services.oauth import OauthService
 from app.utils import error_processing, traced
@@ -15,7 +14,9 @@ from app.utils import error_processing, traced
 class OauthLoginAPIView(Resource):
     @namespace.doc(
         'oauth login',
-        response={404: 'Возможность авторизации c аккаунтом в этой социальной сети не найдена'},
+        response={
+            404: 'Возможность авторизации c аккаунтом в этой социальной сети не найдена'
+        },
     )
     @traced('OauthLoginAPIView')
     @error_processing(getLogger('OauthLoginAPIView.get'))

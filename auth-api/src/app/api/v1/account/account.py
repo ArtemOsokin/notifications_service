@@ -1,22 +1,29 @@
 from http import HTTPStatus
 from logging import getLogger
 
-from flask import jsonify, request
+from flask import jsonify, request, url_for
 from flask_jwt_extended import current_user, get_jwt, jwt_required
 from flask_restx import Resource
 
 from app.api.v1.account import namespace
-from app.api.v1.account.parsers import (authorization_parser,
-                                        login_request_parser,
-                                        signup_request_parser)
+from app.api.v1.account.parsers import (
+    authorization_parser,
+    login_request_parser,
+    signup_request_parser,
+)
 from app.api.v1.account.schemes import LogInArgs, signup_response
-from app.database import session_scope
+from app.database import session_scope, db
 from app.datastore import user_datastore
-from app.errors import APIConflictError, ErrorsMessages
+from app.errors import APIConflictError, ErrorsMessages, APIBadRequestError
 from app.models.roles import ProtectedRoleEnum
 from app.models.user import User
 from app.services.auth import AccountsService
-from app.utils import error_processing
+from app.utils import (
+    error_processing,
+    generate_confirmation_token,
+    confirm_token,
+    send_notification,
+)
 
 
 @namespace.route('/signup')
@@ -39,10 +46,56 @@ class SignUpView(Resource):
         if user:
             raise APIConflictError(ErrorsMessages.EMAIL_IS_BUSY.value, args['email'])
         with session_scope():
-            new_user = user_datastore.create_user(**args)
+            new_user = user_datastore.create_user(**args, confirmed=False)
             user_datastore.add_role_to_user(new_user, ProtectedRoleEnum.guest.value)
+        token = generate_confirmation_token(new_user.email)
+        confirm_url = url_for('Account_confirm_email_view', token=token, _external=True)
+        payload = {
+            'user_id': str(new_user.id),
+            'user_email': new_user.email,
+            'username': new_user.username,
+            'first_name': new_user.first_name,
+            'last_name': new_user.last_name,
+            'token': token,
+            'callback_url': confirm_url,
+        }
+
+        send_notification(payload)
 
         return new_user, HTTPStatus.CREATED
+
+
+@namespace.route('/confirm/<string:token>')
+class ConfirmEmailView(Resource):
+    @namespace.doc(
+        'confirm email',
+        responses={
+            200: 'E-mail успешно подтвержден.',
+            208: 'E-mail уже подтвержден.',
+            400: 'Ссылка для подтверждения недействительна или срок ее действия истек.',
+        },
+    )
+    @namespace.expect(authorization_parser)
+    @error_processing(getLogger('ConfirmEmailView.post'))
+    @jwt_required()
+    def post(self, token):
+        """Проверка токена"""
+        email = confirm_token(token)
+        if not email:
+            raise APIBadRequestError(ErrorsMessages.BAD_SIGNATURE.value)
+        if email != current_user.email:
+            return (
+                'Подтверждаемый e-mail не совпадает с текущим аккаунтом.',
+                HTTPStatus.BAD_REQUEST,
+            )
+        if current_user.confirmed:
+            return 'E-mail уже подтвержден.', HTTPStatus.ALREADY_REPORTED
+        else:
+            with session_scope():
+                current_user.confirmed = True
+                current_user.confirmed_on = db.func.now()
+                user_datastore.commit()
+            return jsonify(message='E-mail успешно подтвержден.')
 
 
 @namespace.route('/login')
@@ -99,3 +152,35 @@ class RefreshTokensView(Resource):
         account_service = AccountsService(current_user)
         access_token, refresh_token = account_service.refresh_token_pair(refresh_token)
         return jsonify(access_token=access_token, refresh_token=refresh_token)
+
+
+@namespace.route('/resend')
+class ResendConfirmEmailView(Resource):
+    @namespace.doc(
+        'resend confirm email',
+        response={
+            200: 'OK',
+            208: 'E-mail уже подтвержден.',
+            401: 'Пользователь не авторизован или refresh-токен недействительный!',
+        },
+    )
+    @namespace.expect(authorization_parser)
+    @error_processing(getLogger('ResendConfirmEmailAPIView.post'))
+    @jwt_required()
+    def post(self):
+        if current_user.confirmed:
+            return jsonify(message='E-mail уже подтвержден.'), HTTPStatus.ALREADY_REPORTED
+
+        # Генерация и отправка новой ссылки для подтверждения email
+        token = generate_confirmation_token(current_user.email)
+        confirm_url = url_for('Account_confirm_email_view', token=token, _external=True)
+        payload = {
+            'user_id': current_user.id,
+            'user_email': current_user.email,
+            'username': current_user.username,
+            'first_name': current_user.first_name,
+            'last_name': current_user.last_name,
+            'token': token,
+            'callback_url': confirm_url,
+        }
+        send_notification(payload)

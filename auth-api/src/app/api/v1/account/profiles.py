@@ -5,11 +5,15 @@ from flask_jwt_extended import current_user, get_jwt, jwt_required
 from flask_restx import Resource, marshal
 
 from app.api.v1.account import namespace
-from app.api.v1.account.parsers import (history_request_parser,
-                                        user_password_update_request_parser)
-from app.api.v1.account.schemes import (PasswordArgs,
-                                        account_paginator_response,
-                                        user_history_response)
+from app.api.v1.account.parsers import (
+    history_request_parser,
+    user_password_update_request_parser,
+)
+from app.api.v1.account.schemes import (
+    PasswordArgs,
+    account_paginator_response,
+    user_history_response,
+)
 from app.database import session_scope
 from app.datastore import user_datastore
 from app.errors import APIBadRequestError, ErrorsMessages

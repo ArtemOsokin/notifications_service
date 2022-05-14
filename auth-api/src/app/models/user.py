@@ -22,6 +22,8 @@ class User(TimestampMixin, db.Model, UserMixin):
     _password = db.Column('password', db.String(255), nullable=False)
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
+    confirmed = db.Column(db.Boolean, nullable=False, default=False)
+    confirmed_on = db.Column(db.DateTime, nullable=True)
     active = db.Column(db.Boolean())
     roles = db.relationship(
         'Role', secondary='auth.roles_users', backref=db.backref('users', lazy='dynamic'),

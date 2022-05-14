@@ -4,7 +4,7 @@ import click
 from flask.cli import with_appcontext
 from sqlalchemy.exc import IntegrityError
 
-from app.database import session_scope
+from app.database import session_scope, db
 from app.datastore import user_datastore
 from app.models.roles import ProtectedRoleEnum
 from app.settings.config import settings
@@ -31,7 +31,11 @@ def create_superuser(
     try:
         with session_scope():
             user = user_datastore.create_user(
-                email=email, password=password, username=username
+                email=email,
+                password=password,
+                username=username,
+                confirmed=True,
+                confirmed_on=db.func.now(),
             )
             user_datastore.add_role_to_user(user, ProtectedRoleEnum.superuser.value)
     except IntegrityError:
