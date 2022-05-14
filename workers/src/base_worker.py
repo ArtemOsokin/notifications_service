@@ -7,7 +7,7 @@ class BaseWorker:
         pass
 
     @abc.abstractmethod
-    def do_action(self) -> None:
+    def do_action(self, data) -> None:
         """Выполнить действие"""
         pass
 
