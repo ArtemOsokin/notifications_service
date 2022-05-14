@@ -1,3 +1,4 @@
+# type: ignore
 import logging
 from functools import lru_cache
 from typing import Optional
@@ -41,7 +42,6 @@ class RabbitMQAdapter:
         self.channel.confirm_delivery()
 
 
-# type: ignore
 @lru_cache
 def get_rabbitmq() -> RabbitMQAdapter:
     return RabbitMQAdapter(connection)
