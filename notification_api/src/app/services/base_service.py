@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 class AbstractService(ABC):
     @abstractmethod
-    def publish_to_queue(self, *args, **kwargs) -> bool:
+    def publish_to_queue(self, message: dict, routing_key: str, request_id: str) -> bool:
         """Метод публикации сообщения в очередь"""
         pass
 
