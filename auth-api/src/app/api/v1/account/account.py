@@ -175,7 +175,7 @@ class ResendConfirmEmailView(Resource):
         token = generate_confirmation_token(current_user.email)
         confirm_url = url_for('Account_confirm_email_view', token=token, _external=True)
         payload = {
-            'user_id': current_user.id,
+            'user_id': str(current_user.id),
             'user_email': current_user.email,
             'username': current_user.username,
             'first_name': current_user.first_name,
@@ -184,3 +184,5 @@ class ResendConfirmEmailView(Resource):
             'callback_url': confirm_url,
         }
         send_notification(payload)
+        return 'Письмо со ссылкой подтверждения e-mail направлено повторно'
+
