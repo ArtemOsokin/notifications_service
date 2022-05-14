@@ -7,6 +7,7 @@ from app.services.admin_mailing_service import AdminMailingNotificationService
 from app.services.auth_mailing_service import AuthMailingNotificationService
 
 
+# type: ignore
 @lru_cache
 def get_admin_mailing_service(
     rabbitmq: RabbitMQAdapter = Depends(get_rabbitmq),
@@ -14,6 +15,7 @@ def get_admin_mailing_service(
     return AdminMailingNotificationService(rabbitmq=rabbitmq)
 
 
+# type: ignore
 @lru_cache
 def get_auth_mailing_service(
     rabbitmq: RabbitMQAdapter = Depends(get_rabbitmq),
