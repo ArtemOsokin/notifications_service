@@ -19,7 +19,4 @@ opentelemetry-instrumentation-fastapi==0.29b0
 python-jose[cryptography]==3.3.0
 pika==1.2.0
 motor==2.5.1
-pydantic-stubs==0.1.0
-types-orjson==3.6.2
-backoff-stubs==1.11.1
-pymongo-stubs==0.2.0
+email-validator==1.2.1

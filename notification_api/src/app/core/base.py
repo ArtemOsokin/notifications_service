@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import logging
 from enum import Enum
 
@@ -67,21 +69,15 @@ class RabbitMQSettings(BaseSettings):
     PASSWORD: str = Field('', description='Пароль пользователя')
     HOST: str = Field('127.0.0.1', description='адрес хоста RabbitMQ')
     PORT: int = Field(5672, description='номер порта брокера RabbitMQ')
-    HEARTBEAT: int = Field(600, description='Периодичность проверки состояния сервера RabbitMQ')
-    BLOCKED_CONNECTION_TIMEOUT: int = Field(300, description='Таймаут для блокирующего соединения')
+    HEARTBEAT: int = Field(
+        600, description='Периодичность проверки состояния сервера RabbitMQ'
+    )
+    BLOCKED_CONNECTION_TIMEOUT: int = Field(
+        300, description='Таймаут для блокирующего соединения'
+    )
     EXCHANGE: str = Field('', description='Имя обменника RabbitMQ')
-    EXCHANGE_TYPE: ExchangeTypeEnum = Field(ExchangeTypeEnum.direct, description='Тип обменника RabbitMQ')
-    HIGH_EVENTS_QUEUE_NAME: str = Field(
-        'high_priority',
-        description='Имя очереди для уведомлений с высоким приоритетом'
-    )
-    MEDIUM_EVENTS_QUEUE_NAME: str = Field(
-        'medium_priority',
-        description='Имя очереди для уведомлений со средним приоритетом'
-    )
-    LOW_EVENTS_QUEUE_NAME: str = Field(
-        'low_priority',
-        description='Имя очереди для уведомлений с низким приоритетом'
+    EXCHANGE_TYPE: ExchangeTypeEnum = Field(
+        ExchangeTypeEnum.direct, description='Тип обменника RabbitMQ'
     )
 
     class Config:
@@ -90,11 +86,58 @@ class RabbitMQSettings(BaseSettings):
         use_enum_values = True
 
 
+class RedisSettings(BaseSettings):
+    HOST: str = Field('127.0.0.1', description='Адрес хоста DB Redis')
+    PORT: str = Field(6379, description='Порт хоста DB Redis')
+
+    class Config:
+        env_prefix = 'REDIS_'
+        env_file = '.env'
+
+
 class CommonSettings(BaseSettings):
     LOG_LEVEL: str = Field('INFO', description='Уровень логирования сервисов приложения')
+    DEBUG_MODE: bool = True
     APP: APPSettings = APPSettings()
     JAEGER: TracingSettings = TracingSettings()
     AUTH: AuthSettings = AuthSettings()
     BACKOFF: BackoffSettings = BackoffSettings()
     MONGO: MongoDBSettings = MongoDBSettings()
     RABBIT: RabbitMQSettings = RabbitMQSettings()
+    REDIS: RedisSettings = RedisSettings()
+
+
+class Queues(str, Enum):
+    # Declaring the additional attributes here keeps mypy happy.
+    routing_key: str
+    description: str
+
+    def __new__(cls, queue_name: str, routing_key: str = "", description: str = "") -> Queues:
+
+        obj = str.__new__(cls, queue_name)
+        obj._value_ = queue_name
+
+        obj.routing_key = routing_key
+        obj.description = description
+        return obj
+
+    SEND_WELCOME = (
+        'emails.send-welcome',
+        'user.create.profile',
+        'очередь для писем подтверждения e-mail при регистрации',
+    )
+    SEND_MAILING_HIGH = (
+        'emails.send-mailing.high',
+        'mailing.create.important.event',
+        'очередь для писем с важными сообщениями',
+    )
+    SEND_MAILING_MEDIUM = (
+        'emails.send-mailing.medium',
+        'mailing.create.common.event',
+        'очередь для писем с обычной важностью',
+    )
+    SEND_MAILING_LOW = (
+        'emails.send-mailing.low',
+        'mailing.create.promo.event',
+        'очередь для писем рекламных рассылок',
+    )
