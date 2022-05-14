@@ -185,3 +185,4 @@ class ResendConfirmEmailView(Resource):
         }
         send_notification(payload)
         return 'Письмо со ссылкой подтверждения e-mail направлено повторно'
+
