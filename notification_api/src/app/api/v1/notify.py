@@ -12,7 +12,7 @@ from app.models.notify import BaseNotification, SenderEnum
 logger = getLogger(__name__)
 
 router = APIRouter()
-
+routing_key: str = ''
 
 @router.post(
     '/send_notification',
