@@ -158,6 +158,17 @@ services:
     networks:
       - backend_network
 
+  scheduler:
+    build:
+      context: ./scheduler
+      dockerfile: Dockerfile
+    container_name: scheduler
+    depends_on:
+      - notification_api
+      - notification_admin
+    networks:
+      - backend_network
+
 networks:
   backend_network:
   web-service:
