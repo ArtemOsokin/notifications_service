@@ -1,14 +1,16 @@
 from http import HTTPStatus
 from logging import getLogger
 
+from flask import jsonify
 from flask_jwt_extended import jwt_required
 from flask_restx import Resource, marshal
+from sqlalchemy import or_
 
 from app.api.v1.admin import users_namespace
-from app.api.v1.admin.parsers import authorization_parser, pagination_request_parser
-from app.api.v1.admin.schemes import users_paginator_response, users_role_schema
+from app.api.v1.admin.parsers import authorization_parser, pagination_request_parser, users_ids_request_parser
+from app.api.v1.admin.schemes import users_paginator_response, users_role_schema, userinfo_response, users_ids_response
 from app.api.v1.base_view import BaseView
-from app.database import session_scope
+from app.database import session_scope, db
 from app.datastore import user_datastore
 from app.errors import APIConflictError, ErrorsMessages
 from app.models.roles import Role
@@ -49,6 +51,62 @@ class UsersRoleAPIView(Resource, BaseView):
             'next': next_page,
             'results': marshal([item.roles for item in paginator.items], users_role_schema),
         }
+
+
+@users_namespace.route('/<uuid:user_id>')
+class UserinfoAPIView(Resource, BaseView):
+    @users_namespace.doc(
+        'get userinfo',
+        response={
+            HTTPStatus.OK: 'Успешная операция',
+            HTTPStatus.NOT_FOUND: 'Пользователь не найден',
+            HTTPStatus.FORBIDDEN: 'Недостаточно прав. Доступ запрещен.',
+        },
+    )
+    @users_namespace.expect(authorization_parser)
+    @users_namespace.marshal_with(userinfo_response)
+    @error_processing(getLogger('UserinfoAPIView.get'))
+    @roles_accepted('staff', 'superuser')
+    @jwt_required()
+    def get(self, user_id):
+        """Получение userinfo пользователя"""
+        user = User.query.get_or_404(user_id)
+        return user, HTTPStatus.OK
+
+
+@users_namespace.route('/')
+class UsersIdsAPIView(Resource, BaseView):
+    @users_namespace.doc(
+        'get users ids',
+        response={
+            HTTPStatus.OK: 'Успешная операция',
+            HTTPStatus.NOT_FOUND: 'Пользователи не найдены',
+            HTTPStatus.FORBIDDEN: 'Недостаточно прав. Доступ запрещен.',
+        },
+    )
+    @users_namespace.expect(users_ids_request_parser)
+    @error_processing(getLogger('UsersIdsAPIView.get'))
+    @roles_accepted('staff', 'superuser')
+    @jwt_required()
+    def get(self):
+        """Получение userinfo пользователя"""
+        args = users_ids_request_parser.parse_args()
+        if not args['roles']:
+            users = None
+            if 'active' in args['status']:
+                users = User.query.filter_by(active=True).all()
+            elif 'all' in args['status']:
+                users = User.query.all()
+            if not users:
+                return 'Пользователи не найдены', HTTPStatus.NOT_FOUND
+            users_ids = [str(user.id) for user in users]
+            return {'users_ids': users_ids}, HTTPStatus.OK
+        roles = Role.query.all()
+        users = User.query.join(User.roles).filter(Role.id.in_(role.id for role in roles if role.name in args['roles']))
+        if not users:
+            return 'Пользователи не найдены', HTTPStatus.NOT_FOUND
+        users_ids = [str(user.id) for user in users]
+        return {'users_ids': users_ids}, HTTPStatus.OK
 
 
 @users_namespace.route('/<uuid:user_id>/roles/<uuid:role_id>')

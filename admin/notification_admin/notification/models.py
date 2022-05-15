@@ -68,6 +68,10 @@ class Template(TimeStampedIDModel):
         return f'Template <{self.template_type}> for sending by <{self.channel}>'
 
     class Meta:
+        constraints = [
+            models.Index(fields=['template_type', 'channel'], name='ix__templates__template_type_channel'),
+            models.Index(fields=['subject'], name='ix__templates__subject')
+        ]
         db_table = "notification\".\"templates"
         verbose_name = _('шаблон уведомления')
         verbose_name_plural = _('шаблоны уведомлений')
@@ -131,6 +135,12 @@ class MailingTask(TimeStampedIDModel):
         return f'Mailing <{self.title}>'
 
     class Meta:
+        constraints = [
+            models.Index(fields=['service', 'status'], name='ix__mailing_tasks__service_status'),
+            models.Index(fields=['status'], name='ix__mailing_tasks__status'),
+            models.Index(fields=['scheduled_datetime'], name='ix__mailing_tasks__scheduled_datetime'),
+            models.Index(fields=['execution_datetime'], name='ix__mailing_tasks__execution_datetime')
+        ]
         db_table = "notification\".\"mailing_tasks"
         verbose_name = _('задачу рассылки')
         verbose_name_plural = _('задачи рассылки')

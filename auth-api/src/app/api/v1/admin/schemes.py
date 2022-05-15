@@ -41,3 +41,29 @@ roles_paginator_response = roles_namespace.model(
 class RoleItem(BaseModel):
     name: Optional[str]
     description: Optional[str]
+
+
+userinfo_response = users_namespace.model(
+    'Userinfo',
+    {
+        'id': fields.String,
+        'username': fields.String,
+        'email': fields.String,
+        'first_name': fields.String,
+        'last_name': fields.String,
+    },
+)
+
+users_ids_response = users_namespace.model(
+    'Users_Ids',
+    {
+        'id': fields.String,
+    },
+)
+
+
+user_id = {
+    'id': fields.String,
+}
+
+users_ids_schema = users_namespace.model('Users_Ids', user_id)

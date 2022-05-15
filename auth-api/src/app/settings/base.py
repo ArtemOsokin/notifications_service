@@ -9,7 +9,7 @@ class BaseDSNSettings(BaseSettings):
     PROTOCOL: str = Field(
         'postgresql', description='Используемый протокол для подключения к источнику данных'
     )
-    PATH: str = Field('', description='Путь к ресурсу источника данных')
+    PATH: str = Field('auth_database', description='Путь к ресурсу источника данных')
     DSN: AnyUrl = None
 
     @validator('DSN', pre=True)

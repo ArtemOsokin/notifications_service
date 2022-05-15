@@ -126,7 +126,7 @@ services:
       - jaeger
     volumes:
       - ./auth-api/src/app:/usr/src/app
-      - ./auth-api/migrations:/usr/src/migrations
+      - ./auth-api/src/migrations:/usr/src/migrations
     env_file:
       - ./auth-api/.env
     networks:
