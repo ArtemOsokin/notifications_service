@@ -60,3 +60,10 @@ users_ids_response = users_namespace.model(
         'id': fields.String,
     },
 )
+
+
+user_id = {
+    'id': fields.String,
+}
+
+users_ids_schema = users_namespace.model('Users_Ids', user_id)

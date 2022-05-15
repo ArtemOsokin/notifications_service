@@ -1,6 +1,4 @@
 import requests
-from app.database import db
-from app.settings.config import settings
 from flask import Flask, request
 from opentelemetry import trace
 from opentelemetry.exporter.jaeger.thrift import JaegerExporter
@@ -10,6 +8,9 @@ from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
 from opentelemetry.sdk.resources import SERVICE_NAME, Resource
 from opentelemetry.sdk.trace import Span, TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+from app.database import db
+from app.settings.config import settings
 
 
 def init_tracer(app: Flask):
@@ -41,6 +42,6 @@ if settings.JAEGER.ENABLED:
 
 
 def span_callback(span: Span, response: requests.Response):
-    # if span and span.is_recording():
-    #     span.set_attribute('http.request_id', request.headers.get('X-Request-Id'))
-    pass
+    if span and span.is_recording():
+        span.set_attribute('http.request_id', request.headers.get('X-Request-Id'))
+        span.set_attribute('http.response.headers', str(response.headers))

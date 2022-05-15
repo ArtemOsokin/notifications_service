@@ -1,0 +1,1316 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1604px" preserveAspectRatio="none" style="width:1838px;height:1604px;background:#F9F9F9;" version="1.1" viewBox="0 0 1838 1604" width="1838px" zoomAndPan="magnify"><defs/><g><rect fill="#F9F9F9" height="50.25" rx="7.5" ry="7.5" style="stroke:#00000000;stroke-width:1.0;" width="682" x="571" y="5"/><text fill="#000000" font-family="sans-serif" font-size="32" font-weight="bold" lengthAdjust="spacing" textLength="672" x="576" y="43.2188">Схема архитектуры сервиса уведомлений</text><!--MD5=[970f3224fbb2daa06dae21d0e3bfc905]
+cluster admin_panel--><g id="cluster_admin_panel"><polygon fill="#98FB98" points="155,190.75,165,180.75,392,180.75,392,574.75,382,584.75,155,584.75,155,190.75" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="382" x2="392" y1="190.75" y2="180.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="155" x2="382" y1="190.75" y2="190.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="382" x2="382" y1="190.75" y2="584.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="102" x="218.5" y="208.2832">Админ-панель</text></g><!--MD5=[3dfd469645f8508aa475672cd2ed7698]
+cluster gunicorn--><g id="cluster_gunicorn"><rect fill="#FFFFE0" height="212" rx="7.5" ry="7.5" style="stroke:#393939;stroke-width:1.0;" width="173" x="187" y="340.75"/><rect fill="#FFFFE0" height="10" style="stroke:#393939;stroke-width:1.0;" width="15" x="340" y="345.75"/><rect fill="#FFFFE0" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="338" y="347.75"/><rect fill="#FFFFE0" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="338" y="351.75"/><image height="31" width="51" x="248" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAfCAIAAADFrWIwAAABwklEQVR4Xs2XO04DQRBE67qcYLkBPgGSD0DimMwhqSNyS5zAV1haHtFq+s3H9qwQ0gu8NdvV5WF23Whdv5xleYqXhePxjeIfIEqWL0Y8nz+KEtntnlm4LaJknE7vHuJweGUyX2LtVoiS08nk2I6ycBNEKcE0CZZsgiglGIWwah5RSjAHuVw+WTiJKCWYowoLJxGlROrNTE7cOftsL0LeY+z3L+xCRCnhjuWy1e9e7MXEXhFRSpQofmmbwTYPw3aOKA1hgxnoXxClIXSfoXXsRGkI3Sdhi/WfJKvOB6LUh74PE3+X2UiUWmz7VC7XNP6ZU6CYoEp1Sptk/f1tU0cxRBX6zpOcU0cxBEmOZefZg8QJdLmedFZFMdaKdsQr45wYu7KEteW2eOmFVR/RK+FHga9Ed6w+9uke5lh+vqr/FsfxXfRKeDIO1uxKqvdURWsUpxXRi9ClEB/Y1vDoN6ThouXpiBJxF751Wue30D+LLc+CKJG4N/xPrtPbjmZrqV+43pis0HLpNOgsDVdFqUM5pAlvcMtSdLsvGd2HsH1asr8plzqF9WQdaB0b2GHnkh1KO+DUC7ZkD1A1933J+tB9CE0i3yHpeC+f98VlAAAAAElFTkSuQmCC" y="353.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="130" x="208.5" y="399.2832">uWSGI web server</text></g><!--MD5=[9458a2ff67d7a4d75a35a75f9ca45c83]
+cluster notification_api--><g id="cluster_notification_api"><polygon fill="#98FB98" points="629,415.75,639,405.75,904,405.75,904,822.75,894,832.75,629,832.75,629,415.75" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="894" x2="904" y1="415.75" y2="405.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="629" x2="894" y1="415.75" y2="415.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="894" x2="894" y1="415.75" y2="832.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="164" x="680.5" y="433.2832">Сервис Notification API</text></g><!--MD5=[59d255eb3c4112a1b8eb1c892caf0ed4]
+cluster uvicorn--><g id="cluster_uvicorn"><rect fill="#FFFFE0" height="184" rx="7.5" ry="7.5" style="stroke:#393939;stroke-width:1.0;" width="211" x="661" y="616.75"/><rect fill="#FFFFE0" height="10" style="stroke:#393939;stroke-width:1.0;" width="15" x="852" y="621.75"/><rect fill="#FFFFE0" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="850" y="623.75"/><rect fill="#FFFFE0" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="850" y="627.75"/><image height="31" width="51" x="741" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAfCAIAAADFrWIwAAABwklEQVR4Xs2XO04DQRBE67qcYLkBPgGSD0DimMwhqSNyS5zAV1haHtFq+s3H9qwQ0gu8NdvV5WF23Whdv5xleYqXhePxjeIfIEqWL0Y8nz+KEtntnlm4LaJknE7vHuJweGUyX2LtVoiS08nk2I6ycBNEKcE0CZZsgiglGIWwah5RSjAHuVw+WTiJKCWYowoLJxGlROrNTE7cOftsL0LeY+z3L+xCRCnhjuWy1e9e7MXEXhFRSpQofmmbwTYPw3aOKA1hgxnoXxClIXSfoXXsRGkI3Sdhi/WfJKvOB6LUh74PE3+X2UiUWmz7VC7XNP6ZU6CYoEp1Sptk/f1tU0cxRBX6zpOcU0cxBEmOZefZg8QJdLmedFZFMdaKdsQr45wYu7KEteW2eOmFVR/RK+FHga9Ed6w+9uke5lh+vqr/FsfxXfRKeDIO1uxKqvdURWsUpxXRi9ClEB/Y1vDoN6ThouXpiBJxF751Wue30D+LLc+CKJG4N/xPrtPbjmZrqV+43pis0HLpNOgsDVdFqUM5pAlvcMtSdLsvGd2HsH1asr8plzqF9WQdaB0b2GHnkh1KO+DUC7ZkD1A1933J+tB9CE0i3yHpeC+f98VlAAAAAElFTkSuQmCC" y="629.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="126" x="703.5" y="675.2832">uASGI web server</text></g><!--MD5=[5e34a06d736bddaf94899ad431ba1eea]
+cluster notification_db--><g id="cluster_notification_db"><polygon fill="#98FB98" points="771,878.25,781,868.25,1253,868.25,1253,1210.25,1243,1220.25,771,1220.25,771,878.25" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="1243" x2="1253" y1="878.25" y2="868.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="771" x2="1243" y1="878.25" y2="878.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="1243" x2="1243" y1="878.25" y2="1220.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="257" x="879.5" y="895.7832">Кластер базы данных уведомлений</text></g><!--MD5=[1346839f4d9afb2d0f5d9392cd5481da]
+cluster scheduler--><g id="cluster_scheduler"><polygon fill="#98FB98" points="186,657.75,196,647.75,605,647.75,605,785.75,595,795.75,186,795.75,186,657.75" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="595" x2="605" y1="657.75" y2="647.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="186" x2="595" y1="657.75" y2="657.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="595" x2="595" y1="657.75" y2="795.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="296" x="243.5" y="675.2832">Генератор автоматических уведомлений</text></g><!--MD5=[ed8b2a58aad75e97ce972df2979e1b61]
+cluster queues_reporting_events--><g id="cluster_queues_reporting_events"><polygon fill="#98FB98" points="1282,400.25,1292,390.25,1582,390.25,1582,519.25,1572,529.25,1282,529.25,1282,400.25" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="1572" x2="1582" y1="400.25" y2="390.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="1282" x2="1572" y1="400.25" y2="400.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="1572" x2="1572" y1="400.25" y2="529.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="189" x="1333.5" y="417.7832">Брокер отчетных событий</text></g><!--MD5=[d46e389bd053e7f71d5c1e971943a8c4]
+cluster queue_events--><g id="cluster_queue_events"><polygon fill="#98FB98" points="413,875.25,423,865.25,747,865.25,747,994.25,737,1004.25,413,1004.25,413,875.25" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="737" x2="747" y1="875.25" y2="865.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="413" x2="737" y1="875.25" y2="875.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="737" x2="737" y1="875.25" y2="1004.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="155" x="498.5" y="892.7832">Брокер уведомлений</text></g><!--MD5=[08c80fdf70a21be2966eafa5f024f329]
+cluster workers--><g id="cluster_workers"><polygon fill="#98FB98" points="358,1038.25,368,1028.25,747,1028.25,747,1405.25,737,1415.25,358,1415.25,358,1038.25" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="737" x2="747" y1="1038.25" y2="1028.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="358" x2="737" y1="1038.25" y2="1038.25"/><line style="stroke:#008000;stroke-width:1.0;" x1="737" x2="737" y1="1038.25" y2="1415.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="267" x="415" y="1055.7832">Обработчики уведомлений (workers)</text></g><!--MD5=[e7b3ad525afda51fa86caf877ffefc51]
+cluster websocket_workers--><g id="cluster_websocket_workers"><rect fill="#FFFF00" height="158" rx="7.5" ry="7.5" style="stroke:#393939;stroke-width:1.0;" width="155" x="568" y="1077.25"/><rect fill="#FFFF00" height="10" style="stroke:#393939;stroke-width:1.0;" width="15" x="703" y="1082.25"/><rect fill="#FFFF00" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="701" y="1084.25"/><rect fill="#FFFF00" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="701" y="1088.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="139" x="576" y="1104.7832">Websocket workers</text></g><!--MD5=[20797f82b76470512064224202618845]
+cluster email_workers--><g id="cluster_email_workers"><rect fill="#FFFF00" height="158" rx="7.5" ry="7.5" style="stroke:#393939;stroke-width:1.0;" width="162" x="382" y="1077.25"/><rect fill="#FFFF00" height="10" style="stroke:#393939;stroke-width:1.0;" width="15" x="524" y="1082.25"/><rect fill="#FFFF00" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="522" y="1084.25"/><rect fill="#FFFF00" height="2" style="stroke:#393939;stroke-width:1.0;" width="4" x="522" y="1088.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="98" x="414" y="1104.7832">Email workers</text></g><!--MD5=[b1cee610036596d3692e7a122335cde5]
+cluster ugc_service--><g id="cluster_ugc_service"><polygon fill="#F0F8FF" points="1473,186.75,1483,176.75,1772,176.75,1772,282.75,1762,292.75,1473,292.75,1473,186.75" style="stroke:#0000FF;stroke-width:1.0;"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1762" x2="1772" y1="186.75" y2="176.75"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1473" x2="1762" y1="186.75" y2="186.75"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1762" x2="1762" y1="186.75" y2="292.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="89" x="1574" y="204.2832">Сервис UGC</text></g><!--MD5=[08641cc41e8137c4e8c4c9b9f43fef93]
+cluster auth_service--><g id="cluster_auth_service"><polygon fill="#F0F8FF" points="779,1277.25,789,1267.25,1080,1267.25,1080,1405.25,1070,1415.25,779,1415.25,779,1277.25" style="stroke:#0000FF;stroke-width:1.0;"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1070" x2="1080" y1="1277.25" y2="1267.25"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="779" x2="1070" y1="1277.25" y2="1277.25"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1070" x2="1070" y1="1277.25" y2="1415.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="116" x="867.5" y="1294.7832">Сервис Auth API</text></g><!--MD5=[db8cb0eaf874363c36b239940f7dc74c]
+cluster async_service--><g id="cluster_async_service"><polygon fill="#F0F8FF" points="632,1465.25,642,1455.25,949,1455.25,949,1577.25,939,1587.25,632,1587.25,632,1465.25" style="stroke:#0000FF;stroke-width:1.0;"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="939" x2="949" y1="1465.25" y2="1455.25"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="632" x2="939" y1="1465.25" y2="1465.25"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="939" x2="939" y1="1465.25" y2="1587.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="125" x="724" y="1482.7832">Сервис Async API</text></g><!--MD5=[7ad9cbffec638daddd3b38fb36596968]
+cluster movies_admin_service--><g id="cluster_movies_admin_service"><polygon fill="#F0F8FF" points="1533,647.75,1543,637.75,1821,637.75,1821,777.75,1811,787.75,1533,787.75,1533,647.75" style="stroke:#0000FF;stroke-width:1.0;"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1811" x2="1821" y1="647.75" y2="637.75"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1533" x2="1811" y1="647.75" y2="647.75"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1811" x2="1811" y1="647.75" y2="787.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="190" x="1578" y="665.2832">Админ-панель управления</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="212" x="1567" y="682.8926">контентом онлайн-кинотеатра</text></g><!--MD5=[5b53ef3afcddead3eb86ca9d5c522333]
+cluster ugc_db--><g id="cluster_ugc_db"><polygon fill="#F0F8FF" points="928,178.25,938,168.25,1258,168.25,1258,516.25,1248,526.25,928,526.25,928,178.25" style="stroke:#0000FF;stroke-width:1.0;"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1248" x2="1258" y1="178.25" y2="168.25"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="928" x2="1248" y1="178.25" y2="178.25"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="1248" x2="1248" y1="178.25" y2="526.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="254" x="962" y="195.7832">Кластер базы данных сервиса UGC</text></g><!--MD5=[bab4019c732006648757f54388533847]
+cluster postgres--><g id="cluster_postgres"><polygon fill="#98FB98" points="16,866.75,26,856.75,334,856.75,334,1221.75,324,1231.75,16,1231.75,16,866.75" style="stroke:#008000;stroke-width:1.0;"/><line style="stroke:#008000;stroke-width:1.0;" x1="324" x2="334" y1="866.75" y2="856.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="16" x2="324" y1="866.75" y2="866.75"/><line style="stroke:#008000;stroke-width:1.0;" x1="324" x2="324" y1="866.75" y2="1231.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="242" x="50" y="884.2832">Кластер базы данных PostgreSQL</text></g><!--MD5=[12198ab7fe4a5a5bb6daa41b1f4fc2ee]
+cluster auth_service1--><g id="cluster_auth_service1"><polygon fill="#F0F8FF" points="625,178.75,635,168.75,896,168.75,896,290.75,886,300.75,625,300.75,625,178.75" style="stroke:#0000FF;stroke-width:1.0;"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="886" x2="896" y1="178.75" y2="168.75"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="625" x2="886" y1="178.75" y2="178.75"/><line style="stroke:#0000FF;stroke-width:1.0;" x1="886" x2="886" y1="178.75" y2="300.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="177" x="668" y="196.2832">Сервис Auth API - signup</text></g><!--MD5=[deab4127d1176cad3303098ba46db84b]
+entity nginx_notification_admin--><g id="elem_nginx_notification_admin"><rect fill="#F1F1F1" height="51" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:0.5;" width="142" x="202" y="221.75"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="324" y="226.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="322" y="228.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="322" y="232.75"/><image height="21" width="102" x="217" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAVCAIAAAA7CwxaAAACwklEQVR4XqWXbdXqQAyEsbgSkIAEJCABCUioBCQgIQ7ePc0hZzqTpMu9zy+YTPZjaJf2YmZj53q92jLe8ng8uPDFDae832/u3Nm2zQ0ofj4fFXter5e2pGLP/X6Plot/chZTwxau7cTeVuDmndSQig3zF01bUrHhdrthyyGysZYa+mc6XF6+xJzTEXqxgvKKFv05sUuZgZCfIxsLqaFZN/x8PtGwAo1gRTqpmBL3UdrChWwXjuY1R04ic7gbQJtOhlU3KHGaODSCFemkopLmNY4tXMs2onn52V1GNuploYdmotu+Ot3tOIhe11jtRYIWgJCTy8e9aF7z7vFSF9mQaRw0UGRYGkW7019oaSkVEd0nwm5Z7fhuh9Ux5mqj6xBZekmHNcAqRob6yBoJNOOaqNSLgeZFCjfsoKFiPvFgyyGyue55K6HiYIOtRab32v+D41NJ85rnDu2FWgL0KJSXaWSW/Q2P43yoR2QoDlnfXP22APqDEKvxUXf8nF6MzLIRHFxSkERmZ6mh6JFt34d1Z57BYSZ/T9qyLjpxTq9HZtk41btNHpm1qaGycpVRqQJ/UtQbERUHt7AeGdqQSB8pI7M6NfwakdH68CxDvSH81FKJ+NWh+2gxMvQoeq11kTloUKrjf8AS0+gJPLNM0lFR0XNnJTI0OPpPMh8ksOU8MsvGDf75uax3piUUCUrcOY0Mq47rmhqezkuRWTa6Q5HRw7f+8g69h+qGsZqKiLY7fWRYcrCqbxGR2mpkls0xJDK1PTPIQyPYL5HpAoImMtQdrDqamh/QP0Rm2Uy64tfxTeiU9BpBQyo6OjtSRYaiEyVCX4dmjr9FZjJfumjy9HDzTmpAcRRTI4uRhZ6iqR0iY3vBSgt6Gqpto6cXe9KWVGygk+Ri3yGqozrFW6oN23Jk3AakhlRsiNcSFOOhB8WeuGDn5z/pw+gMotzGTAAAAABJRU5ErkJggg==" y="241.75"/></g><!--MD5=[abe68b57464cc11d96036d20fc339f19]
+entity django--><g id="elem_django"><rect fill="#F1F1F1" height="112.6094" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:0.5;" width="106" x="230" y="415.75"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="316" y="420.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="314" y="422.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="314" y="426.75"/><image height="65" width="51" x="245" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAABBCAIAAADzKQu3AAAB5ElEQVR4Xu2Z7W3FIAxF38oZ4Y2QETJCRugIGaEjsEGtoIfwxQmOMTyp4vyqwNecRvmA9hU8WG45juNRPUE1L8jYwMacaSaBjTnTTAIbc6aZBDbmTDMJbMyZZhLYmFOaaZhmz/kvZr8nPye0Hv0cx9GF08uMJHCph/ib4QpWRDMsKpDN3u83FjbgZoYlzfiY4bwHDmY46USrGc740WS2bRvO+NFkhsPX0GNLb7i0AL1sq7+V3azaOkJO2P4DlnLsZjgmQfbYOwOrOR3Nbq5WBAMco9m+7zhWgF0LMMAxmuFAQfWChdoyvczyJ/EKzHB6mWFLCcxwppkEZjjTTAIznF5m67pi1wLMcIxmmo01di3AAMdopikSW+dggCPGsahAZbbULhtWc/qaEencW4KlHLuZpi5hWMYQWQxmBprMNKVmWs001TYczOgex3kPHMyUmae4mQX1aUqJp1mEOmK5CYMZfTPvzBJ0/9F3HdMXUFM69dy8lonqsYi2+Cozd6rbiHD/N8d+oEhB+IqZ5vYNXzFDC4kw3qx67y+fE+5oM7SQiJVDzVDhglg8yEz/RU6REWbVt1ciP6f1NdN/OSJ5tqPZ020BxDuaRZT/UMPYALPI/ROA1SeDzBIap8hos8hysWnL+QPZ6+mQ9XAupgAAAABJRU5ErkJggg==" y="435.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="245" y="515.2832">notify_app</text></g><!--MD5=[21570e4ea969fd52f95123fb65dd7b64]
+entity nginx_notification--><g id="elem_nginx_notification"><rect fill="#F1F1F1" height="51" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:0.5;" width="142" x="645" y="446.75"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="767" y="451.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="765" y="453.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="765" y="457.75"/><image height="21" width="102" x="660" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAVCAIAAAA7CwxaAAACwklEQVR4XqWXbdXqQAyEsbgSkIAEJCABCUioBCQgIQ7ePc0hZzqTpMu9zy+YTPZjaJf2YmZj53q92jLe8ng8uPDFDae832/u3Nm2zQ0ofj4fFXter5e2pGLP/X6Plot/chZTwxau7cTeVuDmndSQig3zF01bUrHhdrthyyGysZYa+mc6XF6+xJzTEXqxgvKKFv05sUuZgZCfIxsLqaFZN/x8PtGwAo1gRTqpmBL3UdrChWwXjuY1R04ic7gbQJtOhlU3KHGaODSCFemkopLmNY4tXMs2onn52V1GNuploYdmotu+Ot3tOIhe11jtRYIWgJCTy8e9aF7z7vFSF9mQaRw0UGRYGkW7019oaSkVEd0nwm5Z7fhuh9Ux5mqj6xBZekmHNcAqRob6yBoJNOOaqNSLgeZFCjfsoKFiPvFgyyGyue55K6HiYIOtRab32v+D41NJ85rnDu2FWgL0KJSXaWSW/Q2P43yoR2QoDlnfXP22APqDEKvxUXf8nF6MzLIRHFxSkERmZ6mh6JFt34d1Z57BYSZ/T9qyLjpxTq9HZtk41btNHpm1qaGycpVRqQJ/UtQbERUHt7AeGdqQSB8pI7M6NfwakdH68CxDvSH81FKJ+NWh+2gxMvQoeq11kTloUKrjf8AS0+gJPLNM0lFR0XNnJTI0OPpPMh8ksOU8MsvGDf75uax3piUUCUrcOY0Mq47rmhqezkuRWTa6Q5HRw7f+8g69h+qGsZqKiLY7fWRYcrCqbxGR2mpkls0xJDK1PTPIQyPYL5HpAoImMtQdrDqamh/QP0Rm2Uy64tfxTeiU9BpBQyo6OjtSRYaiEyVCX4dmjr9FZjJfumjy9HDzTmpAcRRTI4uRhZ6iqR0iY3vBSgt6Gqpto6cXe9KWVGygk+Ri3yGqozrFW6oN23Jk3AakhlRsiNcSFOOhB8WeuGDn5z/pw+gMotzGTAAAAABJRU5ErkJggg==" y="466.75"/></g><!--MD5=[efda8fa66d066ed68090f13782e4ae5a]
+entity notification_web_api--><g id="elem_notification_web_api"><rect fill="#F1F1F1" height="84.6094" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:0.5;" width="143" x="704.5" y="691.75"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="827.5" y="696.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="825.5" y="698.75"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="825.5" y="702.75"/><image height="37" width="103" x="719.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAAAlCAYAAABf0feeAAAGT0lEQVR4Xu2Ya1BVVRTHt1p+KEftg+RY+aH3Q2eqqcaayppqcnL60ExNk18aqyknaxRBk1fKG0RQeSpvUEBARRFRQBEQr0pqaoSCIiIYIWoqICSOq7XW9Zy77+ZennbnfDi/mT3nnrPX2efc/d/rsY8AE8Mi1AsmxsEUx8CY4hgYUxwDY4pjYExxDIwpjoExxTEwpjgGxhTHwIxanKab12Fx9V6YtTUTZuQkwydFeRBfe1w1MxkBoxLnTRRErPIGER0IIjYYj0HW45qVICL9IKnuhHpLPzwt5TAxKQoeSVkLk5LX6G1ichSPdb9o6+6CZZb9cOrKZbWrH6UXm0DEhYLnwXK1S+eLkgJ4KHE1iKgV1jnA/zw9Mx58D1eqpvDBjhz8LyHq5UEZsTj0MBLlgYRweHD9Kv7tc6QSxsWH87Vx2ESEDyyo2KPeasf88mL8cz4s9Pvbs2H29ixu7xZkwczcFNV8xKTVnQTh9xMUNzeqXf2YkhYNYrUfiHAvtUvHjWxQmPnlu7h9vqcAJuOiEkEevDBv/Nur2z6fnYTXPaW7h8aIxHk8Iw5ETBCLQo2FWO3LfWJtgC4YHWlVbWusV0aw8d3+3SCCl0JP3x21676S3fAnT9CR9r/ULjtqr3aw3We7t7E4/r9VqybME5k4B5G/qpdhY30tiLDl8NSm9fq1mZtTQIT+IlkNjWGLU9h0lleVJgx7zbpAWFhVwv3k3po41MbEh7FXOUMT51JXp9qlsxXFdUuN1sMlTUzRhXOqGfgdqbK+T4QvCHzuG1vS9T4WBz15xuZk9kry1Nl4VHmnYJPuMePXR/AzHcHi4Dw4YgKGaRGyTD93mTiztmZwLrDzmkjbS9JE04oScSE28fC8vPWCNIoNTZzO27fVLh3KXa/kpYF79T4uPmgxiMAlmBvO6zbzygrxmgdPfPBRC45bDNPSY/V+TZwncUW/nJsKL2HxQmPK3L17l8f9Ht+JiDpRw160ExekykDiTEldx/9Jw2XiUNIfmxAmeU0ALLXYEufvHe3Q0XML3qYVeE8gsvE6XCGNYoPFwZVOuYkStsfBfdwWVO6Bk1faVXMdEbocXpUml8Z4MSfJZqCghbWa9ja1S4eeLwKWwOVb3fo18oAXHIxrFad/WDt97QqHNco/Gq4TBydBC1vsNWv9VRPovdPHOUguFmglO4LFWeNvDUUYTvTmvxjST59SzXUexYQ8ISlSP+fwiQnaWXjUxKFKzBn0HpToZT4q3Mwe2d1n79ksDtpn4bhxfxyDkGMW+JBsUUzyGrkqdJ04kueImGD4AVd8a9dNu5eZU5RrVzAM6jn4ZzCiOOVi5w14LT/dWrLiRHHJjqXuZCy/NU6gx1pFdefQVXDevggZTJz9GHap0lKLl2bcx9GEL8JwKjN9Y5z1PQLcrY3eCxfq3KJ8O88jXCYObTblnEMCUc7R8s51LCFpEuWiYCg5x9mKv9bbg/2enJjDjh+C/HNnIBU9ijxlUootdGiEHjt0Lyd58P5JI7veKk5ZS5PNWOI9LON5z4ITzGW01uic2jr7osZZteYIl4njqFobixM1Jj6U+z/eSV5jE2+01Zo3buqov+Gfq3bXp2XEcFXkjJ+rynjFr6w5wOc5Z+tYnBKpiJChyaNN5Aq0pxyqNV+sAF/fksF5pOJSs24/UEGg4jJxCH4xKWyROOPxSMheM5x9jjNxaLKoXy0OBhOHoPtog0hUt7WwOCtr+u9bKGeQ7ZbGM2oXQ5+oqJ/yj4ZhxSHkLwQkzlRMpN/gRGheo38hqBz4C8HX+3ZxzG7pvKl2MbTTpkmlkLOwqhSCjh7kCabQOn5DhG5Hee3L0u0QiP0+6G0PJ0byuJa2VpsNhV9cLFR2/1hZwu9KTMbwONjkUY6Td/luaVguh3tLFs55NiuRw+xwGbE4xFvatzWcGIFhjY/oUdpmMXkI39aCscqZmhYD7UoSlanHkEZlM49LVR2W6E9j0v9WqgDn7MyzLpgwL7ahomCvkl/+7u6C57ITrfswHIuKDCo26PmLDpTZ2aqQdz2WEQs7mhr4/NPifHgma4Ni5ZivSgv53uEyKnGIC/JXadx9zy3KgwTzq/R9YdTimPx/mOIYGFMcA2OKY2BMcQyMKY6BMcUxMKY4BsYUx8CY4hgYUxwD8x+1AzwkNeABngAAAABJRU5ErkJggg==" y="711.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="719.5" y="763.2832">Notification-API</text></g><!--MD5=[165eb23dd6e61376bee9815d0bebc67e]
+entity mongodb_notification_primary--><g id="elem_mongodb_notification_primary"><path d="M787,919.25 C787,909.25 848,909.25 848,909.25 C848,909.25 909,909.25 909,919.25 L909,974.8594 C909,984.8594 848,984.8594 848,984.8594 C848,984.8594 787,984.8594 787,974.8594 L787,919.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M787,919.25 C787,929.25 848,929.25 848,929.25 C848,929.25 909,929.25 909,919.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="29" width="102" x="797" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAdCAIAAADXWI43AAACrUlEQVR4Xu2ZPU4cQRCF90STERFYIkEWyWaQkCEnREZy4AB15MQx4gJ7gA1IiRw5XckX8A18A/y8D9fW1KvpmQXBsqKlJ0RXV9d0f139M7Oz8vCraSvNQvlytfz47bP6NZl6yM7vbuc315S6NlEbZFe/7wnrdPEdidaoDWmDzPKLyCBA1AZNj8iMl0fWNrVUI8ja8lT9Q+Z5BWQt0VTjyFqiBc2+/vlZR9YSLWgWeDVko5qE7OLHQlvukcJwvOay7agPZVeuSchg0X7snTgWb0Eq0Kg5EZy92yRkOhX7KEXm7eHers5mSZBB7woZDkCtqlgmIUsX5tGXCz7v8NOZd4A/q1RIbDgfnJ7g/V9rbWLg0B1/QGT1QS4gAuJbUoTsQBXapmiUQqUqWIiV/09C5rt1uVqiTxAHxr8Uu2vyPYBgQduy/l4SHEIEi6kRyBEzZE2MLBv6gGFilEuo8sOkBREwzdyprCq5lykyfUY6ZisiZtefahQtico6NUITYrKixqwXkXr15uVJyDAQGAHOoxi//aeP6dyUlvWKq/RYa4NDeTYyBcRM9Ik2NBar8luBOtMCPuPI9AAugoyrNTiYhctNI3jjE5D5DigyGv2wlUKlSi1mHPmSoc2orZAhZvd/I0sdygRkXOyMo3MwhGx6ls37t4LUuYcs7Gh1XkWQ6dILY9AhBcsoMjMG9EPOOotDI0rtamQmAdTmqyxM5GW7XXq3oEIXeQhWHFj0AYP/KDI7qb1Pxb/rHzjFbUZmwdauaEp2U+OvSMzZ3s8lHll4nskOO+uiL7JVcKD8FcRnaPBnVRrBGykclFZrK5fye7m9GAWl10N1C57xRzlE52VEY+1cHgS3Ag/01RSRlfUqU+POldJJjS+thmxr7ROyAGgnvEqK7M3K7+5Db/6voL97vxDaJwzkhgAAAABJRU5ErkJggg==" y="933.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="797" y="976.7832">Primary</text></g><!--MD5=[5a7cc20dc4ffedb2a46cc777fd57a947]
+entity mongodb_notification_secondary_1--><g id="elem_mongodb_notification_secondary_1"><path d="M787,1138.25 C787,1128.25 848,1128.25 848,1128.25 C848,1128.25 909,1128.25 909,1138.25 L909,1193.8594 C909,1203.8594 848,1203.8594 848,1203.8594 C848,1203.8594 787,1203.8594 787,1193.8594 L787,1138.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M787,1138.25 C787,1148.25 848,1148.25 848,1148.25 C848,1148.25 909,1148.25 909,1138.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="29" width="102" x="797" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAdCAIAAADXWI43AAACrUlEQVR4Xu2ZPU4cQRCF90STERFYIkEWyWaQkCEnREZy4AB15MQx4gJ7gA1IiRw5XckX8A18A/y8D9fW1KvpmQXBsqKlJ0RXV9d0f139M7Oz8vCraSvNQvlytfz47bP6NZl6yM7vbuc315S6NlEbZFe/7wnrdPEdidaoDWmDzPKLyCBA1AZNj8iMl0fWNrVUI8ja8lT9Q+Z5BWQt0VTjyFqiBc2+/vlZR9YSLWgWeDVko5qE7OLHQlvukcJwvOay7agPZVeuSchg0X7snTgWb0Eq0Kg5EZy92yRkOhX7KEXm7eHers5mSZBB7woZDkCtqlgmIUsX5tGXCz7v8NOZd4A/q1RIbDgfnJ7g/V9rbWLg0B1/QGT1QS4gAuJbUoTsQBXapmiUQqUqWIiV/09C5rt1uVqiTxAHxr8Uu2vyPYBgQduy/l4SHEIEi6kRyBEzZE2MLBv6gGFilEuo8sOkBREwzdyprCq5lykyfUY6ZisiZtefahQtico6NUITYrKixqwXkXr15uVJyDAQGAHOoxi//aeP6dyUlvWKq/RYa4NDeTYyBcRM9Ik2NBar8luBOtMCPuPI9AAugoyrNTiYhctNI3jjE5D5DigyGv2wlUKlSi1mHPmSoc2orZAhZvd/I0sdygRkXOyMo3MwhGx6ls37t4LUuYcs7Gh1XkWQ6dILY9AhBcsoMjMG9EPOOotDI0rtamQmAdTmqyxM5GW7XXq3oEIXeQhWHFj0AYP/KDI7qb1Pxb/rHzjFbUZmwdauaEp2U+OvSMzZ3s8lHll4nskOO+uiL7JVcKD8FcRnaPBnVRrBGykclFZrK5fye7m9GAWl10N1C57xRzlE52VEY+1cHgS3Ag/01RSRlfUqU+POldJJjS+thmxr7ROyAGgnvEqK7M3K7+5Db/6voL97vxDaJwzkhgAAAABJRU5ErkJggg==" y="1152.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="797" y="1195.7832">Secondary</text></g><!--MD5=[74462b999423823343a12619e784ae3c]
+entity mongodb_notification_secondary_2--><g id="elem_mongodb_notification_secondary_2"><path d="M944,1138.25 C944,1128.25 1005,1128.25 1005,1128.25 C1005,1128.25 1066,1128.25 1066,1138.25 L1066,1193.8594 C1066,1203.8594 1005,1203.8594 1005,1203.8594 C1005,1203.8594 944,1203.8594 944,1193.8594 L944,1138.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M944,1138.25 C944,1148.25 1005,1148.25 1005,1148.25 C1005,1148.25 1066,1148.25 1066,1138.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="29" width="102" x="954" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAdCAIAAADXWI43AAACrUlEQVR4Xu2ZPU4cQRCF90STERFYIkEWyWaQkCEnREZy4AB15MQx4gJ7gA1IiRw5XckX8A18A/y8D9fW1KvpmQXBsqKlJ0RXV9d0f139M7Oz8vCraSvNQvlytfz47bP6NZl6yM7vbuc315S6NlEbZFe/7wnrdPEdidaoDWmDzPKLyCBA1AZNj8iMl0fWNrVUI8ja8lT9Q+Z5BWQt0VTjyFqiBc2+/vlZR9YSLWgWeDVko5qE7OLHQlvukcJwvOay7agPZVeuSchg0X7snTgWb0Eq0Kg5EZy92yRkOhX7KEXm7eHers5mSZBB7woZDkCtqlgmIUsX5tGXCz7v8NOZd4A/q1RIbDgfnJ7g/V9rbWLg0B1/QGT1QS4gAuJbUoTsQBXapmiUQqUqWIiV/09C5rt1uVqiTxAHxr8Uu2vyPYBgQduy/l4SHEIEi6kRyBEzZE2MLBv6gGFilEuo8sOkBREwzdyprCq5lykyfUY6ZisiZtefahQtico6NUITYrKixqwXkXr15uVJyDAQGAHOoxi//aeP6dyUlvWKq/RYa4NDeTYyBcRM9Ik2NBar8luBOtMCPuPI9AAugoyrNTiYhctNI3jjE5D5DigyGv2wlUKlSi1mHPmSoc2orZAhZvd/I0sdygRkXOyMo3MwhGx6ls37t4LUuYcs7Gh1XkWQ6dILY9AhBcsoMjMG9EPOOotDI0rtamQmAdTmqyxM5GW7XXq3oEIXeQhWHFj0AYP/KDI7qb1Pxb/rHzjFbUZmwdauaEp2U+OvSMzZ3s8lHll4nskOO+uiL7JVcKD8FcRnaPBnVRrBGykclFZrK5fye7m9GAWl10N1C57xRzlE52VEY+1cHgS3Ag/01RSRlfUqU+POldJJjS+thmxr7ROyAGgnvEqK7M3K7+5Db/6voL97vxDaJwzkhgAAAABJRU5ErkJggg==" y="1152.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="954" y="1195.7832">Secondary</text></g><!--MD5=[24bfbbbf1524d5cc37c6d93414f99db3]
+entity mongodb_notification_secondary_3--><g id="elem_mongodb_notification_secondary_3"><path d="M1101.5,1138.25 C1101.5,1128.25 1169,1128.25 1169,1128.25 C1169,1128.25 1236.5,1128.25 1236.5,1138.25 L1236.5,1193.8594 C1236.5,1203.8594 1169,1203.8594 1169,1203.8594 C1169,1203.8594 1101.5,1203.8594 1101.5,1193.8594 L1101.5,1138.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M1101.5,1138.25 C1101.5,1148.25 1169,1148.25 1169,1148.25 C1169,1148.25 1236.5,1148.25 1236.5,1138.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="29" width="102" x="1111.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAdCAIAAADXWI43AAACrUlEQVR4Xu2ZPU4cQRCF90STERFYIkEWyWaQkCEnREZy4AB15MQx4gJ7gA1IiRw5XckX8A18A/y8D9fW1KvpmQXBsqKlJ0RXV9d0f139M7Oz8vCraSvNQvlytfz47bP6NZl6yM7vbuc315S6NlEbZFe/7wnrdPEdidaoDWmDzPKLyCBA1AZNj8iMl0fWNrVUI8ja8lT9Q+Z5BWQt0VTjyFqiBc2+/vlZR9YSLWgWeDVko5qE7OLHQlvukcJwvOay7agPZVeuSchg0X7snTgWb0Eq0Kg5EZy92yRkOhX7KEXm7eHers5mSZBB7woZDkCtqlgmIUsX5tGXCz7v8NOZd4A/q1RIbDgfnJ7g/V9rbWLg0B1/QGT1QS4gAuJbUoTsQBXapmiUQqUqWIiV/09C5rt1uVqiTxAHxr8Uu2vyPYBgQduy/l4SHEIEi6kRyBEzZE2MLBv6gGFilEuo8sOkBREwzdyprCq5lykyfUY6ZisiZtefahQtico6NUITYrKixqwXkXr15uVJyDAQGAHOoxi//aeP6dyUlvWKq/RYa4NDeTYyBcRM9Ik2NBar8luBOtMCPuPI9AAugoyrNTiYhctNI3jjE5D5DigyGv2wlUKlSi1mHPmSoc2orZAhZvd/I0sdygRkXOyMo3MwhGx6ls37t4LUuYcs7Gh1XkWQ6dILY9AhBcsoMjMG9EPOOotDI0rtamQmAdTmqyxM5GW7XXq3oEIXeQhWHFj0AYP/KDI7qb1Pxb/rHzjFbUZmwdauaEp2U+OvSMzZ3s8lHll4nskOO+uiL7JVcKD8FcRnaPBnVRrBGykclFZrK5fye7m9GAWl10N1C57xRzlE52VEY+1cHgS3Ag/01RSRlfUqU+POldJJjS+thmxr7ROyAGgnvEqK7M3K7+5Db/6voL97vxDaJwzkhgAAAABJRU5ErkJggg==" y="1152.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="1111.5" y="1195.7832">Secondary hidden</text></g><!--MD5=[751bd014ad166af0deec4764b4c2a246]
+entity script_scheduler--><g id="elem_script_scheduler"><rect fill="#E55756" height="84.6094" rx="7.5" ry="7.5" style="stroke:#191919;stroke-width:1.5;" width="80" x="509" y="693.75"/><rect fill="#E55756" height="84.6094" rx="7.5" ry="7.5" style="stroke:#191919;stroke-width:1.5;" width="80" x="505" y="689.75"/><image height="51" width="51" x="513" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAIAAAC1w6d9AAAB/0lEQVR4Xu3XwU3DQBBAUdeUQw4ggQQSSCCBBBIUQQU0QAU0QAVUkAZcAQ24D5xsWDb5s7Mz67W5IP2ThWcewbFxNzw/1fV5ffWyWim9nZ7wLHsdD+m9n58RUYxzivlkXGnvdb3mQCWHjMsq4thcVpk4nYuLcXIutyw92N/fcXcxDhebJPt6fODiYhwu5palFzK3WuJwMbdsehwu9i9L4nAxq2xze1PM+HjgcDGrzFLxSTpVxlltG3Y3QqbJOGWOcrKx8QYpyDhiphRZn3xyexnPny9dFnFbWV/1+KtOl43f8YDbynjyrCmyeAP6A1l47NKUsvYy402oVeHbp7PGxh/rePKshatbZ4UWlQXWkYympWUu1hKyze5y9rLcsnRHRXaWQ3b0wp3uqIgOZpW1MvU2llW2PMsn4xpvXK/UfVxekJIWX+O4yRV3Kw2W52a49rnJG9crLSfjbr29bPx7EdRQxsV64eIp/087UcbFxQ5kCm6KjFuLRc+vrM/8z10t49ZiEXMgC7WScatS+jKXleXibsazptRSFuJHchSHizWW0cE4XKyljAgxDhdrJqMgOnjEUhsZQZufV+14+h/IaBIFueO5psoIEgXjHUs8rmSVDRKOmhwuHunNtz2HbPy9XSwxjs3lkA0JjistcaCSTxaqkHFIsRpZmqIUn9P2vgGD8tMJPX6GnAAAAABJRU5ErkJggg==" y="697.75"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="513" y="763.2832">Scheduler</text></g><!--MD5=[487723f3866900ac644ffec6d9bc958f]
+entity crontab--><g id="elem_crontab"><rect fill="#F1F1F1" height="87.6094" rx="7.5" ry="7.5" style="stroke:#181818;stroke-width:0.5;" width="161" x="202.5" y="690.25"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="343.5" y="695.25"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="341.5" y="697.25"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="341.5" y="701.25"/><image height="40" width="121" x="217.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAAoCAYAAADaKFUbAAAapElEQVR4Xs1cd5zdVZUfleyCgAVkUVjBVdFVXFFRLEDEAixIsYIQA7gUAQMECE1AmoQeQkBDKBEhvU3qJKRO+qRMMpmS6WmTZPLm9V6mfPd77v3d9+6782YSXf/Y8/kc7u+d97vnnnu+55xb3oSyvr4+9Pb2FrGRDfSdcE9PT9H3peRC8mxa824puel/pHL3u1Jydw6Hk7t63O9Kye3PRyp3xztS+T/6XDbQF3Zb0uBeAUsc73Cf5lJGCw0kd2WHkxePqXW677tjuXOA6uOyp7tEP5f/Ubn7fZFP+9z56eeS7w/C8o7q2WeB7BogZL+oMtT7bChH5+5L5lAb6UZ9NIfWeDdS3eadgoG2UbbOv1de0KkpluvG7mQ3orke9Z3pY/d19aFIj24j1LMnLbpy8Hu6bOrzgshl187BnoVsP5vP3gheqymYzWEP57WH9oRL2ePpMf1d37nyIpCNAe4zPKOEGiJpPFgXw/krffh0RQgfmRvAMeVhHD0viOPnB/HviwP41go/btwSxqIDiXw/A7ZtkDt2KblkqaGD6QyebY7jirUhfH5JGCct9KNslp+yiPre2OxyYQ56HnsTOTzXFMNFa8P4wpIgPrkggI/PI4v9i/w4a1kIF68J4LH6KDYHUvnxYfnE1W/7bDC5ebbtqYlk8UB9BBesDuCMii6cNN+Pj84P4ET69NMLAzhrqR8/WRfE6MY4muOWPY5Oe0xbrkB2X9D9tczThnkHk/j6cj8dEcHpdPAZy2L4yvIozloRxddWhnH2ygjO4fPZq2L4xsoovroijC8ujeKLi/14fGcEcRWRWpc95kCM/NjAOn8K36/0EYgwAyuKz78fxX8RiK+uiOBz74cxpk0Hk6ujAK6m5b40vruqCx+ZF8IpFWF8nvbJHM5eGcc5K2P47uo4zl8dwffXJHBBZRLnsZXvLmCft3fLGFqXO44hF+RScptm7IsxoPw4dVGIvorja7TlnFVxfK8yxrE57uoYLlgToz18XhPFeatD9HcMP1nfhYqD8bwe1x4zjnnul8nFkQa0JDK4kBF2+pIQAYzg3MoIB5MBYxiqDIgq/gH5R2tj+NE6yZA4Ll4XxSXr4+QEhq5OMAD8eGdvTIZWbBvU3zl67P3pLK5cH8JpzLZvrpDJx3EuxxnK8c9ne8HaCEGIYVy7nrAb0WZ5OZDK4NI1IXyqIsbAIJgMxHMrxfaYsvmi9THaGcMVGxP4GflXm+K4mjxsSxzXboli2NYEflEVwq/WR7DMn1Y6xT9uxti+dOXap9qeLeEMflQpgEVxIXVeSh9dsSGBn8r4VXH8clMMV29O4prN2obrqmO4gfw/1QncXJ3CLdv47qYIhm8Ooy6a7WePO3aZbZCQaYXe3RPDF5aGVGT/97oILllH0DYwkjbEcRn58vVRGhfFlRtj+GlVDL8UA8lXVSWUk36tDE3g2s1R/GZTkv0TuL6qSyDOj+UaZQCe0ZHAmSxTPyAQl3LcSznOZQTicgGDNlxJ/llVFBcxqP7cLsFTiFw9B63nvX1xVU2+Sz0XrxOHiu1icxS/UM4UIGO4js4UJ95UHcetNUn8viZBZyaxMdyDikAv7qpN4bGGNK6ns19uDCndZsPnzsEF1/bpUztDqiwP2xrHjdR1CwPoVra3cawR21IYwXFH1sQxakcK99em8UBdEg/VJ/Aw+Y8NSTzemMCT5KcbU3imKYXfVkcwsV0vV7DGFDLjFu2uVet98VR9kBEfx883CXAxXMX2KgL2600JFWHXbkngN3TMcBp7HQ29ju1vtybpKO2sm8m3bE/id4pT5AQdx4ltSzNIAkiU2CyJkULPN8aYtUFmVIqBEsO1BEPGHM7xBYwbOM4NahwdSK/vkky2Hazn8FxTBN9cHmHUx5X919D24bT7+q3axluZEbfTrjsJ6t3kUXUpOjWFhxtSeLQhgbH7gEXl5Xj95RcINPBia5IBlaVz07iv1q/GMI61fWi4GOA+3LEjiBvpq4eoX0B7mKA9yufHd6YIfprApZXuZ5tTeLElgzHNabzcmsYr7Sm82p7GX3al8fruFN7Yk+bykcE7u7OYti+Ll1rjeHpn2Bunf/LkM9mOgJeaoriYEa8cKeBJhNOxN22PK7CEbxXQyCO2S9QnlaPuqklh5I44oz6Be3YkcC+jfxQj8T7y/XUJPMhJ3VYTxcO1/SPPjD2mOYrLN0RwW3WaIMRxmxonqSL8DrYjGeF3C1P3vQTkVgbQG7ui+ckZGtvCObCc30ggb2aW3Erb76SOu2nfqNq4AvQhsmTHkzuT+FNjks5N48XmJB2bwgt07p5u4Ftnnokfn3se9jAm396XwVQ6dfb+LCZ1ZPDUjtJAG1v0s/58T81BZmESrzJQxlH3a21J/KUthQm7MnirPYO392QJWg7v7k1jEnlKRwrTyDP3ZzDrQAZzD2Qxn+2izhwqyEsP9WCFL4dVXTms92ewoDPBCtOVt0c3ui0zBhkHVRxMKSffKQAStLvolDtrk8qpI+mce+sk4gkYHfQgo3FUXQZ31MbIGQKZxh8ZkY/vTCh+lM/iwCcZoU9zVzySwEuF8CwpijihhRz71yzB9zOLHqDuhzjWH6jnEYl46vkjI/4JYeob3cSS1ZTBffVJjG8plGuhxQeSqhzfV6tL3kP1kjEsc9QlYP6J/SfszWIqnfYaN21/3pXCa7sSGE8nv7M3gykEczEr8uLZs1BWVoaW5hZwW4AlnRksO5RFpS+LDYFuLOxkRrXpDLJBzvvTs+flppAaQ0Cb3pHFTAZIOceedzDDOWcJXJa6c1hJ0Nb6s1gbzKCSvCaYw6ZQFttDOWwNZ7E52IPN/Lwl1O1xD7YqzqIm3I35+xMMEL0/se3JZ7I4PcHz4mXrg3ikPk4Hp1lSUnxO4hGCJevRYwowiX4pdxHcsTWA1+jgGfuiKN8bYjRG8Yf6EMt2GI/Ska9IyWnN4JU2yRpmSJNXUjxgze2YkD+Xw/CqMEZT32iWrOeaNT/fwtLFdkxLGuPaMswCltTaKDM9wnIcZvmKYXvY2wxxDuFsN66uCnhBIDqk9NEWZo9kzjiWub/uzaG9Yx8aOw7gXh5dxjVG8e7uOCbR/tdbZQ0MQnLitJNOwq8uuxwZPovzNwW76Whxcoacww5uet5qi6Muose3QTbz2tiVZLZGsD6Q5Skhhw3+bmxkgGwKan1byDtCvQQvjb9x/Gcag3irJYEpe8OYvDeCCSzFzzQFMZWb1q2RDN/NKVC3kLcyCGyu5/fjWMHa4nozZhI3f4QSerg+zCzJqAwZ3SQLO53M5+fF2c0Ei4DdURPB43Vh7E6aI1F/6u3twdQ9spkIY8KeDAOEjmzWGSxrvj2mKWcP14a4S05hPEvXeLYTdjPbuAa9RVAmcu2ZtI+AccPxSF2AoIrbi8noe6A2wHKbxettWZbxjOr/V2bte+RpzKA51MOlFl/74hkYdffdxUosmjjhTZXFDc3tqEv1eMDSsZ6Ttwa1k+ujGTzhVaeiuXn2PF0XRE20G9V8vzrs9fW4mlwXYfXYE8LYthDa44VgLZB+rgunMKYxzA1pHLXM6mpmuujYJnbIZ9q3jZ+bIqxUdV518SqKymShtkSW6yXXC64VY5ktr7SlVda8ptaPNN6go3+3PcKzZjI/uBu1hczUnyPZHty+tQvjd5lyWlgzTV+hpkgWj9bHWMq4FhGE6SyXwjMIymyuRYsOdnNjEsGcDr32Kv2eM+2AqY+lqSfJfjndl2vnXFUSM3if5XA1M+hJls5GBvq4MS/iKIIYjWqdxYEHnHryJ3HdsOGQ0/Fj9QE00JmbwxpYAVtzjqVUym6Ca6T2i61jTkcMS7vSBKBbB4cA4gVKNbkuxk1cQxBVAQNusV/cgBFa0hnHK80RNEfT9JvcNPaggSeAWgZSDYOoLtqLGQfDrDhyaaL7q0wWeoZOnECABcw3JYO8HdxEZuJ7dPh9O0LYHvRusDxDXGOMga7DTB/7Pfud0Q1hLPFpIJZ0dmMpWTYVwuvo1FdZgjb6CgC7OsyJ4BkCuPhQBssPyYakG2u5KVnH8lhFcKvphHGtQWZB4cbo5BM/gZtvvElrtex56fkXVBZHY3rMULqHQdalnGmy2ZRLWSNrWVmeazLHqgIoz7eE0MrkaYzm0BzLoSXRzc+9aI31oJEAj97pR0cqVzT+4VhoJ6vH8TM6MGTaAXxoyj6UTT6Iskn7yXx+7wDK3t2Poas683rLtEF9+P02n9o5TuZ6NYmlbbK3k5xO/kt7lHINsAHXDGo+l5LrZy2XLDf9zfdyzkz19OGlnUFsoqMEDFmnNrHdrKI/i6W+FHeduhLY+u2xRU8Xq8bY1gi2hWWtyygAqoWlLBLYxdzUzdhfmIPQXydOVGCGQh5AHh0z5F8I/o3qWb/bR8fmeFQLsrwya1h56plFAl4TwdtN8CbRxkCmW9ki728Ly7EorErsqG1duHZDCJcsP4SzKg7iM3P24YNTO7ip0tnv+vBwLFR+MElAA+pat2x2yOKgbqfKfYTe/JWJQau5ORjP7J3DnV45S5xqWSbncfs+j1nxhzrthP4A6sgynweSm77GQFu+iDvhFV1ZBY5Zq6QMVge4saEjn2uQ41ZxyXL1Cq32xVnWkwQ1rfur0shAYdDIhuSphkKmmT5Cnz39Mxh+zbD850cefAhHE+RIuLBrNu+Pb4twJxzl2ZTLWUsED/A4OHyDHz9Y5cOpczu5dyhUiSd3RlH2ZieBYJa9x3YK2xldKJvmI/sxfFMhsMwY7pwGkhtfDK0koLPIcwh0eUDzHGGOMz3IJUsHkTpCjW+L8uzFtatTtvNyFuMRQp59kskpzN2vjbfB1GMVAzuQfCAWemd3lJknGxLNBiC5+lvD9WzmvuJ7aXc8o+et9hgzw+jRgaI2JmwX8aizvFPfPbu2zp41W2Xzoc5OZLnDP+7oY3DvyHuKxtRj9CGQY1ZM2auBm0SeIuCJQ+nYqZ24fnPhQuLHq5lNs8Ke4wlEuYDh8RQ/DqZk/OLqZ9t2OLnYU8nlSAJGZ6/FMtYMP27eppcblcljeIZdxWxaptbBrF4PecBe6+vmESmCYFq25AVg3AFduSuznw0ZQ19rjTGLCyBroOWo0I0JXCb8UgItPba+gh7wmBVGPc+K29lvR1iytxs7Y93YlejBeJbxXG+fvJy30aYzv/CfGHbNtXj0kUfwr0cNkdcUuXMR+vZyAjdTg/WBOQTSMDPqy8sC+fc+tcgrpQLq7IAHgMgCOHleoTKatpSfBpNr6sMxkrkqm71gMuPNDOPbK3zqLZXJL+0M8BzXzcyRw3hOtwFZ23IY3exteCwH2TyQzOaB5GLkq60BdZAvgKzLbA2PFn9qLD7YuzqMTGhsGzcxPNZtYWlecDCOl7gDvZPn9YtWduKSNXqypk+xDcDKlSvxsQ8fhxOP/whGP/10vzFNH6ERPGGUzRDQPBbnKgB9OHGBKcF9GGJANd8r50uGBfDzjTrjbf8N1trztVuhM5cLoAZkD2gZZ2YA/yE3OvBAfrXRD7lB2RjoUQd14So+b6fDn23SV3fupI1sMHkpAw3DM3Isd7waZF1it3gH+wZubl5o1plRqr+tV+hzFSybk/epnWXZ3w6xnLKUTj6gyunFqwvnWNtO076/eAlBPh4fPfY4TJ40uWhM+30B75nmGEukmznCfhwzV8CTefUqJ+cz2LwjfVjaR9QW/2rmzu1I5UKXr5HKYgPsPTO7T1mk/adAfq2xk4D2YktAjgQ9XNt61BVarYDc6DmoxCDu4C7bxgwkf6Od51Zm7U4ecVrjWexK6r/2qInyUF+vjTwSPf+2MKAzLO9Qj+mAH64t3kTZLNTU1IxjWKZlba6qqhr03SdYXcqm2Q4tgHzcfMkcXaHy2a4y2QKca+VdO/qfVGwfHqlc6CdrpbJ4ttjz5rJwSkU+k7kuNkawPZLWpVLtSvU5sJZgS9lTxwJroubSwzailFzIfjat94X8By+wikxoC2PktgAuq+zCGfP3Y8hUZuSbe/Hlxfqsp18fOJiEzloqgHrZoibqtZzs6RWmGg3cP5VMIhLRP5zYczDfm/bqzdGCU+3ySJA/udCsyR7Idqk2QUH5XTWFzaShUja5MlcudCkDWNkjY8kmzwRUMcjAK20JlkwDsG6ldNawfa8jwSzTNzL2YHZUuXJXVoohTPrKYpbWiXKQl90qn6ez7M70q43D11cUyvVgLPSLjeJ8b4J2Nks77RDS6r3SNtrB58rzY3jjfEZtqDzwbOYm6/zlZndtZbIL8vRikP8vLKRBNvZYrZvJcjGuzpSy8VHXdpq3cpe7gUC/af0oL2RH+OGeTVvyMoRjn70iqNcU2fbbPDOEr68svSYbPYaF5FZMlVHjdNuxXENf8TaQdh/zbPTbNpaSy65fLhnUbtoEk8lWnkvvrzN/+WKtyaZcm6xnuR6pQNZzEd2l/rxZZLYNhm25UD+QzQaMIJ+qNl7eZUhrLEugY6iRzY9cpAf1xbdsiJqjOa6bQSR7Cplgs5Ars+XGIPcZ3jt5kPNlzzOWpdcG2WYbJDNWc1QAkCOLXAxYQHv6jp0tJbvwo8pAelz7zbPQ2ct8KvjywOYdy3ZSEGvMnwYVrcmWLQrk4kx2bbDnaLel5EJ5kO1lSlUWgpzPZG8STzSECHYOLfEMGuMs1eE0z81pvNUex93bQ7hirVkf+w+opCUMMd8J2RGo5N53Zy8PelFvOcIz0s1kW4/hgq4+/PsiZtksAcGcTy0gZoRwVVXh1svWYdtVSi40Tu2q5eLBttUDkjvZIbPlmGbmWwJkU6Gscm302+Pbnw8nF8qvyUVVQ/vvFHOEMi/P6Yjjtuoubn4O4UsL9uPD0+Wiew/K3unQ6+WkQ7i9unDYF0fZBhg99rPQllAa3d6vT7ax0l+oKJOFzc3QzALI6n2PBhpTaExrktlsRXU+07w7XWb6g7Xmh45iXYPJpu4mwNOZxbPDBSeajCmn7ul+jPBulzwtxWuyHcDOmmxTqbEHkwv1K9dqLAk8a01WHb3OR80gsJP83ubHdDAcUE764Zou5Hr0LZQiGdwDrVetXQVDxrTwuDGZO+YKRnmfs94p4Kw1uSjztMwG2bCQmXBxtmmWSwmVzXbG5aM8rOZw0doQMt3W7+HeHAr/eKAwhxHVBHiyVAZTJSyHqoyRa80wgt7NHJSO3mKQ1fLhvU+5uybb8zPzKSUXtuVCReU6Xzk0yPk1ueAkYFZHWu1Ey8rlztW7E7WjVp6nhZWCe2oj2J3w/hzUonR3N97ZE8dnF/vUHa36RYS75ZMX+ORP7WAcaByaBzkPiMdWuRYydtrsyoQmtif0fbK6bnT0mk3JDLHJh9u5DNWF5F6+UCnEvhbuUZ6sT+JDswVAvc5/QOahjigWYOIjburu2V44eulfoQzIxneW8x2Q7TnYIB+JXEiBLEdHY5u9JtvlWhunOw1dFdCZnC9NrrFeK5fy3M0eW+7DZysCOIOgfny+X+0ey6YKcJ5zTX9+PnleFxJeBhkjB8zkAdZke8L2pFXrvXPOyqB1YVGCzRwECIJ01KxOnLAgiE/M93Ftlbn59DzUnbDNnk7T0sYT5sllkQa34Ecp1+aHA+M379naeJWax9/zLFS8Jnvzk8oh5XqRC7JHPb09+KhEhUzQdMxPzlYmxktZlMv5gJWNAR1Vdj++qzKBZ8ljyzu9f7ukqR/Iph1gTbYnauwu/syWu+ghs+WsLXpt2722iM0mTeYiwMjuXOy15+mxmZMXhPKz4e64/lOkYj+WOCebZ2d37bbuvAaTCxXWZPG7N0fPvqI12S0B8stP2UxZl4P4oAHOdZKdEUVy77Pdz27lCDKzM5/R/cq10e2AbOwUsidry+zJyz/E+4AKPmOnsclmx1YFpG2Lsdt7xwaae5fKLv0TbNHYqjWZbHSZcQL9QHaD1vCRyIV0ufbsMuN5mZw/QplOQvJsnNaZyuJj88Qoa4LGIcYJbmtlbr/IV1lCgCd3Ymyr+Xc8zsbL1mWBbGyzJ2dstW225aLbl8rg+LnyQ73lZNsZ+XkZMMz48p4lywcA7Z8hd8WHsLqr8HdZZkxlm1mT5daulB+sNdn0cy9DjMzodOeaHws2yPacghbI1sbLZc98nC9rtGxk8n+BYDnJBcYMkJcH8lEljj6KG5nVXTqK4Y1xJOXatU2DWADePJeSy331hWv8apcvc/igcXp+oyLPHvebjwWSmkMQp/Es7ssUNpw2EBpkk8le33zQeDpLZLKtx56j3ZaSC+VBNvb3A7nEmmwrFWOFZu9P4ISFdNIUKbWyc/U2ZXbkmGjPR64nnyrR78PvNgtgxvHGGdZliN1fWIFc+JnT2OgeLezJl5LrzIL6G6/T5N55Wldho5K335mLkSlwyVOCOLr8EMZbFch1vGHzfQFk4xOP89ea/QPE1md/HkguVLQm5ytQoP+abDoo87xnVy6GT94Xx5eW+PT1oZRAUS4Ayfoja5+wyGR3zuz/8Bwf7t8RVv9Y3ACsNIleT/dXlgW1LnGm0SHMrDnT+0sL1z7XNltWSm7GElp0MIHvLJcSfkjfYMkRSeag9iDeZ5mPfMd5frqiCxN3CSgFAEuN4Y6t+tvzMTw1oP5B3UBk67BpIPmF8mdG4j93HJ5+TliofzDpt/Eyz0ImMvXnwiCxXA7l+6O4ry6On671Y2hlAOdXduGiNT7csjWKt9sjaInafwBfXGbUs9Ldx/eDPPIEcF5lsMCrQuoYdMOW/pchtkPls/3zpit3MwVF8+jBskMJPNsUx02bo7hyXRiXcS7DqiJ4oiGB2R1xbg7NpU/BH8Y3pX5YUG/KOwyIoSu68L1V1pw8/saKAMaqf9ajbXUrkxmjlNyelxnv3poIvrXc32+c73DsX27Q9/X5P64XsgdRBltOM9+b746UbB3m2ci10wejvvzZ1/S12dY5mNx8dm2wA7c0Da7XlttjHF5v6VLt6jmcvHBDNzDJnqTo/zRgs5A7kO7kvOe968rdfrah/cYokpd+v5Sef9az+bMgI7fHPJx8MJnRbc/P1TPYs6uzlBwD9LXl/dZk+ULIyE1HV2YrHIhNP6P3ny0XFnLH/f8sd7//Z8ptyoNN+l+R6tnhlOiE1wAAAABJRU5ErkJggg==" y="710.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="217.5" y="764.7832">Cron</text></g><!--MD5=[d880dce737ad8def5fc8ec63b43f91b3]
+entity redis_scheduler--><g id="elem_redis_scheduler"><path d="M398.5,698.75 C398.5,688.75 434,688.75 434,688.75 C434,688.75 469.5,688.75 469.5,698.75 L469.5,769.3594 C469.5,779.3594 434,779.3594 434,779.3594 C434,779.3594 398.5,779.3594 398.5,769.3594 L398.5,698.75 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M398.5,698.75 C398.5,708.75 434,708.75 434,708.75 C434,708.75 469.5,708.75 469.5,698.75 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="44" width="51" x="408.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAACaElEQVR4Xq2YMU4DMRBF90R0qVIg0SBEQxcaOkRDBRIFBUpFQ424QA5AQUtFRYvEBbgBN4AJEzlmnj0eb1Z6Dfb8Px8n63g9LH8+J+Hg5nx+caqcPN6xoJeBQ11IiBSIXH+9UhJkfDLmcKC8SXey/FPLGzt/Js5enmhYI5pMPhd2yqMYWOPXk3Yy+ubIElLSVCmL1QOFiWoyWXl6kaP7q8uPZ8qV87cVJYTCZTEZlUGa8tnieO9wn+OK/JPlZLK2rHYWnMXz+ndfMimSTGFN4vb7fZOMcwrTEKpyUiAma0YcOKQ4qxVMxlhMJiMUKoMzxxyG4t5mqCVjpZGskznh5n/7gn7wieBja0jhOMWabbKIrInsESk9Z31MjEKyYD7zhBuC25jC7l4yhS4GZlJYSdjOMMgzyFEDfXPMUYcFBvob1HCz03KasEeO/oD6Dwc9ay3WyfLvBEuLsKUPHQhV5Z2WSkIVoYpQpUJvp6ULoWoq7fbZZIUp9emtJKassGtQU1SOgJ6OcyHZCJcm9Gm6VZMp9IqY7i6Xc/J6P+MEobXfgJV+fY5usduTIysIO1HLWdbUyOvtfsZqwq4+dIgYVvcz6glVkzjoVOPkSC8ylcoI7bPJ6mCnIDSvtbDJevVx6OZ7lpMpdPG9atAhYjLIuYqjBvoG3SmJqPRicIKTIytrxSwz5C+5/+41IuJZpasDHYh5cbTJFDmGU0mYgFBFGKCaLEEXwjTBTLWLt4SXTIm8XM2yiJwyBK+V28kS7NELPR06kimRVSH0adKdTJGTHduTrstsw8hkCaZRnMvbILsmU/IfEs6O4xeFWFE4M3UdfAAAAABJRU5ErkJggg==" y="712.75"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="408.5" y="771.2832">Cache</text></g><!--MD5=[903a7dc08102dced9f384161d1519970]
+entity rabbitmq_reporting_events--><g id="elem_rabbitmq_reporting_events"><path d="M1303.5,431.25 L1560.5,431.25 C1565.5,431.25 1565.5,472.0547 1565.5,472.0547 C1565.5,472.0547 1565.5,512.8594 1560.5,512.8594 L1303.5,512.8594 C1298.5,512.8594 1298.5,472.0547 1298.5,472.0547 C1298.5,472.0547 1298.5,431.25 1303.5,431.25 " fill="#E55756" style="stroke:#191919;stroke-width:1.5;"/><path d="M1560.5,431.25 C1555.5,431.25 1555.5,472.0547 1555.5,472.0547 C1555.5,512.8594 1560.5,512.8594 1560.5,512.8594 " fill="none" style="stroke:#191919;stroke-width:1.5;"/><image height="54" width="51" x="1303.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA2CAIAAADlDjbOAAAA40lEQVR4Xu3YQQrCMBSE4Z5S17rWtb2KrvVoFXEjuYEPChIyNi+jpA1l4Nv5Yv8Wqk27YbsJt+sU+zTjcTzgktGzP+E8pcMvjb0uZ1zzgfMxnKc4ZZkD3Pc7HI7ZAK4qpzKeyngq46mMpzKeyngq46mMt8Yye9LH4difWwG/zLYCdvYJN2tkY7aLYZWWLcIuR6NlRmU8lfFUxlMZb44y+0FP4AyqW5Z53MDhRN0yDCqPq1iWf1+psm9Uxmu3LDR7b4Zsmbv1qlsWJuLcrDBD2c9UxlMZT2U8lfEaLhu8f9ZFWNUbQSsJ665rm6wAAAAASUVORK5CYII=" y="436.25"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="1303.5" y="504.7832">Reporting events queues</text></g><!--MD5=[abbcdf1df7ab2ad5153de6c11a13f8e8]
+entity rabbitmq_message_queues--><g id="elem_rabbitmq_message_queues"><path d="M434.5,906.25 L725.5,906.25 C730.5,906.25 730.5,947.0547 730.5,947.0547 C730.5,947.0547 730.5,987.8594 725.5,987.8594 L434.5,987.8594 C429.5,987.8594 429.5,947.0547 429.5,947.0547 C429.5,947.0547 429.5,906.25 434.5,906.25 " fill="#E55756" style="stroke:#191919;stroke-width:1.5;"/><path d="M725.5,906.25 C720.5,906.25 720.5,947.0547 720.5,947.0547 C720.5,987.8594 725.5,987.8594 725.5,987.8594 " fill="none" style="stroke:#191919;stroke-width:1.5;"/><image height="54" width="51" x="434.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA2CAIAAADlDjbOAAAA40lEQVR4Xu3YQQrCMBSE4Z5S17rWtb2KrvVoFXEjuYEPChIyNi+jpA1l4Nv5Yv8Wqk27YbsJt+sU+zTjcTzgktGzP+E8pcMvjb0uZ1zzgfMxnKc4ZZkD3Pc7HI7ZAK4qpzKeyngq46mMpzKeyngq46mMt8Yye9LH4difWwG/zLYCdvYJN2tkY7aLYZWWLcIuR6NlRmU8lfFUxlMZb44y+0FP4AyqW5Z53MDhRN0yDCqPq1iWf1+psm9Uxmu3LDR7b4Zsmbv1qlsWJuLcrDBD2c9UxlMZT2U8lfEaLhu8f9ZFWNUbQSsJ665rm6wAAAAASUVORK5CYII=" y="911.25"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="281" x="434.5" y="979.7832">High, Medium, Low Priority Message Queues</text></g><!--MD5=[b9ab9a8fa568aab16576aafd94d54ae7]
+entity redis_workers--><g id="elem_redis_workers"><path d="M431.5,1318.25 C431.5,1308.25 467,1308.25 467,1308.25 C467,1308.25 502.5,1308.25 502.5,1318.25 L502.5,1388.8594 C502.5,1398.8594 467,1398.8594 467,1398.8594 C467,1398.8594 431.5,1398.8594 431.5,1388.8594 L431.5,1318.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M431.5,1318.25 C431.5,1328.25 467,1328.25 467,1328.25 C467,1328.25 502.5,1328.25 502.5,1318.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="44" width="51" x="441.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAsCAIAAABHQxczAAACaElEQVR4Xq2YMU4DMRBF90R0qVIg0SBEQxcaOkRDBRIFBUpFQ424QA5AQUtFRYvEBbgBN4AJEzlmnj0eb1Z6Dfb8Px8n63g9LH8+J+Hg5nx+caqcPN6xoJeBQ11IiBSIXH+9UhJkfDLmcKC8SXey/FPLGzt/Js5enmhYI5pMPhd2yqMYWOPXk3Yy+ubIElLSVCmL1QOFiWoyWXl6kaP7q8uPZ8qV87cVJYTCZTEZlUGa8tnieO9wn+OK/JPlZLK2rHYWnMXz+ndfMimSTGFN4vb7fZOMcwrTEKpyUiAma0YcOKQ4qxVMxlhMJiMUKoMzxxyG4t5mqCVjpZGskznh5n/7gn7wieBja0jhOMWabbKIrInsESk9Z31MjEKyYD7zhBuC25jC7l4yhS4GZlJYSdjOMMgzyFEDfXPMUYcFBvob1HCz03KasEeO/oD6Dwc9ay3WyfLvBEuLsKUPHQhV5Z2WSkIVoYpQpUJvp6ULoWoq7fbZZIUp9emtJKassGtQU1SOgJ6OcyHZCJcm9Gm6VZMp9IqY7i6Xc/J6P+MEobXfgJV+fY5usduTIysIO1HLWdbUyOvtfsZqwq4+dIgYVvcz6glVkzjoVOPkSC8ylcoI7bPJ6mCnIDSvtbDJevVx6OZ7lpMpdPG9atAhYjLIuYqjBvoG3SmJqPRicIKTIytrxSwz5C+5/+41IuJZpasDHYh5cbTJFDmGU0mYgFBFGKCaLEEXwjTBTLWLt4SXTIm8XM2yiJwyBK+V28kS7NELPR06kimRVSH0adKdTJGTHduTrstsw8hkCaZRnMvbILsmU/IfEs6O4xeFWFE4M3UdfAAAAABJRU5ErkJggg==" y="1332.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="441.5" y="1390.7832">Cache</text></g><!--MD5=[74bcde0f9ab375ac2d66bdd464dbebba]
+entity ws_workers--><g id="elem_ws_workers"><rect fill="#E55756" height="102.2188" rx="7.5" ry="7.5" style="stroke:#191919;stroke-width:1.5;" width="108" x="588" y="1117.25"/><rect fill="#E55756" height="102.2188" rx="7.5" ry="7.5" style="stroke:#191919;stroke-width:1.5;" width="108" x="584" y="1113.25"/><image height="51" width="51" x="592" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAIAAAC1w6d9AAAB/0lEQVR4Xu3XwU3DQBBAUdeUQw4ggQQSSCCBBBIUQQU0QAU0QAVUkAZcAQ24D5xsWDb5s7Mz67W5IP2ThWcewbFxNzw/1fV5ffWyWim9nZ7wLHsdD+m9n58RUYxzivlkXGnvdb3mQCWHjMsq4thcVpk4nYuLcXIutyw92N/fcXcxDhebJPt6fODiYhwu5palFzK3WuJwMbdsehwu9i9L4nAxq2xze1PM+HjgcDGrzFLxSTpVxlltG3Y3QqbJOGWOcrKx8QYpyDhiphRZn3xyexnPny9dFnFbWV/1+KtOl43f8YDbynjyrCmyeAP6A1l47NKUsvYy402oVeHbp7PGxh/rePKshatbZ4UWlQXWkYympWUu1hKyze5y9rLcsnRHRXaWQ3b0wp3uqIgOZpW1MvU2llW2PMsn4xpvXK/UfVxekJIWX+O4yRV3Kw2W52a49rnJG9crLSfjbr29bPx7EdRQxsV64eIp/087UcbFxQ5kCm6KjFuLRc+vrM/8z10t49ZiEXMgC7WScatS+jKXleXibsazptRSFuJHchSHizWW0cE4XKyljAgxDhdrJqMgOnjEUhsZQZufV+14+h/IaBIFueO5psoIEgXjHUs8rmSVDRKOmhwuHunNtz2HbPy9XSwxjs3lkA0JjistcaCSTxaqkHFIsRpZmqIUn9P2vgGD8tMJPX6GnAAAAABJRU5ErkJggg==" y="1121.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="592" y="1186.7832">WS worker 1...</text><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="592" y="1204.3926">WS worker n</text></g><!--MD5=[93d5150fe00e923d6b02c11796d6be79]
+entity em_workers--><g id="elem_em_workers"><rect fill="#E55756" height="102.2188" rx="7.5" ry="7.5" style="stroke:#191919;stroke-width:1.5;" width="125" x="402.5" y="1117.25"/><rect fill="#E55756" height="102.2188" rx="7.5" ry="7.5" style="stroke:#191919;stroke-width:1.5;" width="125" x="398.5" y="1113.25"/><image height="51" width="51" x="406.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAIAAAC1w6d9AAAB/0lEQVR4Xu3XwU3DQBBAUdeUQw4ggQQSSCCBBBIUQQU0QAU0QAVUkAZcAQ24D5xsWDb5s7Mz67W5IP2ThWcewbFxNzw/1fV5ffWyWim9nZ7wLHsdD+m9n58RUYxzivlkXGnvdb3mQCWHjMsq4thcVpk4nYuLcXIutyw92N/fcXcxDhebJPt6fODiYhwu5palFzK3WuJwMbdsehwu9i9L4nAxq2xze1PM+HjgcDGrzFLxSTpVxlltG3Y3QqbJOGWOcrKx8QYpyDhiphRZn3xyexnPny9dFnFbWV/1+KtOl43f8YDbynjyrCmyeAP6A1l47NKUsvYy402oVeHbp7PGxh/rePKshatbZ4UWlQXWkYympWUu1hKyze5y9rLcsnRHRXaWQ3b0wp3uqIgOZpW1MvU2llW2PMsn4xpvXK/UfVxekJIWX+O4yRV3Kw2W52a49rnJG9crLSfjbr29bPx7EdRQxsV64eIp/087UcbFxQ5kCm6KjFuLRc+vrM/8z10t49ZiEXMgC7WScatS+jKXleXibsazptRSFuJHchSHizWW0cE4XKyljAgxDhdrJqMgOnjEUhsZQZufV+14+h/IaBIFueO5psoIEgXjHUs8rmSVDRKOmhwuHunNtz2HbPy9XSwxjs3lkA0JjistcaCSTxaqkHFIsRpZmqIUn9P2vgGD8tMJPX6GnAAAAABJRU5ErkJggg==" y="1121.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="406.5" y="1186.7832">E-mail worker 1...</text><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="406.5" y="1204.3926">E-mail worker n</text></g><g id="elem_note1"><path d="M1516.5,233.25 L1516.5,260.9531 A7.5,7.5 0 0 0 1524,268.4531 L1740,268.4531 A7.5,7.5 0 0 0 1747.5,260.9531 L1747.5,235.75 L1737.5,225.75 L1524,225.75 A7.5,7.5 0 0 0 1516.5,233.25 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><path d="M1737.5,225.75 L1737.5,232 A3.75,3.75 0 0 0 1741.25,235.75 L1747.5,235.75 L1737.5,225.75 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.0;"/><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="167" x="1522.5" y="244.2451">Пользовательские события,</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="210" x="1522.5" y="260.5967">требующие отправки уведомления</text></g><g id="elem_note2"><path d="M822.5,1323.75 L822.5,1384.1563 A7.5,7.5 0 0 0 830,1391.6563 L1048,1391.6563 A7.5,7.5 0 0 0 1055.5,1384.1563 L1055.5,1326.25 L1045.5,1316.25 L830,1316.25 A7.5,7.5 0 0 0 822.5,1323.75 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><path d="M1045.5,1316.25 L1045.5,1322.5 A3.75,3.75 0 0 0 1049.25,1326.25 L1055.5,1326.25 L1045.5,1316.25 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.0;"/><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="184" x="828.5" y="1334.7451">Предоставление расширенной</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="170" x="828.5" y="1351.0967">информации о пользователе</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="212" x="828.5" y="1367.4482">(Имя, фамилия, адрес электронной</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="132" x="828.5" y="1383.7998">почты, телефон и т.д.)</text></g><g id="elem_note3"><path d="M675.5,1511.75 L675.5,1555.8047 A7.5,7.5 0 0 0 683,1563.3047 L917,1563.3047 A7.5,7.5 0 0 0 924.5,1555.8047 L924.5,1514.25 L914.5,1504.25 L683,1504.25 A7.5,7.5 0 0 0 675.5,1511.75 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><path d="M914.5,1504.25 L914.5,1510.5 A3.75,3.75 0 0 0 918.25,1514.25 L924.5,1514.25 L914.5,1504.25 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.0;"/><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="184" x="681.5" y="1522.7451">Предоставление расширенной</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="142" x="681.5" y="1539.0967">информации о фильмах</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="228" x="681.5" y="1555.4482">(название, жанры, год выпуска и т.д.)</text></g><g id="elem_note4"><path d="M1587.5,712.25 L1587.5,756.3047 A7.5,7.5 0 0 0 1595,763.8047 L1785,763.8047 A7.5,7.5 0 0 0 1792.5,756.3047 L1792.5,714.75 L1782.5,704.75 L1595,704.75 A7.5,7.5 0 0 0 1587.5,712.25 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><path d="M1782.5,704.75 L1782.5,711 A3.75,3.75 0 0 0 1786.25,714.75 L1792.5,714.75 L1782.5,704.75 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.0;"/><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="181" x="1593.5" y="723.2451">Автоматические уведомления</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="184" x="1593.5" y="739.5967">о добавлении новых фильмов,</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="159" x="1593.5" y="755.9482">выходе новой серии и т.д.</text></g><!--MD5=[06f6791be11a9cb51c83547022f6c9ea]
+entity mongodb_ugc_primary--><g id="elem_mongodb_ugc_primary"><path d="M1022,219.25 C1022,209.25 1083,209.25 1083,209.25 C1083,209.25 1144,209.25 1144,219.25 L1144,274.8594 C1144,284.8594 1083,284.8594 1083,284.8594 C1083,284.8594 1022,284.8594 1022,274.8594 L1022,219.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M1022,219.25 C1022,229.25 1083,229.25 1083,229.25 C1083,229.25 1144,229.25 1144,219.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="29" width="102" x="1032" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAdCAIAAADXWI43AAACrUlEQVR4Xu2ZPU4cQRCF90STERFYIkEWyWaQkCEnREZy4AB15MQx4gJ7gA1IiRw5XckX8A18A/y8D9fW1KvpmQXBsqKlJ0RXV9d0f139M7Oz8vCraSvNQvlytfz47bP6NZl6yM7vbuc315S6NlEbZFe/7wnrdPEdidaoDWmDzPKLyCBA1AZNj8iMl0fWNrVUI8ja8lT9Q+Z5BWQt0VTjyFqiBc2+/vlZR9YSLWgWeDVko5qE7OLHQlvukcJwvOay7agPZVeuSchg0X7snTgWb0Eq0Kg5EZy92yRkOhX7KEXm7eHers5mSZBB7woZDkCtqlgmIUsX5tGXCz7v8NOZd4A/q1RIbDgfnJ7g/V9rbWLg0B1/QGT1QS4gAuJbUoTsQBXapmiUQqUqWIiV/09C5rt1uVqiTxAHxr8Uu2vyPYBgQduy/l4SHEIEi6kRyBEzZE2MLBv6gGFilEuo8sOkBREwzdyprCq5lykyfUY6ZisiZtefahQtico6NUITYrKixqwXkXr15uVJyDAQGAHOoxi//aeP6dyUlvWKq/RYa4NDeTYyBcRM9Ik2NBar8luBOtMCPuPI9AAugoyrNTiYhctNI3jjE5D5DigyGv2wlUKlSi1mHPmSoc2orZAhZvd/I0sdygRkXOyMo3MwhGx6ls37t4LUuYcs7Gh1XkWQ6dILY9AhBcsoMjMG9EPOOotDI0rtamQmAdTmqyxM5GW7XXq3oEIXeQhWHFj0AYP/KDI7qb1Pxb/rHzjFbUZmwdauaEp2U+OvSMzZ3s8lHll4nskOO+uiL7JVcKD8FcRnaPBnVRrBGykclFZrK5fye7m9GAWl10N1C57xRzlE52VEY+1cHgS3Ag/01RSRlfUqU+POldJJjS+thmxr7ROyAGgnvEqK7M3K7+5Db/6voL97vxDaJwzkhgAAAABJRU5ErkJggg==" y="233.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="1032" y="276.7832">Primary</text></g><!--MD5=[453f7f786fc9fa74dcb8f1d0ac7bbabd]
+entity mongodb_ugc_secondary_1--><g id="elem_mongodb_ugc_secondary_1"><path d="M1101,444.25 C1101,434.25 1162,434.25 1162,434.25 C1162,434.25 1223,434.25 1223,444.25 L1223,499.8594 C1223,509.8594 1162,509.8594 1162,509.8594 C1162,509.8594 1101,509.8594 1101,499.8594 L1101,444.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M1101,444.25 C1101,454.25 1162,454.25 1162,454.25 C1162,454.25 1223,454.25 1223,444.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="29" width="102" x="1111" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAdCAIAAADXWI43AAACrUlEQVR4Xu2ZPU4cQRCF90STERFYIkEWyWaQkCEnREZy4AB15MQx4gJ7gA1IiRw5XckX8A18A/y8D9fW1KvpmQXBsqKlJ0RXV9d0f139M7Oz8vCraSvNQvlytfz47bP6NZl6yM7vbuc315S6NlEbZFe/7wnrdPEdidaoDWmDzPKLyCBA1AZNj8iMl0fWNrVUI8ja8lT9Q+Z5BWQt0VTjyFqiBc2+/vlZR9YSLWgWeDVko5qE7OLHQlvukcJwvOay7agPZVeuSchg0X7snTgWb0Eq0Kg5EZy92yRkOhX7KEXm7eHers5mSZBB7woZDkCtqlgmIUsX5tGXCz7v8NOZd4A/q1RIbDgfnJ7g/V9rbWLg0B1/QGT1QS4gAuJbUoTsQBXapmiUQqUqWIiV/09C5rt1uVqiTxAHxr8Uu2vyPYBgQduy/l4SHEIEi6kRyBEzZE2MLBv6gGFilEuo8sOkBREwzdyprCq5lykyfUY6ZisiZtefahQtico6NUITYrKixqwXkXr15uVJyDAQGAHOoxi//aeP6dyUlvWKq/RYa4NDeTYyBcRM9Ik2NBar8luBOtMCPuPI9AAugoyrNTiYhctNI3jjE5D5DigyGv2wlUKlSi1mHPmSoc2orZAhZvd/I0sdygRkXOyMo3MwhGx6ls37t4LUuYcs7Gh1XkWQ6dILY9AhBcsoMjMG9EPOOotDI0rtamQmAdTmqyxM5GW7XXq3oEIXeQhWHFj0AYP/KDI7qb1Pxb/rHzjFbUZmwdauaEp2U+OvSMzZ3s8lHll4nskOO+uiL7JVcKD8FcRnaPBnVRrBGykclFZrK5fye7m9GAWl10N1C57xRzlE52VEY+1cHgS3Ag/01RSRlfUqU+POldJJjS+thmxr7ROyAGgnvEqK7M3K7+5Db/6voL97vxDaJwzkhgAAAABJRU5ErkJggg==" y="458.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="1111" y="501.7832">Secondary</text></g><!--MD5=[a2cf6d04c6c72a2d01c95ffe305e11ba]
+entity mongodb_ugc_secondary_2--><g id="elem_mongodb_ugc_secondary_2"><path d="M944,444.25 C944,434.25 1005,434.25 1005,434.25 C1005,434.25 1066,434.25 1066,444.25 L1066,499.8594 C1066,509.8594 1005,509.8594 1005,509.8594 C1005,509.8594 944,509.8594 944,499.8594 L944,444.25 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M944,444.25 C944,454.25 1005,454.25 1005,454.25 C1005,454.25 1066,454.25 1066,444.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="29" width="102" x="954" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAdCAIAAADXWI43AAACrUlEQVR4Xu2ZPU4cQRCF90STERFYIkEWyWaQkCEnREZy4AB15MQx4gJ7gA1IiRw5XckX8A18A/y8D9fW1KvpmQXBsqKlJ0RXV9d0f139M7Oz8vCraSvNQvlytfz47bP6NZl6yM7vbuc315S6NlEbZFe/7wnrdPEdidaoDWmDzPKLyCBA1AZNj8iMl0fWNrVUI8ja8lT9Q+Z5BWQt0VTjyFqiBc2+/vlZR9YSLWgWeDVko5qE7OLHQlvukcJwvOay7agPZVeuSchg0X7snTgWb0Eq0Kg5EZy92yRkOhX7KEXm7eHers5mSZBB7woZDkCtqlgmIUsX5tGXCz7v8NOZd4A/q1RIbDgfnJ7g/V9rbWLg0B1/QGT1QS4gAuJbUoTsQBXapmiUQqUqWIiV/09C5rt1uVqiTxAHxr8Uu2vyPYBgQduy/l4SHEIEi6kRyBEzZE2MLBv6gGFilEuo8sOkBREwzdyprCq5lykyfUY6ZisiZtefahQtico6NUITYrKixqwXkXr15uVJyDAQGAHOoxi//aeP6dyUlvWKq/RYa4NDeTYyBcRM9Ik2NBar8luBOtMCPuPI9AAugoyrNTiYhctNI3jjE5D5DigyGv2wlUKlSi1mHPmSoc2orZAhZvd/I0sdygRkXOyMo3MwhGx6ls37t4LUuYcs7Gh1XkWQ6dILY9AhBcsoMjMG9EPOOotDI0rtamQmAdTmqyxM5GW7XXq3oEIXeQhWHFj0AYP/KDI7qb1Pxb/rHzjFbUZmwdauaEp2U+OvSMzZ3s8lHll4nskOO+uiL7JVcKD8FcRnaPBnVRrBGykclFZrK5fye7m9GAWl10N1C57xRzlE52VEY+1cHgS3Ag/01RSRlfUqU+POldJJjS+thmxr7ROyAGgnvEqK7M3K7+5Db/6voL97vxDaJwzkhgAAAABJRU5ErkJggg==" y="458.25"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="954" y="501.7832">Secondary</text></g><!--MD5=[33faefab1f655ed4f2c3458a495c846a]
+entity postgres_primary--><g id="elem_postgres_primary"><path d="M242.5,907.75 C242.5,897.75 278,897.75 278,897.75 C278,897.75 313.5,897.75 313.5,907.75 L313.5,986.3594 C313.5,996.3594 278,996.3594 278,996.3594 C278,996.3594 242.5,996.3594 242.5,986.3594 L242.5,907.75 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M242.5,907.75 C242.5,917.75 278,917.75 278,917.75 C278,917.75 313.5,917.75 313.5,907.75 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="52" width="51" x="252.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA0CAIAAACoxpfFAAAECklEQVR4XsWZPW4UQRCF9xqTEYFICJAsIU2ARIIsJ2QmIbNIiEAicIAqIiG2uIAPQEBKRESKxAW4ATeA8rydmpp63dU91iC3nqzd7uqqb/q3dnyQv7/+q04/vh1K5cGTx2zsdeAq1b2H96MnVzSYWV58v47NpaIOX1x9ePX18/n1p5Pzs9DKAMJkZu3Dm9Q1Q2sNW6re/f7GlUGKCyc8hAvZ5Z8fMPLNWqkBVPoh9FTKR8+feksMiY5iMNaHHF+/ZJmZduTQC5k2WKSaL+jZ+wsfmw28ZdNMn8QAPNyRzGo1JHdmgUxHiJtYxqdzx60Qw92Q6Rzbd+7D0gB5mKLwMDpx3AQFuBuyYV7vbF2UdA9t0JufXyQdaYNbyPoHDMuC6zuFDavzy03j7Fx51OCAUyCxDrr1gJnyUQCZloPNKxuxsJa5fqtkOu24Hk0LGQ4LNmJhoXD9ViV+VmTYa2zEyidik9SP8oVKbMRhulc2k7G7rdJwKhwioQn7Q5F0K9yQjVNIdsGS6XrAk3glB4FJT7LQi4OiEut+2w7wTu0Gw9M3LzSZNzUOgeJEyXyH3pIsfLWcgu25o30obgLxdwDyEOmbkeALC1Y9aF8OEzoGA67BdC9k+MJ2RUn9QM67s/9ajcFsJqutp6RpnDddsA+HraxziyMZUkr2GJSEl9Z6yMnCVC5k+M7ugiSdzSTDgYG/cBE+fDWsI5myo6p5VSf0TbKQpDCZH7AjmYdlj6b8Opf6RHsbm0G/8ozBPq/I8BOI3ZmS7DKHNvkzzA+hrNf+isyytGQVJ+F569WEcKOjRE2YyoUMbdatJqmk/9J909uZbLH0r6ZhASuSwY7dmcydV/MCCLKIGDaEbpChuTgqECY0DA+6s3FNlqrAmy2kKpn0TSiOxHAy1Q65mkJQ1GDb6lZA8hLJmjs0+IWa5wXLIhaLrpAVmeUdCZx55FcynXzcMQhwKzLUJj9YfE8U1FgTd2F5S9sEOpWW9JbJkjcJvpuWk/Mzb5acduyHR9e2BU4QJY5kFlvWexCrUlehPaXHQjz/NREsL6f3X8XQeMgCGS54rAbsF2BpB2BpZXho68scLJmwfET/FtKaCmQyzynYfWf/ZlBd+ADJ6mQy4/AlDGGZDJFi17nYuzjIQzNHEC6MYeIIIxdUJYPsrazVeERfOskwMEPp0A9qkHVKd1bPET26Dc5OgvYh0zlCMEa5YzL8V0D6yOwxcu1DZr8kGIXJitkYax8ymSeomXTA8g7IktxudK/H/ElZ085kec6NA6xnwGR3MkmXmqwTrVy7kdl7r9qEwmygK6Sm3chkilp8yxcSL+5Y1J5kp9M/Wbke2oQl+5LJnKQM01tpHT+sKhTLNDu1MxlkNChs0KN/7pWpdlE/7agAAAAASUVORK5CYII=" y="921.75"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="252.5" y="988.2832">Primary</text></g><!--MD5=[6cc0a003b0672d1f0546240fd0e6ff9b]
+entity postgres_secondary_1--><g id="elem_postgres_secondary_1"><path d="M230,1126.75 C230,1116.75 274,1116.75 274,1116.75 C274,1116.75 318,1116.75 318,1126.75 L318,1205.3594 C318,1215.3594 274,1215.3594 274,1215.3594 C274,1215.3594 230,1215.3594 230,1205.3594 L230,1126.75 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M230,1126.75 C230,1136.75 274,1136.75 274,1136.75 C274,1136.75 318,1136.75 318,1126.75 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="52" width="51" x="240" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA0CAIAAACoxpfFAAAECklEQVR4XsWZPW4UQRCF9xqTEYFICJAsIU2ARIIsJ2QmIbNIiEAicIAqIiG2uIAPQEBKRESKxAW4ATeA8rydmpp63dU91iC3nqzd7uqqb/q3dnyQv7/+q04/vh1K5cGTx2zsdeAq1b2H96MnVzSYWV58v47NpaIOX1x9ePX18/n1p5Pzs9DKAMJkZu3Dm9Q1Q2sNW6re/f7GlUGKCyc8hAvZ5Z8fMPLNWqkBVPoh9FTKR8+feksMiY5iMNaHHF+/ZJmZduTQC5k2WKSaL+jZ+wsfmw28ZdNMn8QAPNyRzGo1JHdmgUxHiJtYxqdzx60Qw92Q6Rzbd+7D0gB5mKLwMDpx3AQFuBuyYV7vbF2UdA9t0JufXyQdaYNbyPoHDMuC6zuFDavzy03j7Fx51OCAUyCxDrr1gJnyUQCZloPNKxuxsJa5fqtkOu24Hk0LGQ4LNmJhoXD9ViV+VmTYa2zEyidik9SP8oVKbMRhulc2k7G7rdJwKhwioQn7Q5F0K9yQjVNIdsGS6XrAk3glB4FJT7LQi4OiEut+2w7wTu0Gw9M3LzSZNzUOgeJEyXyH3pIsfLWcgu25o30obgLxdwDyEOmbkeALC1Y9aF8OEzoGA67BdC9k+MJ2RUn9QM67s/9ajcFsJqutp6RpnDddsA+HraxziyMZUkr2GJSEl9Z6yMnCVC5k+M7ugiSdzSTDgYG/cBE+fDWsI5myo6p5VSf0TbKQpDCZH7AjmYdlj6b8Opf6RHsbm0G/8ozBPq/I8BOI3ZmS7DKHNvkzzA+hrNf+isyytGQVJ+F569WEcKOjRE2YyoUMbdatJqmk/9J909uZbLH0r6ZhASuSwY7dmcydV/MCCLKIGDaEbpChuTgqECY0DA+6s3FNlqrAmy2kKpn0TSiOxHAy1Q65mkJQ1GDb6lZA8hLJmjs0+IWa5wXLIhaLrpAVmeUdCZx55FcynXzcMQhwKzLUJj9YfE8U1FgTd2F5S9sEOpWW9JbJkjcJvpuWk/Mzb5acduyHR9e2BU4QJY5kFlvWexCrUlehPaXHQjz/NREsL6f3X8XQeMgCGS54rAbsF2BpB2BpZXho68scLJmwfET/FtKaCmQyzynYfWf/ZlBd+ADJ6mQy4/AlDGGZDJFi17nYuzjIQzNHEC6MYeIIIxdUJYPsrazVeERfOskwMEPp0A9qkHVKd1bPET26Dc5OgvYh0zlCMEa5YzL8V0D6yOwxcu1DZr8kGIXJitkYax8ymSeomXTA8g7IktxudK/H/ElZ085kec6NA6xnwGR3MkmXmqwTrVy7kdl7r9qEwmygK6Sm3chkilp8yxcSL+5Y1J5kp9M/Wbke2oQl+5LJnKQM01tpHT+sKhTLNDu1MxlkNChs0KN/7pWpdlE/7agAAAAASUVORK5CYII=" y="1140.75"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="240" y="1207.2832">Secondary</text></g><!--MD5=[05c8c61fb0159f71ee760af2c60aa4b2]
+entity postgres_secondary_2--><g id="elem_postgres_secondary_2"><path d="M107,1126.75 C107,1116.75 151,1116.75 151,1116.75 C151,1116.75 195,1116.75 195,1126.75 L195,1205.3594 C195,1215.3594 151,1215.3594 151,1215.3594 C151,1215.3594 107,1215.3594 107,1205.3594 L107,1126.75 " fill="#7FFFD4" style="stroke:#000000;stroke-width:0.5;"/><path d="M107,1126.75 C107,1136.75 151,1136.75 151,1136.75 C151,1136.75 195,1136.75 195,1126.75 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><image height="52" width="51" x="117" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA0CAIAAACoxpfFAAAECklEQVR4XsWZPW4UQRCF9xqTEYFICJAsIU2ARIIsJ2QmIbNIiEAicIAqIiG2uIAPQEBKRESKxAW4ATeA8rydmpp63dU91iC3nqzd7uqqb/q3dnyQv7/+q04/vh1K5cGTx2zsdeAq1b2H96MnVzSYWV58v47NpaIOX1x9ePX18/n1p5Pzs9DKAMJkZu3Dm9Q1Q2sNW6re/f7GlUGKCyc8hAvZ5Z8fMPLNWqkBVPoh9FTKR8+feksMiY5iMNaHHF+/ZJmZduTQC5k2WKSaL+jZ+wsfmw28ZdNMn8QAPNyRzGo1JHdmgUxHiJtYxqdzx60Qw92Q6Rzbd+7D0gB5mKLwMDpx3AQFuBuyYV7vbF2UdA9t0JufXyQdaYNbyPoHDMuC6zuFDavzy03j7Fx51OCAUyCxDrr1gJnyUQCZloPNKxuxsJa5fqtkOu24Hk0LGQ4LNmJhoXD9ViV+VmTYa2zEyidik9SP8oVKbMRhulc2k7G7rdJwKhwioQn7Q5F0K9yQjVNIdsGS6XrAk3glB4FJT7LQi4OiEut+2w7wTu0Gw9M3LzSZNzUOgeJEyXyH3pIsfLWcgu25o30obgLxdwDyEOmbkeALC1Y9aF8OEzoGA67BdC9k+MJ2RUn9QM67s/9ajcFsJqutp6RpnDddsA+HraxziyMZUkr2GJSEl9Z6yMnCVC5k+M7ugiSdzSTDgYG/cBE+fDWsI5myo6p5VSf0TbKQpDCZH7AjmYdlj6b8Opf6RHsbm0G/8ozBPq/I8BOI3ZmS7DKHNvkzzA+hrNf+isyytGQVJ+F569WEcKOjRE2YyoUMbdatJqmk/9J909uZbLH0r6ZhASuSwY7dmcydV/MCCLKIGDaEbpChuTgqECY0DA+6s3FNlqrAmy2kKpn0TSiOxHAy1Q65mkJQ1GDb6lZA8hLJmjs0+IWa5wXLIhaLrpAVmeUdCZx55FcynXzcMQhwKzLUJj9YfE8U1FgTd2F5S9sEOpWW9JbJkjcJvpuWk/Mzb5acduyHR9e2BU4QJY5kFlvWexCrUlehPaXHQjz/NREsL6f3X8XQeMgCGS54rAbsF2BpB2BpZXho68scLJmwfET/FtKaCmQyzynYfWf/ZlBd+ADJ6mQy4/AlDGGZDJFi17nYuzjIQzNHEC6MYeIIIxdUJYPsrazVeERfOskwMEPp0A9qkHVKd1bPET26Dc5OgvYh0zlCMEa5YzL8V0D6yOwxcu1DZr8kGIXJitkYax8ymSeomXTA8g7IktxudK/H/ElZ085kec6NA6xnwGR3MkmXmqwTrVy7kdl7r9qEwmygK6Sm3chkilp8yxcSL+5Y1J5kp9M/Wbke2oQl+5LJnKQM01tpHT+sKhTLNDu1MxlkNChs0KN/7pWpdlE/7agAAAAASUVORK5CYII=" y="1140.75"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="117" y="1207.2832">Secondary</text></g><g id="elem_note5"><path d="M668,225.25 L668,269.3047 A7.5,7.5 0 0 0 675.5,276.8047 L864.5,276.8047 A7.5,7.5 0 0 0 872,269.3047 L872,227.75 L862,217.75 L675.5,217.75 A7.5,7.5 0 0 0 668,225.25 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.5;"/><path d="M862,217.75 L862,224 A3.75,3.75 0 0 0 865.75,227.75 L872,227.75 L862,217.75 " fill="#E5E5E5" style="stroke:#181818;stroke-width:1.0;"/><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="136" x="674" y="236.2451">http-запрос с данными</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="158" x="674" y="252.5967">для подтверждения e-mail</text><text fill="#191919" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="674" y="268.9482">пользователя при регистрации</text></g><!--MD5=[327d8b0cc9017ef0d2f4054fa6547e20]
+entity Manager--><g id="elem_Manager"><ellipse cx="273" cy="75.25" fill="#FFD700" rx="8" ry="8" style="stroke:#000000;stroke-width:0.5;"/><line style="stroke:#000000;stroke-width:0.5;" x1="271.0562" x2="280.7603" y1="83.0103" y2="73.3062"/><path d="M273,83.25 L273,110.25 M260,91.25 L286,91.25 M273,110.25 L260,125.25 M273,110.25 L286,125.25 " fill="none" style="stroke:#000000;stroke-width:0.5;"/><text fill="#191919" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="245" y="141.2832">Manager</text></g><!--MD5=[76c9789e86ee57fa5e8e6616b4b48b34]
+entity external_email_service--><g id="elem_external_email_service"><rect fill="#F0F8FF" height="143.6563" rx="7.5" ry="7.5" style="stroke:#0000FF;stroke-width:0.5;" width="201" x="140.5" y="1281.75"/><rect fill="#F0F8FF" height="10" style="stroke:#0000FF;stroke-width:0.5;" width="15" x="321.5" y="1286.75"/><rect fill="#F0F8FF" height="2" style="stroke:#0000FF;stroke-width:0.5;" width="4" x="319.5" y="1288.75"/><rect fill="#F0F8FF" height="2" style="stroke:#0000FF;stroke-width:0.5;" width="4" x="319.5" y="1292.75"/><text fill="#0000FF" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="121" x="155.5" y="1316.2832">Внешний сервис</text><text fill="#0000FF" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="116" x="155.5" y="1333.8926">e-mail рассылок</text><line style="stroke:#0000FF;stroke-width:1.0;" x1="141.5" x2="340.5" y1="1336.9688" y2="1336.9688"/><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="155.5" y="1355.502">REST API для отправки</text><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="155.5" y="1373.1113">почтовых сообщений и</text><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="155.5" y="1390.7207">отслеживания доставки,</text><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="155.5" y="1408.3301">прочтения</text></g><!--MD5=[daf6cd0ab84d092974f911a8ce2b62bb]
+entity ws_clients--><g id="elem_ws_clients"><rect fill="#F0F8FF" height="90.8281" rx="7.5" ry="7.5" style="stroke:#0000FF;stroke-width:0.5;" width="223" x="1271.5" y="1120.75"/><rect fill="#F0F8FF" height="10" style="stroke:#0000FF;stroke-width:0.5;" width="15" x="1474.5" y="1125.75"/><rect fill="#F0F8FF" height="2" style="stroke:#0000FF;stroke-width:0.5;" width="4" x="1472.5" y="1127.75"/><rect fill="#F0F8FF" height="2" style="stroke:#0000FF;stroke-width:0.5;" width="4" x="1472.5" y="1131.75"/><text fill="#0000FF" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="144" x="1286.5" y="1155.2832">WebSocket-клиенты</text><line style="stroke:#0000FF;stroke-width:1.0;" x1="1272.5" x2="1493.5" y1="1158.3594" y2="1158.3594"/><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="1286.5" y="1176.8926">Отображение уведомлений</text><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="1286.5" y="1194.502">в браузере клиента</text></g><!--MD5=[d84bef186a11c65403a71c5c28475481]
+link nginx_notification_admin to gunicorn--><g id="link_nginx_notification_admin_gunicorn"><path d="M244.94,277.03 C233.47,290.47 221.22,307.34 214,324.75 C212.4531,328.4813 211.0247,332.3079 209.706,336.2041 C209.3763,337.1781 209.0535,338.1565 208.7374,339.1388 C208.5793,339.63 208.4229,340.1221 208.2682,340.6152 " fill="none" id="nginx_notification_admin-gunicorn" style="stroke:#191919;stroke-width:2.0;"/><polygon fill="#191919" points="208.2682,340.6152,214.7791,333.2254,209.7651,335.8445,207.146,330.8305,208.2682,340.6152" style="stroke:#191919;stroke-width:2.0;"/><polygon fill="#191919" points="248.47,272.97,239.5421,277.1284,245.1856,276.74,245.574,282.3835,248.47,272.97" style="stroke:#191919;stroke-width:2.0;"/></g><!--MD5=[e0c4167c672e5e19d6f4ef64b187db21]
+link nginx_notification to uvicorn--><g id="link_nginx_notification_uvicorn"><path d="M708.81,503.04 C702.74,528.8 694.1,567.09 688,600.75 C687.3475,604.3512 686.7034,608.0109 686.069,611.7081 C685.9104,612.6324 685.7525,613.5591 685.5951,614.4878 C685.5165,614.9521 685.4379,615.417 685.3596,615.8823 C685.3204,616.1149 685.2813,616.3477 685.2422,616.5806 " fill="none" id="nginx_notification-uvicorn" style="stroke:#191919;stroke-width:2.0;"/><polygon fill="#191919" points="685.2422,616.5806,690.6769,608.367,686.0699,611.6496,682.7873,607.0426,685.2422,616.5806" style="stroke:#191919;stroke-width:2.0;"/><polygon fill="#191919" points="709.98,498.06,704.0083,505.8919,708.8245,502.9246,711.7918,507.7408,709.98,498.06" style="stroke:#191919;stroke-width:2.0;"/></g><!--MD5=[e03ee4c3fe85fea5a59ad7339202c9dc]
+link mongodb_notification_primary to mongodb_notification_secondary_1--><g id="link_mongodb_notification_primary_mongodb_notification_secondary_1"><path d="M848,990.82 C848,1029.06 848,1084.91 848,1123.04 " fill="none" id="mongodb_notification_primary-mongodb_notification_secondary_1" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="848,1128.07,852,1119.07,848,1123.07,844,1119.07,848,1128.07" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="848,985.55,844,994.55,848,990.55,852,994.55,848,985.55" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[aeca8040bc193204b09e957dd23ae543]
+link mongodb_notification_primary to mongodb_notification_secondary_2--><g id="link_mongodb_notification_primary_mongodb_notification_secondary_2"><path d="M897.17,989.06 C907.34,998.71 917.52,1009.38 926,1020.25 C950.93,1052.23 972.42,1093.13 986.67,1123.33 " fill="none" id="mongodb_notification_primary-mongodb_notification_secondary_2" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="988.9,1128.09,988.7171,1118.2428,986.7848,1123.5594,981.4682,1121.6272,988.9,1128.09" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="893.43,985.55,897.2613,994.6231,897.0781,988.9692,902.732,988.7861,893.43,985.55" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[8e611bf2ff7d82cb5b98bade8c8bc149]
+link mongodb_notification_primary to mongodb_notification_secondary_3--><g id="link_mongodb_notification_primary_mongodb_notification_secondary_3"><path d="M914.27,955.46 C964.95,963.86 1034.2,981.87 1083,1020.25 C1116.88,1046.89 1140.24,1090.86 1153.97,1123.41 " fill="none" id="mongodb_notification_primary-mongodb_notification_secondary_3" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="1155.93,1128.13,1156.1867,1118.2845,1154.0191,1123.5096,1148.794,1121.342,1155.93,1128.13" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="909.12,954.63,917.378,959.997,914.0576,955.4172,918.6375,952.0968,909.12,954.63" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[3b1572421f608ca67e7c473ec92e1265]
+link crontab to script_scheduler--><g id="link_crontab_script_scheduler"><path d="M304.59,690.15 C321.39,660.43 347.48,622.77 381,600.75 C387.67,596.37 390.57,597.64 398.5,596.75 C429.86,593.21 438.14,593.21 469.5,596.75 C477.43,597.64 480.83,595.69 487,600.75 C512.64,621.76 527.73,656.03 536.36,684.58 " fill="none" id="crontab-to-script_scheduler" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="537.8,689.47,539.0932,679.7064,536.3869,684.6739,531.4194,681.9675,537.8,689.47" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[db3022fe2ba200c54781fb11f0243717]
+link redis_scheduler to script_scheduler--><g id="link_redis_scheduler_script_scheduler"><path d="M474.95,734.25 C483.18,734.25 491.41,734.25 499.63,734.25 " fill="none" id="redis_scheduler-script_scheduler" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="504.76,734.25,495.76,730.25,499.76,734.25,495.76,738.25,504.76,734.25" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="469.75,734.25,478.75,738.25,474.75,734.25,478.75,730.25,469.75,734.25" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[cdb5b641744bda211a2f094f19050866]
+link ws_workers to redis_workers--><g id="link_ws_workers_redis_workers"><path d="M587.68,1223.35 C561.48,1251.45 530.28,1284.89 506.18,1310.74 " fill="none" id="ws_workers-redis_workers" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="502.67,1314.5,511.7356,1310.651,506.0821,1310.8452,505.8879,1305.1917,502.67,1314.5" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="591.35,1219.42,582.2844,1223.269,587.9379,1223.0748,588.1321,1228.7283,591.35,1219.42" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[d7eb3af41fac5e6acee1a714fc6df661]
+link em_workers to redis_workers--><g id="link_em_workers_redis_workers"><path d="M464.24,1224.73 C464.78,1249.83 465.41,1278.99 465.93,1303.13 " fill="none" id="em_workers-redis_workers" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="466.04,1308.2,469.8333,1299.1109,465.9257,1303.2013,461.8354,1299.2938,466.04,1308.2" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="464.12,1219.42,460.3008,1228.4982,464.22,1224.419,468.2992,1228.3382,464.12,1219.42" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[2ef4ffa7db3c3f773ab30594ee264e41]
+link ugc_service to movies_admin_service--><!--MD5=[7088806cb6ad2edee53be5757fd9c9dc]
+link movies_admin_service to auth_service--><!--MD5=[d252a7b152e6d002b101707f9e85762e]
+link auth_service to async_service--><!--MD5=[828517b4d99e9e7d05fe95778a0ac3a0]
+link mongodb_ugc_primary to mongodb_ugc_secondary_1--><g id="link_mongodb_ugc_primary_mongodb_ugc_secondary_1"><path d="M1097.89,290.27 C1111.99,330.08 1133.06,389.55 1147.15,429.34 " fill="none" id="mongodb_ugc_primary-mongodb_ugc_secondary_1" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="1148.83,434.09,1149.5832,424.27,1147.1547,429.379,1142.0456,426.9505,1148.83,434.09" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="1096.13,285.32,1095.3674,295.1393,1097.8008,290.0326,1102.9075,292.466,1096.13,285.32" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[ad408c6528258e7f5d350e34f17906c2]
+link mongodb_ugc_primary to mongodb_ugc_secondary_2--><g id="link_mongodb_ugc_primary_mongodb_ugc_secondary_2"><path d="M1068.3,290.27 C1054.38,330.08 1033.58,389.55 1019.66,429.34 " fill="none" id="mongodb_ugc_primary-mongodb_ugc_secondary_2" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="1018,434.09,1024.7583,426.9258,1019.6581,429.3729,1017.211,424.2728,1018,434.09" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="1070.03,285.32,1063.2911,292.5024,1068.3846,290.0415,1070.8455,295.135,1070.03,285.32" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[3004c000e32457b514b10dc67d11dad9]
+link postgres_primary to postgres_secondary_1--><g id="link_postgres_primary_postgres_secondary_1"><path d="M277.01,1002.06 C276.39,1035.41 275.61,1078.09 274.99,1111.44 " fill="none" id="postgres_primary-postgres_secondary_1" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="274.89,1116.71,279.0692,1107.7918,274.99,1111.711,271.0708,1107.6318,274.89,1116.71" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="277.1,996.95,272.9463,1005.8801,277.0143,1001.9493,280.9451,1006.0172,277.1,996.95" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[15ec3711806a5a36be7f369a5f4cbb8d]
+link postgres_primary to postgres_secondary_2--><g id="link_postgres_primary_postgres_secondary_2"><path d="M238.97,985.95 C229.37,996.46 219.66,1008.3 212,1020.25 C193.82,1048.61 178.99,1083.31 168.51,1111.65 " fill="none" id="postgres_primary-postgres_secondary_2" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="166.74,1116.51,173.5818,1109.4255,168.4533,1111.8127,166.0661,1106.6842,166.74,1116.51" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="242.5,982.14,233.4506,986.0269,239.1032,985.8091,239.3211,991.4617,242.5,982.14" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[08471573ec97809bf49f6ae022b88bfd]
+link Manager to nginx_notification_admin--><g id="link_Manager_nginx_notification_admin"><path d="M273,150.1 C273,171.51 273,196.83 273,216.1 " fill="none" id="Manager-nginx_notification_admin" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="273,221.37,277,212.37,273,216.37,269,212.37,273,221.37" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="273,144.87,269,153.87,273,149.87,277,153.87,273,144.87" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[a3ea7e2c86e5c4a40777b6ee9d4cac51]
+link django to postgres_primary--><g id="link_django_postgres_primary"><path d="M266.68,533.71 C257.95,555.33 244.97,577.98 226,592.75 C211.69,603.89 197.49,586.73 186,600.75 C118.37,683.24 148.57,740.87 186,840.75 C196.55,868.91 218.4,894.5 238.16,913.42 " fill="none" id="django-postgres_primary" style="stroke:#A52A2A;stroke-width:2.0;"/><polygon fill="#A52A2A" points="242.08,917.11,238.2677,908.0289,238.439,913.6832,232.7847,913.8545,242.08,917.11" style="stroke:#A52A2A;stroke-width:2.0;"/><polygon fill="#A52A2A" points="268.58,528.82,261.5859,535.7541,266.765,533.4789,269.0402,538.6581,268.58,528.82" style="stroke:#A52A2A;stroke-width:2.0;"/></g><!--MD5=[8c62478477564613697199d2c7245570]
+link notification_web_api to mongodb_notification_primary--><g id="link_notification_web_api_mongodb_notification_primary"><path d="M791.95,782 C804.42,818.53 821.59,868.86 833.63,904.14 " fill="none" id="notification_web_api-mongodb_notification_primary" style="stroke:#A52A2A;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A52A2A" points="835.37,909.24,836.2478,899.4303,833.7546,904.5081,828.6768,902.015,835.37,909.24" style="stroke:#A52A2A;stroke-width:4.0;"/><polygon fill="#A52A2A" points="790.22,776.94,789.3332,786.7489,791.831,781.6733,796.9066,784.1712,790.22,776.94" style="stroke:#A52A2A;stroke-width:4.0;"/></g><!--MD5=[20985b372bd1b8730c8df865ad121393]
+link ugc_service to rabbitmq_reporting_events--><g id="link_ugc_service_rabbitmq_reporting_events"><path d="M1472.9331,284.9446 C1471.4244,291.8112 1469.7613,299.3803 1467.995,307.4188 C1460.93,339.5725 1452.215,379.235 1445.13,411.48 " fill="none" id="ugc_service-rabbitmq_reporting_events" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1451.92,413.19,1440.79,431.23,1438.25,410.19,1451.92,413.19" style="stroke:#008000;stroke-width:4.0;"/><polygon fill="#008000" points="1472.9331,284.9446,1468.2862,292.1144,1474.1464,293.402,1472.9331,284.9446" style="stroke:#008000;stroke-width:4.0;"/></g><!--MD5=[44b4561a0e961685ee7f535f40fd51f9]
+link rabbitmq_reporting_events to movies_admin_service--><g id="link_rabbitmq_reporting_events_movies_admin_service"><path d="M1458.13,531.82 C1474.945,569.51 1496.9425,618.8125 1514.965,659.2063 C1519.4706,669.3047 1523.7278,678.8463 1527.5935,687.5105 C1528.5599,689.6766 1529.5018,691.7878 1530.4171,693.8391 C1530.8747,694.8648 1531.3256,695.8755 1531.7696,696.8707 C1531.9916,697.3682 1532.2119,697.8619 1532.4304,698.3516 C1532.5396,698.5964 1532.6484,698.8403 1532.7567,699.0831 " fill="none" id="rabbitmq_reporting_events-movies_admin_service" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1532.7567,699.0831,1532.2369,690.555,1526.7575,692.9996,1532.7567,699.0831" style="stroke:#008000;stroke-width:4.0;"/><polygon fill="none" points="1451.63,534.42,1449.87,513.31,1464.41,528.72,1451.63,534.42" style="stroke:#008000;stroke-width:4.0;"/></g><!--MD5=[d031ebdc013719c5a051ae93cf996864]
+link rabbitmq_reporting_events to notification_web_api--><g id="link_rabbitmq_reporting_events_notification_web_api"><path d="M1344.44,524.16 C1307.6,547.37 1263.85,573.83 1222,592.75 C1103.57,646.28 959.17,686.43 867.2,709.81 " fill="none" id="rabbitmq_reporting_events-notification_web_api" style="stroke:#FF0000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="868.66,716.67,847.55,714.76,865.24,703.09,868.66,716.67" style="stroke:#FF0000;stroke-width:4.0;"/><polygon fill="#FF0000" points="1361.39,513.42,1353.0271,515.1698,1356.2398,520.2373,1361.39,513.42" style="stroke:#FF0000;stroke-width:4.0;"/></g><!--MD5=[d031ebdc013719c5a051ae93cf996864]
+link rabbitmq_reporting_events to notification_web_api--><g id="link_rabbitmq_reporting_events_notification_web_api"><path d="M1374.77,525.11 C1341.41,548.09 1298.28,574.09 1257,592.75 C1127.38,651.34 966.66,693.89 867.49,715.99 " fill="none" id="rabbitmq_reporting_events-notification_web_api-1" style="stroke:#FF0000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="868.93,722.84,847.9,720.26,865.95,709.16,868.93,722.84" style="stroke:#FF0000;stroke-width:4.0;"/><polygon fill="#FF0000" points="1391.26,513.42,1382.9979,515.5965,1386.4662,520.4924,1391.26,513.42" style="stroke:#FF0000;stroke-width:4.0;"/></g><!--MD5=[08e139d1d6dac741a44338f9c0cda18f]
+link rabbitmq_message_queues to ws_workers--><g id="link_rabbitmq_message_queues_ws_workers"><path d="M585.03,1008.18 C590.94,1034.67 599.44,1066.02 608.16,1093.73 " fill="none" id="rabbitmq_message_queues-ws_workers" style="stroke:#FF0000;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="614.94,1091.95,614.51,1113.13,601.63,1096.3,614.94,1091.95" style="stroke:#FF0000;stroke-width:3.0;"/><polygon fill="#FF0000" points="580.92,988.3,579.6051,996.7422,585.4804,995.5252,580.92,988.3" style="stroke:#FF0000;stroke-width:3.0;"/></g><!--MD5=[08e139d1d6dac741a44338f9c0cda18f]
+link rabbitmq_message_queues to ws_workers--><g id="link_rabbitmq_message_queues_ws_workers"><path d="M608.48,1007.25 C617.38,1033.87 626.35,1065.55 632.96,1093.54 " fill="none" id="rabbitmq_message_queues-ws_workers-1" style="stroke:#FF0000;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="639.81,1092.09,637.32,1113.13,626.14,1095.13,639.81,1092.09" style="stroke:#FF0000;stroke-width:3.0;"/><polygon fill="#FF0000" points="601.83,988.3,601.645,996.842,607.3073,994.8574,601.83,988.3" style="stroke:#FF0000;stroke-width:3.0;"/></g><!--MD5=[ced23e26b375165cc553e5a8ddb912b5]
+link rabbitmq_message_queues to em_workers--><g id="link_rabbitmq_message_queues_em_workers"><path d="M537.81,1005.39 C521.46,1032.79 503.41,1065.87 488.95,1094.81 " fill="none" id="rabbitmq_message_queues-em_workers" style="stroke:#FF0000;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="495.08,1098.22,480.02,1113.13,482.49,1092.09,495.08,1098.22" style="stroke:#FF0000;stroke-width:3.0;"/><polygon fill="#FF0000" points="548.25,988.3,541.5175,993.5605,546.6365,996.6903,548.25,988.3" style="stroke:#FF0000;stroke-width:3.0;"/></g><!--MD5=[ced23e26b375165cc553e5a8ddb912b5]
+link rabbitmq_message_queues to em_workers--><g id="link_rabbitmq_message_queues_em_workers"><path d="M560.58,1006.78 C547.38,1034.25 529.81,1067.18 513.09,1095.89 " fill="none" id="rabbitmq_message_queues-em_workers-1" style="stroke:#FF0000;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="519.07,1099.52,502.83,1113.13,507.04,1092.36,519.07,1099.52" style="stroke:#FF0000;stroke-width:3.0;"/><polygon fill="#FF0000" points="569.16,988.3,563.0708,994.2934,568.5131,996.8195,569.16,988.3" style="stroke:#FF0000;stroke-width:3.0;"/></g><!--MD5=[9fee1efa32977e776ae6c37e33ed8bb2]
+link em_workers to external_email_service--><g id="link_em_workers_external_email_service"><path d="M394.16,1221.67 C382.04,1231.44 369.6,1241.58 358,1251.25 C347.6,1259.91 336.77,1269.09 326.08,1278.25 " fill="none" id="em_workers-external_email_service" style="stroke:#0000FF;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#0000FF" points="322.15,1281.62,331.5812,1278.7823,325.9402,1278.359,326.3636,1272.718,322.15,1281.62" style="stroke:#0000FF;stroke-width:3.0;"/><polygon fill="#0000FF" points="398.26,1218.38,388.7368,1220.8915,394.3598,1221.5087,393.7427,1227.1318,398.26,1218.38" style="stroke:#0000FF;stroke-width:3.0;"/></g><!--MD5=[ca73559ad5c16325329de173bf0c63ae]
+link notification_web_api to rabbitmq_message_queues--><g id="link_notification_web_api_rabbitmq_message_queues"><path d="M737.67,793.4 C726.24,809.32 713.22,826.19 700,840.75 C683.55,858.87 664.19,877.04 645.87,893.06 " fill="none" id="notification_web_api-rabbitmq_message_queues" style="stroke:#008000;stroke-width:8.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="650.22,898.55,630.48,906.25,641.11,887.92,650.22,898.55" style="stroke:#008000;stroke-width:8.0;"/><polygon fill="#008000" points="749.16,776.97,742.1172,781.8072,747.0344,785.2454,749.16,776.97" style="stroke:#008000;stroke-width:8.0;"/></g><!--MD5=[52ae5367683ccac6fa070c04c8b7e535]
+link nginx_notification_admin to nginx_notification--><g id="link_nginx_notification_admin_nginx_notification"><path d="M326.25,275.06 C411.47,317.95 577.53,401.55 662.75,444.44 " fill="none" id="nginx_notification_admin-nginx_notification" style="stroke:#191919;stroke-width:2.0;"/><polygon fill="#191919" points="667.24,446.71,660.9985,439.0914,662.7736,444.4625,657.4025,446.2376,667.24,446.71" style="stroke:#191919;stroke-width:2.0;"/><polygon fill="#191919" points="321.68,272.75,327.9215,280.3686,326.1464,274.9975,331.5175,273.2224,321.68,272.75" style="stroke:#191919;stroke-width:2.0;"/></g><!--MD5=[d44d08b893edd5fb32c6776abcdcd3fb]
+link mongodb_notification_primary to ws_workers--><g id="link_mongodb_notification_primary_ws_workers"><path d="M803.12,989.02 C792.42,999.06 781.17,1009.9 771,1020.25 C743.01,1048.73 713.06,1081.67 688.87,1108.96 " fill="none" id="mongodb_notification_primary-ws_workers" style="stroke:#A52A2A;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A52A2A" points="685.35,1112.94,694.3112,1108.8538,688.6647,1109.1967,688.3218,1103.5502,685.35,1112.94" style="stroke:#A52A2A;stroke-width:4.0;"/><polygon fill="#A52A2A" points="807.03,985.36,797.7217,988.5779,803.3752,988.7721,803.181,994.4256,807.03,985.36" style="stroke:#A52A2A;stroke-width:4.0;"/></g><!--MD5=[224e753a56134e8dc5e85b635fe7e369]
+link mongodb_notification_primary to em_workers--><g id="link_mongodb_notification_primary_em_workers"><path d="M796.5,988.07 C781.35,997.74 764.2,1006.84 747,1012.25 C709.02,1024.2 603.05,1001.36 568,1020.25 C532.4,1039.44 505.87,1076.57 488.38,1108.46 " fill="none" id="mongodb_notification_primary-em_workers" style="stroke:#A52A2A;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A52A2A" points="485.87,1113.12,493.6611,1107.0952,488.2422,1108.7186,486.6188,1103.2996,485.87,1113.12" style="stroke:#A52A2A;stroke-width:4.0;"/><polygon fill="#A52A2A" points="800.73,985.33,791,986.8555,796.5306,988.0439,795.3422,993.5745,800.73,985.33" style="stroke:#A52A2A;stroke-width:4.0;"/></g><!--MD5=[2769fe15df45d509568cfb4564a5168e]
+link postgres_primary to ws_workers--><g id="link_postgres_primary_ws_workers"><path d="M317.96,972.18 C344.06,986.52 379.4,1003.6 413,1012.25 C441.25,1019.52 518.74,1005.67 544,1020.25 C577.89,1039.81 602.08,1076.74 617.69,1108.43 " fill="none" id="postgres_primary-ws_workers" style="stroke:#A52A2A;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A52A2A" points="619.94,1113.07,619.6312,1103.226,617.7671,1108.5669,612.4262,1106.7027,619.94,1113.07" style="stroke:#A52A2A;stroke-width:4.0;"/><polygon fill="#A52A2A" points="313.53,969.72,319.4548,977.5874,317.9008,972.1482,323.34,970.5942,313.53,969.72" style="stroke:#A52A2A;stroke-width:4.0;"/></g><!--MD5=[22f24f7afaef1cd9429164a5ccfde308]
+link postgres_primary to em_workers--><g id="link_postgres_primary_em_workers"><path d="M317.23,994.27 C345.88,1027.88 384.87,1073.61 415.32,1109.32 " fill="none" id="postgres_primary-em_workers" style="stroke:#A52A2A;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A52A2A" points="418.61,1113.19,415.8104,1103.7474,415.3643,1109.3867,409.7251,1108.9406,418.61,1113.19" style="stroke:#A52A2A;stroke-width:4.0;"/><polygon fill="#A52A2A" points="313.67,990.09,316.4521,999.5377,316.9087,993.8993,322.5471,994.3559,313.67,990.09" style="stroke:#A52A2A;stroke-width:4.0;"/></g><!--MD5=[4b46c3863c07f46d216496dacf3ea964]
+link ws_workers to async_service--><g id="link_ws_workers_async_service"><path d="M640,1224.66 C640,1275.29 640,1350.69 640,1414.225 C640,1422.1669 640,1429.9234 640,1437.4229 C640,1441.1727 640,1444.8582 640,1448.4706 C640,1450.2767 640,1452.0646 640,1453.8331 C640,1454.2752 640,1454.7161 640,1455.1558 " fill="none" id="ws_workers-async_service" style="stroke:#191919;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#191919" points="640,1455.1558,644,1446.1558,640,1450.1558,636,1446.1558,640,1455.1558" style="stroke:#191919;stroke-width:3.0;"/><polygon fill="#191919" points="640,1219.62,636,1228.62,640,1224.62,644,1228.62,640,1219.62" style="stroke:#191919;stroke-width:3.0;"/></g><!--MD5=[1686b8b25619f17b89669a625abf4891]
+link em_workers to async_service--><g id="link_em_workers_async_service"><path d="M519.37,1223.72 C526.55,1232.52 533.35,1241.83 539,1251.25 C572.635,1307.365 597.6275,1376.435 614.3375,1432.1138 C618.515,1446.0334 622.1748,1459.1162 625.3227,1470.9503 C626.8966,1476.8674 628.3425,1482.4723 629.6611,1487.7136 C630.3204,1490.3342 630.9478,1492.864 631.5436,1495.2964 C631.6925,1495.9045 631.8394,1496.5065 631.9844,1497.1023 " fill="none" id="em_workers-async_service" style="stroke:#191919;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#191919" points="631.9844,1497.1023,633.7434,1487.4118,630.8024,1492.244,625.9701,1489.303,631.9844,1497.1023" style="stroke:#191919;stroke-width:3.0;"/><polygon fill="#191919" points="515.81,1219.44,518.478,1228.9206,519.0025,1223.2881,524.635,1223.8126,515.81,1219.44" style="stroke:#191919;stroke-width:3.0;"/></g><!--MD5=[c3091022f730d2b512b52b360ce30f9d]
+link ws_workers to auth_service--><g id="link_ws_workers_auth_service"><path d="M684.63,1223.57 C705.91,1250.425 731.03,1282.1225 751.06,1307.3975 C761.075,1320.035 769.8175,1331.0669 776.1713,1339.085 C776.9655,1340.0873 777.7224,1341.0424 778.4398,1341.9478 C778.6191,1342.1741 778.796,1342.3973 778.9704,1342.6174 " fill="none" id="ws_workers-auth_service" style="stroke:#191919;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#191919" points="778.9704,1342.6174,776.5159,1333.0793,775.8651,1338.6986,770.2458,1338.0477,778.9704,1342.6174" style="stroke:#191919;stroke-width:3.0;"/><polygon fill="#191919" points="681.34,1219.42,683.775,1228.9631,684.4373,1223.3451,690.0552,1224.0074,681.34,1219.42" style="stroke:#191919;stroke-width:3.0;"/></g><!--MD5=[a8513e111d45ebd7a907de100321d20b]
+link em_workers to auth_service--><g id="link_em_workers_auth_service"><path d="M531.87,1220.46 C543.63,1228.56 555.95,1236.47 568,1243.25 C575.99,1247.74 578.69,1247.4 587,1251.25 C631.51,1271.885 680.655,1296.795 719.09,1316.7738 C738.3075,1326.7631 754.8475,1335.5197 766.7919,1341.8927 C769.778,1343.4859 772.4768,1344.9302 774.8585,1346.2075 C776.0493,1346.8461 777.1609,1347.4431 778.1894,1347.996 C778.4465,1348.1342 778.6984,1348.2697 778.9451,1348.4024 " fill="none" id="em_workers-auth_service" style="stroke:#191919;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#191919" points="778.9451,1348.4024,772.9141,1340.6161,774.5418,1346.0337,769.1242,1347.6614,778.9451,1348.4024" style="stroke:#191919;stroke-width:3.0;"/><polygon fill="#191919" points="527.57,1217.47,532.667,1225.8974,531.6722,1220.3287,537.2409,1219.3339,527.57,1217.47" style="stroke:#191919;stroke-width:3.0;"/></g><!--MD5=[ea5d682a75f684291c1be69cf73dd5cb]
+link script_scheduler to postgres_primary--><g id="link_script_scheduler_postgres_primary"><path d="M531.07,783.5 C521.61,804.52 507.39,827.37 487,840.75 C459.34,858.9 443.88,836.89 413,848.75 C377.52,862.37 342.88,887.72 317.57,909.15 " fill="none" id="script_scheduler-postgres_primary" style="stroke:#A52A2A;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A52A2A" points="313.59,912.56,323.0265,909.7399,317.3863,909.306,317.8201,903.6659,313.59,912.56" style="stroke:#A52A2A;stroke-width:4.0;"/><polygon fill="#A52A2A" points="533.13,778.77,525.8656,785.4205,531.1312,783.3531,533.1985,788.6186,533.13,778.77" style="stroke:#A52A2A;stroke-width:4.0;"/></g><!--MD5=[5c83024b77f8c4b6525b3c5436c55bff]
+link mongodb_ugc_secondary_2 to script_scheduler--><g id="link_mongodb_ugc_secondary_2_script_scheduler"><path d="M982.49,514.7 C965.05,542.23 938.12,576.25 904,592.75 C878.88,604.9 677.95,588.26 653,600.75 C617.09,618.72 589.37,655.11 571.3,685.22 " fill="none" id="mongodb_ugc_secondary_2-script_scheduler" style="stroke:#A52A2A;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A52A2A" points="568.71,689.61,576.7259,683.8876,571.2488,685.3025,569.8339,679.8255,568.71,689.61" style="stroke:#A52A2A;stroke-width:4.0;"/><polygon fill="#A52A2A" points="985.21,510.34,977.0564,515.8643,982.5664,514.584,983.8468,520.0941,985.21,510.34" style="stroke:#A52A2A;stroke-width:4.0;"/></g><!--MD5=[02ce7d57c607ac7520ae981c2d67a842]
+link django to crontab--><g id="link_django_crontab"><path d="M283,529.03 C283,575.43 283,640.82 283,685 " fill="none" id="django-to-crontab" style="stroke:#191919;stroke-width:2.0;"/><polygon fill="#191919" points="283,690.01,287,681.01,283,685.01,279,681.01,283,690.01" style="stroke:#191919;stroke-width:2.0;"/></g><!--MD5=[6ac7da684b477fe10ebfc5928877b62c]
+link nginx_notification to script_scheduler--><g id="link_nginx_notification_script_scheduler"><path d="M697.02,502.45 C668.21,546.77 613.14,631.5 578.33,685.05 " fill="none" id="nginx_notification-script_scheduler" style="stroke:#191919;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#191919" points="575.45,689.49,583.7074,684.122,578.1739,685.2971,576.9988,679.7637,575.45,689.49" style="stroke:#191919;stroke-width:3.0;"/><polygon fill="#191919" points="699.8,498.18,691.5426,503.548,697.0761,502.3729,698.2512,507.9063,699.8,498.18" style="stroke:#191919;stroke-width:3.0;"/></g><!--MD5=[1e17de0dd8c73616c298e80e4939241f]
+link auth_service1 to nginx_notification--><g id="link_auth_service1_nginx_notification"><path d="M646.9156,300.9615 C646.9518,301.0806 646.9879,301.1997 647.0241,301.3188 C647.1689,301.7953 647.3143,302.2715 647.4604,302.7473 C647.7524,303.699 648.047,304.6493 648.3437,305.5968 C649.5308,309.3867 650.7538,313.1325 652,316.75 C667.3,361.18 688.83,411.18 702.6,441.95 " fill="none" id="auth_service1-nginx_notification" style="stroke:#191919;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#191919" points="704.75,446.72,704.6929,436.8713,702.6928,442.1628,697.4013,440.1628,704.75,446.72" style="stroke:#191919;stroke-width:3.0;"/><polygon fill="#191919" points="646.9156,300.9615,645.6991,310.7349,648.3664,305.7464,653.3549,308.4137,646.9156,300.9615" style="stroke:#191919;stroke-width:3.0;"/></g><!--MD5=[487bbec6a7dd6f51376fdeb38b1dfc8f]
+link ws_workers to ws_clients--><g id="link_ws_workers_ws_clients"><path d="M667.45,1113.16 C692.56,1072.52 734.06,1022.39 788.5,1016.25 C813.18,1013.47 1210.82,1013.47 1235.5,1016.25 C1243.43,1017.14 1246.13,1016.19 1253,1020.25 C1292.98,1043.89 1327.37,1083.98 1350.71,1116.18 " fill="none" id="ws_workers-to-ws_clients" style="stroke:#191919;stroke-width:1.0;"/><polygon fill="#191919" points="1353.79,1120.46,1351.8042,1110.8134,1350.8798,1116.3942,1345.299,1115.4698,1353.79,1120.46" style="stroke:#191919;stroke-width:1.0;"/></g><!--MD5=[648f1d286024a6e6576a2599ac0b8dee]
+@startuml
+'https://plantuml.com/deployment-diagram
+!theme mars
+
+!include <logos/kafka>
+!include <logos/elasticsearch>
+!include <logos/nginx>
+!include <logos/redis>
+!include <logos/postgresql>
+!include <logos/flask>
+!include <logos/gunicorn>
+!include <logos/jaeger>
+!include <logos/django>
+!include <logos/kibana>
+!include <logos/python>
+!include <logos/mongodb>
+!include <logos/rabbitmq>
+
+
+skinparam roundCorner 15
+skinparam actor {
+BorderColor black
+BackgroundColor Gold
+}
+skinparam database {
+BorderColor black
+BackgroundColor Aquamarine
+}
+
+title <size:32>Схема архитектуры сервиса уведомлений
+
+
+'Перечень основных узлов и компонентов диаграммы
+actor/ Manager
+node "Админ-панель" as admin_panel #palegreen;line:green;text:blue {
+    component "<$nginx>" as nginx_notification_admin
+    component "<$gunicorn>\nuWSGI web server" as gunicorn #lightyellow {
+    component "<$django>\nnotify_app" as django
+    }
+    nginx_notification_admin <==> gunicorn
+}
+node "Сервис Notification API" as notification_api #palegreen;line:green;text:blue {
+    component "<$nginx>" as nginx_notification
+    component "<$gunicorn>\nuASGI web server" as uvicorn #lightyellow {
+    component "<img:FastAPI.png>\nNotification-API" as notification_web_api
+    }
+    nginx_notification <==> uvicorn
+}
+node "Кластер базы данных уведомлений" as notification_db #palegreen;line:green;text:blue {
+    database "<$mongodb>\nPrimary" as mongodb_notification_primary
+    database "<$mongodb>\nSecondary" as mongodb_notification_secondary_1
+    database "<$mongodb>\nSecondary" as mongodb_notification_secondary_2
+    database "<$mongodb>\nSecondary hidden" as mongodb_notification_secondary_3
+
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_1
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_2
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_3
+}
+node "Генератор автоматических уведомлений" as scheduler #palegreen;line:green;text:blue {
+    collections "<$python>\nScheduler" as script_scheduler
+    component "<img:cron.png>\nCron" as crontab
+    database "<$redis>\nCache" as redis_scheduler
+
+    crontab -> script_scheduler
+    redis_scheduler <-> script_scheduler
+}
+node "Брокер отчетных событий" as queues_reporting_events #palegreen;line:green;text:blue {
+    queue "<$rabbitmq>\nReporting events queues                      " as rabbitmq_reporting_events
+}
+
+node "Брокер уведомлений" as queue_events #palegreen;line:green;text:blue {
+    queue "<$rabbitmq>\nHigh, Medium, Low Priority Message Queues" as rabbitmq_message_queues
+}
+
+node "Обработчики уведомлений (workers)" as workers #palegreen;line:green;text:blue {
+component "Websocket workers" as websocket_workers #yellow {
+    collections "<$python>\nWS worker 1...\nWS worker n" as ws_workers
+    }
+component "Email workers" as email_workers #yellow {
+    collections "<$python>\nE-mail worker 1...\nE-mail worker n" as em_workers
+    }
+    database "<$redis>\nCache" as redis_workers
+'    websocket_workers - - email_workers #white
+    ws_workers <- -> redis_workers
+    em_workers <- -> redis_workers
+}
+
+node "Сервис UGC" as ugc_service #aliceblue;line:blue;text:blue {
+    note as note1
+    Пользовательские события,
+    требующие отправки уведомления
+    end note
+}
+node "Сервис Auth API" as auth_service #aliceblue;line:blue;text:blue {
+    note as note2
+    Предоставление расширенной
+    информации о пользователе
+    (Имя, фамилия, адрес электронной
+    почты, телефон и т.д.)
+    end note
+
+}
+node "Сервис Async API" as async_service #aliceblue;line:blue;text:blue {
+    note as note3
+    Предоставление расширенной
+    информации о фильмах
+    (название, жанры, год выпуска и т.д.)
+    end note
+}
+node "Админ-панель управления\nконтентом онлайн-кинотеатра" as movies_admin_service #aliceblue;line:blue;text:blue {
+    note as note4
+    Автоматические уведомления
+    о добавлении новых фильмов,
+    выходе новой серии и т.д.
+    end note
+}
+ugc_service -[hidden]- movies_admin_service
+movies_admin_service -[hidden]- auth_service
+auth_service -[hidden]- async_service
+
+node "Кластер базы данных сервиса UGC" as ugc_db #aliceblue;line:blue;text:blue {
+    database "<$mongodb>\nPrimary" as mongodb_ugc_primary
+    database "<$mongodb>\nSecondary" as mongodb_ugc_secondary_1
+    database "<$mongodb>\nSecondary" as mongodb_ugc_secondary_2
+
+    mongodb_ugc_primary <- -> mongodb_ugc_secondary_1
+    mongodb_ugc_primary <- -> mongodb_ugc_secondary_2
+}
+node "Кластер базы данных PostgreSQL" as postgres #palegreen;line:green;text:blue {
+    database "<$postgresql>\nPrimary" as postgres_primary
+    database "<$postgresql>\nSecondary" as postgres_secondary_1
+    database "<$postgresql>\nSecondary" as postgres_secondary_2
+
+    postgres_primary <- -> postgres_secondary_1
+    postgres_primary <- -> postgres_secondary_2
+}
+node "Сервис Auth API - signup" as auth_service1 #aliceblue;line:blue;text:blue {
+    note as note5
+    http-запрос с данными
+    для подтверждения e-mail
+    пользователя при регистрации
+    end note
+}
+
+component external_email_service #aliceblue;line:blue;text:blue [
+<b>Внешний сервис
+<b>e-mail рассылок
+- - -
+REST API для отправки
+почтовых сообщений и
+отслеживания доставки,
+прочтения
+]
+
+component ws_clients #aliceblue;line:blue;text:blue [
+<b>WebSocket-клиенты
+- - -
+Отображение уведомлений
+в браузере клиента
+]
+
+'Связи между компонентами
+Manager <- -> nginx_notification_admin
+django <=[#brown,thickness=4]=> postgres_primary
+
+notification_web_api <-[#brown,dashed,thickness=4]-> mongodb_notification_primary
+ugc_service <<-[#green,dashed,thickness=4]-|> rabbitmq_reporting_events
+rabbitmq_reporting_events <|-[#green,dashed,thickness=4]->> movies_admin_service
+
+rabbitmq_reporting_events <<-[#red,dashed,thickness=4]-|> notification_web_api
+rabbitmq_reporting_events <<-[#red,dashed,thickness=4]-|> notification_web_api
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> ws_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> ws_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> em_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> em_workers
+em_workers <-[#blue,dashed,thickness=3]-> external_email_service
+
+notification_web_api <<-[#green,dashed,thickness=8]-|> rabbitmq_message_queues
+nginx_notification_admin <==> nginx_notification
+
+mongodb_notification_primary <-[#brown,dashed,thickness=4]-> ws_workers
+mongodb_notification_primary <-[#brown,dashed,thickness=4]-> em_workers
+postgres_primary <-[#brown,dashed,thickness=4]-> ws_workers
+postgres_primary <-[#brown,dashed,thickness=4]-> em_workers
+ws_workers <.[thickness=3].> async_service
+em_workers <.[thickness=3].> async_service
+ws_workers <.[thickness=3].> auth_service
+em_workers <.[thickness=3].> auth_service
+
+script_scheduler <-[#brown,dashed,thickness=4]-> postgres_primary
+mongodb_ugc_secondary_2 <-[#brown,dashed,thickness=4]-> script_scheduler
+django ==> crontab
+nginx_notification <.[thickness=3].> script_scheduler
+auth_service1 <.[thickness=3].> nginx_notification
+ws_workers -> ws_clients
+
+@enduml
+
+@startuml
+skinparam BackgroundColor F9F9F9
+skinparam shadowing false
+skinparam RoundCorner 7
+skinparam ArrowColor 191919
+skinparam FontColor 191919
+skinparam SequenceLifeLineBorderColor 393939
+skinparam SequenceGroupHeaderFontColor 191919
+skinparam SequenceGroupFontColor 393939
+skinparam SequenceGroupBorderColor 393939
+skinparam SequenceGroupBorderThickness 1
+
+skinparam sequenceDivider {
+    BorderColor 191919
+    BorderThickness 1
+    FontColor 191919
+}
+
+skinparam participant {
+    BackgroundColor E55756
+    BorderColor 191919
+    FontColor F9F9F9
+    BorderThickness 1.5
+}
+
+skinparam database {
+    BackgroundColor A4DBD8
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam entity {
+    BackgroundColor EFBABC
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam note {
+    BackgroundColor e5e5e5
+    BorderColor 191919
+    FontColor 191919
+    BorderThickness 1.5
+}
+
+skinparam actor {
+    BackgroundColor 191919
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam boundary {
+    BackgroundColor EFBABC
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam control {
+    BackgroundColor EFBABC
+    BorderColor 191919
+    FontColor 191919
+}
+
+skinparam collections {
+    BackgroundColor E55756
+    BorderColor 191919
+    FontColor 191919
+    BorderThickness 1.5
+}
+
+skinparam queue {
+    BackgroundColor E55756
+    BorderColor 191919
+    FontColor FFF
+    BorderThickness 1.5
+}
+
+sprite $kafka [102x46/16] {
+000005EEEE10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+0000EEEEEEEE000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000EEEEEEEEEE00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00DEEEC00EEEE50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEEA0000EEEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEE000000EEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEE000000EEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEE30000BEEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEEE400AEEEA0000000297000000000000000000000000000000000000000000000000000000000000000000000000000000
+000EEEEEEEEEE000000CEEEEEE0000000000000000000000000000000000000000000000000000000000000000000000000000
+0001EEEEEEEE000000EEEEEEEEE100000000000000000000000000000000000000000000000000000000000000000000000000
+00000EEEEED000000BEEEEEEEEEE00000000000000000000000000000000000000000000000000000000000000000000000000
+0000001EE00000000EEED0002EEE60000000000000000000000000000000000000000000000000000000000000000000000000
+0000001EE00000002EEE00000CEEE0000000000000000000000000000000000000000000000000000000000000000000000000
+0000001EE00000004EEE000005EEE000000000EEE00000000000000000000000000004EEE00AEEA00000000000000000000000
+000003EEED2000002EEE00000BEEE000000000EEE0000000000000000000000000005EEEE00AEEA00000000000000000000000
+0005EEEEEEEE10002EEEB0000EEE8000000000EEE000000000000000000000000000EEED000AEEA00000000000000000000000
+00CEEEEEEEEEE60EEEEEEECEEEEE0000000000EEE000000000000000000000000000EEE0000AEEA00000000000000000000000
+0AEEEEEEEEEEEEEEEEEEEEEEEEE30000000000EEE00000000000002CED6000000000EEE0000AEEA00000000000008DEB000000
+0EEEED0000EEEEEE900EEEEEEE200000000000EEE0000EEEB0000EEEEEEE0EEE00EEEEEEE00AEEA0009EEE0000BEEEEEEE0EEE
+CEEEC000000EEEE1000007DB10000000000000EEE000EEEC0001EEEEEEEEEEEE00EEEEEEE00AEEA007EEE0000DEEEEEEEEEEEE
+EEEE00000000EEEC0000000000000000000000EEE00EEEE0000EEEE5001EEEEE0000EEE0000AEEA04EEE10008EEEE1009EEEEE
+EEEE00000000EEEE0000000000000000000000EEE0EEEE0000DEEE000000EEEE0000EEE0000AEEA1EEE20000EEEE000000EEEE
+EEEE00000000EEEE0000000000000000000000EEEEEEE00000EEE60000000EEE0000EEE0000AEEAEEE300000EEE0000000BEEE
+EEEE00000000EEEC0000000000000000000000EEEEEE000000EEE00000000EEE0000EEE0000AEEEEE7000006EEE00000000EEE
+CEEED000000EEEE1000008EC20000000000000EEEEEED00000EEE00000000EEE0000EEE0000AEEAEEE000007EEE00000000EEE
+0EEEED0000EEEEEE800EEEEEEE200000000000EEE0EEE20000EEE00000000EEE0000EEE0000AEEA7EEE00002EEE00000002EEE
+08EEEEEEEEEEEEEEEEEEEEEEEEE30000000000EEE01EEE0000EEEE0000005EEE0000EEE0000AEEA0DEEE0000EEE1000000EEEE
+00CEEEEEEEEEE60EEEEEEEBEEEEE0000000000EEE00CEEE0000EEEC00003EEEE0000EEE0000AEEA00EEE7000EEEE10000DEEEE
+0005EEEEEEEE10001EEEB0000EEE8000000000EEE000EEED000EEEEEEEEEEEEE0000EEE0000AEEA001EEE0000EEEEEEEEEEEEE
+000003DEEC1000002EEE00000AEEE000000000EEE0000EEE3000EEEEEEEEEEEE0000EEE0000AEEA000AEEE0002EEEEEEEE2EEE
+0000001EE00000004EEE000004EEE000000000EEE00004EEE00006EEEEE90EEE0000EEE0000AEEA0000EEEE0000EEEEEE10EEE
+0000001EE00000002EEE00000CEEE0000000000000000000000000000000000000000000000000000000000000000000000000
+0000001EE00000000EEED0002EEE60000000000000000000000000000000000000000000000000000000000000000000000000
+00000EEEEED000000BEEEEEEEEEE00000000000000000000000000000000000000000000000000000000000000000000000000
+0002EEEEEEEE000000EEEEEEEEE000000000000000000000000000000000000000000000000000000000000000000000000000
+000EEEEEEEEEE000000CEEEEEE0000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEEE2009EEEB0000000176000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEE20000BEEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEE000000EEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEE000001EEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00EEEB0000EEEE0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00DEEED01EEEE50000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000EEEEEEEEEE00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+0000EEEEEEEE000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000004EEEE00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+}
+sprite $elasticsearch [51x57/16] {
+000000000000000000000003444444444200000000000000000
+000000000000000000034444444444444444420000000000000
+000000000000000004444444444444444444444400000000000
+000000000000000444444444444444444444444444000000000
+000000000000055444444444444444444444444444440000000
+000000000001555544444444444444444444444444444000000
+000000000055555554444444444444444444444444444410000
+000000000555555555444444444444444444444444444443000
+000000005555555555544444444444444444444444444444400
+000000055555555555554444444444444444444444444444430
+000000555555555555555444444444444444444444444444441
+000001555555555555555444444444444444444444444444443
+000005555555555555555544444444444444444444444444420
+000055555555555555555554444444444444444444444444000
+000055555555555555555554444444444444444444444430000
+000555555555555555555555444444444444444444430000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+0AAAAAAAAAAAAAAAAAAAAAAAA55555555555553000000000000
+0DDDDDDDDDDDDDDDDDDDDDDDD88888888888888882000000000
+0DDDDDDDDDDDDDDDDDDDDDDDD88888888888888888700000000
+CDDDDDDDDDDDDDDDDDDDDDDDDA8888888888888888870000000
+DDDDDDDDDDDDDDDDDDDDDDDDDC8888888888888888880000000
+DDDDDDDDDDDDDDDDDDDDDDDDDD8888888888888888888000000
+DDDDDDDDDDDDDDDDDDDDDDDDDD8888888888888888888000000
+DDDDDDDDDDDDDDDDDDDDDDDDDD8888888888888888888000000
+DDDDDDDDDDDDDDDDDDDDDDDDDD8888888888888888888000000
+DDDDDDDDDDDDDDDDDDDDDDDDDD8888888888888888888000000
+DDDDDDDDDDDDDDDDDDDDDDDDDD8888888888888888888000000
+DDDDDDDDDDDDDDDDDDDDDDDDDD8888888888888888888000000
+DDDDDDDDDDDDDDDDDDDDDDDDDC8888888888888888880000000
+ADDDDDDDDDDDDDDDDDDDDDDDDA8888888888888888840000000
+0DDDDDDDDDDDDDDDDDDDDDDDD88888888888888888300000000
+0DDDDDDDDDDDDDDDDDDDDDDDD88888888888888880000000000
+033333333333333333333333311111111111110000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+000999999999999999999999666666666666666666665000000
+000099999999999999999998666666666666666666666660000
+000099999999999999999996666666666666666666666666600
+000009999999999999999986666666666666666666666666660
+000000999999999999999966666666666666666666666666666
+000000399999999999999766666666666666666666666666660
+000000079999999999998666666666666666666666666666610
+000000008999999999996666666666666666666666666666200
+000000000799999999966666666666666666666666666661000
+000000000039999999666666666666666666666666666600000
+000000000000999996666666666666666666666666666000000
+000000000000089966666666666666666666666666620000000
+000000000000000666666666666666666666666666000000000
+000000000000000006666666666666666666666500000000000
+000000000000000000006666666666666666600000000000000
+000000000000000000000000466666663000000000000000000
+}
+sprite $nginx [102x21/16] {
+0AA900000000000000AA600000000AAAAAAAAAAAAA200000003AA00001AA000000000000004AA00004AA000000000000007AA0
+AAAA9000000000000AAAA00000001AAAAAAAAAAAAAA0000000AAAA000AAAA0000000000006AAAA000AAAA0000000000008AAAA
+AAAAA900000000000AAAA1000000AAAAAAAAAAAAAAA1000000AAAA000AAAA000000000006AAAAA001AAAAA00000000009AAAAA
+AAAAAA90000000000AAAA1000005AAAAAAAAAAAAAAAA000000AAAA000AAAA00000000007AAAAAA000AAAAAA100000009AAAAA7
+AAAAAAAA000000000AAAA100000AAAAA11111114AAAA000000AAAA000AAAA0000000007AAAAAAA0000AAAAAA1000009AAAAA60
+AAAAAAAAA00000000AAAA100008AAAA200000000AAAA900000AAAA000AAAA000000008AAAAAAAA00000AAAAAA10009AAAAA500
+AAAAAAAAAA0000000AAAA10000AAAAA0000000004AAAA00000AAAA000AAAA00000009AAAAAAAAA000000AAAAAA10AAAAAA4000
+AAAA7AAAAAA000000AAAA1000AAAAA00000000000AAAA40000AAAA000AAAA0000009AAAAA9AAAA0000000AAAAAAAAAAAA30000
+AAAA42AAAAAA00000AAAA1000AAAA9000000000000000000000000000AAAA000009AAAAA62AAAA00000000AAAAAAAAAA300000
+AAAA401AAAAAA0000AAAA100AAAAA0000023333333333330002222000AAAA0000AAAAAA602AAAA000000000AAAAAAAA3000000
+AAAA4001AAAAAA000AAAA103AAAA80000AAAAAAAAAAAAAA000AAAA000AAAA000AAAAAA5002AAAA0000000000AAAAAA60000000
+AAAA40001AAAAAA00AAAA100AAAAA0000AAAAAAAAAAAAA3000AAAA000AAAA00AAAAAA40002AAAA000000000AAAAAAAA5000000
+AAAA400001AAAAAA0AAAA1002AAAA9000AAAAAAAAAAAAA0000AAAA000AAAA0AAAAAA300002AAAA00000000AAAAAAAAAA600000
+AAAA4000000AAAAAAAAAA1000AAAAA0001AAAAAAAAAAA20000AAAA000AAAAAAAAAA3000002AAAA0000000AAAAAA9AAAAA70000
+AAAA40000000AAAAAAAAA10000AAAAA000000000AAAAA00000AAAA000AAAAAAAAA20000002AAAA000000AAAAAA009AAAAA8000
+AAAA400000000AAAAAAAA100008AAAA300000005AAAA200000AAAA000AAAAAAAA200000002AAAA00000AAAAAA00008AAAAA800
+AAAA4000000000AAAAAAA100000AAAAA5555555AAAAA000000AAAA000AAAAAAA1000000002AAAA0000AAAAAA0000008AAAAA90
+AAAA40000000000AAAAAA1000004AAAAAAAAAAAAAAA2000000AAAA000AAAAAA10000000002AAAA000AAAAAA000000007AAAAA8
+AAAA400000000000AAAAA1000000AAAAAAAAAAAAAAA0000000AAAA000AAAAA100000000002AAAA000AAAAA00000000007AAAAA
+AAAA0000000000000AAAA00000000AAAAAAAAAAAAA10000000AAAA000AAAA0000000000000AAAA000AAAA0000000000005AAAA
+0AA300000000000000AA100000000AAAAAAAAAAAAA000000000AA00000AA000000000000003AA00001AA000000000000002AA0
+}
+sprite $redis [51x44/16] {
+0000000000000000000000009AAA70000000000000000000000
+0000000000000000000007AAAAAAAAA20000000000000000000
+0000000000000000000AAAAAAAAAAAAAAA00000000000000000
+00000000000000009AAAAAA0AAAA0AAAAAAA500000000000000
+00000000000002AAAAAAAAA000000AAAAAAAAAA000000000000
+00000000000AAAAAAAAAA90000000AAAAAAAAAAAA6000000000
+000000005AAAAAAAAAAAA83000000004AAAAAAAAAAAA0000000
+000000AAAAAAAAAAAAAAAAAAA00AAAAAAAAABCAAAAAAAA80000
+0006AAAAAA600000000AAAAAAA0AAAAAAABBBCCCAAAAAAAAA10
+0AAAAAAAA000000000000AAAAAAAAAABBBBBBCCCCCCAAAAAAAA
+AAAAAAAA6000000000000AAAAAAAAABBBBBBBCCCCCBAAAAAAAA
+BAAAAAAAA000000000009AAAAAAAAAAABBBBBCCCAAAAAAAAABB
+BBAAAAAAAAA9100005AAAAAAAAAAAAAAAAABBBAAAAAAAAABBBB
+BBBBBAAAAAAAAAAAAAAAAAAAA4000AAAAAAAAAAAAAAAABBBBBB
+BBBBBBBAAAAAAAAAAA80000000004AAAAAAAAAAAAAABBBBBBBB
+BBBBBBBBBAAAAAAAAAAA00000000AAAAAAAAAAAABBBBBBBBBBB
+6BBBBBBBBBBBAAAAAAAAAA20000AAAAAAAAAAABBBBBBBBBBB20
+00BBBBBBBBBBBBAAAAAAAAAA905AAAAAAAAABBBBBBBBBBBAAA0
+4AAABBBBBBBBBBBBBAAAAAAAAAAAAAAAABBBBBBBBBBBBAAAAAA
+AAAAAAABBBBBBBBBBBBAAAAAAAAAAAABBBBBBBBBBBBAAAAAAAB
+BAAAAAAAABBBBBBBBBBBBAAAAAAAABBBBBBBBBBBBAAAAAAAABB
+BBBAAAAAAAAABBBBBBBBBBBBAABBBBBBBBBBBBAAAAAAAABBBBB
+BBBBBBAAAAAAAABBBBBBBBBBBBBBBBBBBBBBAAAAAAAABBBBBBB
+BBBBBBBBAAAAAAAABBBBBBBBBBBBBBBBBBAAAAAAAABBBBBBBBB
+BBBBBBBBBBAAAAAAAAABBBBBBBBBBBBAAAAAAAAABBBBBBBBBB3
+0BBBBBBBBBBBBAAAAAAAABBBBBBBBAAAAAAAABBBBBBBBBBBB00
+0AABBBBBBBBBBBBAAAAAAAABBBBAAAAAAAABBBBBBBBBBBBAAAA
+AAAAABBBBBBBBBBBBAAAAAAAAAAAAAAAABBBBBBBBBBBAAAAAAA
+BAAAAAAABBBBBBBBBBBBAAAAAAAAAABBBBBBBBBBBBAAAAAAABB
+BBAAAAAAAABBBBBBBBBBBBAAAAAABBBBBBBBBBBBAAAAAAABBBB
+BBBBBAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAABBBBBB
+BBBBBBBAAAAAAAABBBBBBBBBBBBBBBBBBBBAAAAAAAABBBBBBBB
+BBBBBBBBBAAAAAAAABBBBBBBBBBBBBBBBAAAAAAABBBBBBBBBBB
+9BBBBBBBBBBBAAAAAAAABBBBBBBBBBBAAAAAAABBBBBBBBBBB70
+00BBBBBBBBBBBBAAAAAAAABBBBBBBAAAAAAABBBBBBBBBBB6000
+0000ABBBBBBBBBBBBAAAAAAAAAAAAAAAABBBBBBBBBBBB100000
+0000002BBBBBBBBBBBBAAAAAAAAAAAABBBBBBBBBBBB00000000
+000000000BBBBBBBBBBBBAAAAAAAABBBBBBBBBBB90000000000
+000000000006BBBBBBBBBBBBAAABBBBBBBBBBB2000000000000
+00000000000000BBBBBBBBBBBBBBBBBBBBBB000000000000000
+0000000000000000ABBBBBBBBBBBBBBBBB00000000000000000
+0000000000000000003BBBBBBBBBBBB50000000000000000000
+000000000000000000000BBBBBBBB3000000000000000000000
+000000000000000000000009BBB000000000000000000000000
+}
+sprite $postgresql [51x52/16] {
+000000000000000000000000000000008FFFFFFFD0000000000
+0000000EFFFFFFFFF80004FFFFFFFFFFFFE756BFFFFF0000000
+00000FFF80000005EFFFFFE00000002000000000007FFD00000
+0001FF00001221000005C0001564100008AAAAAAA1005FF0000
+000FC008AAAAAAAAA91000AAAAAAAAA9000AAAAAAAA400FF000
+00FF01AAAAAAAAAAAA106AAAAAAAAAAAA9007AAAAAAAA00FF00
+0DF00AAAAAAAAAAAA707AAAAAAAAAAAAAAA105AAAAAAAA00FF0
+0F80AAAAAAAAAAAAA01AAAAAAAAAAAAAAAAA306AAAAAAAA00F0
+0F00AAAAAAAAAAAA40AAAAAAAAAAAAAAAAAAA209AAAAAAA40F9
+EF09AAAAAAAAAAAA01AAAAAAAAAAAAAAAAAAAA00AAAAAAAA0FF
+FF0AAAAAAAAAAAA90AAAAAAAAAAAAAAAAAAAAAA02AAAAAAA0FF
+FC0AAAAAAAAAAAA30AAAAAAAAAAAAAAAAAAAAAA30AAAAAAA0FF
+F70AAAAAAAAAAAA00AAAAAAAAAAAAAAAAAAAAAAA03AAAAA80FE
+F70AAAAAAAAAAAA03AAAAAAAAAAAAAAAAAAAAA7710AAAAA20F4
+FA0AAAAAAAAAAAA087000006AAAAAAAAAAA5000000AAAAA00F0
+FF0AAAAAAAAAAAA00008AA108AAAAAAAAA901A9A70AAAAA05F0
+FF0AAAAAAAAAAAA00AAA00200AAAAAAAAA00A00A30AAAAA0FF0
+7F06AAAAAAAAAAA0AAAA80760AAAAAAAAA00AAAA00AAAA50FF0
+0F00AAAAAAAAAAA09AAAAAAA0AAAAAAAAA00AAAA00AAAA00F00
+0F00AAAAAAAAAAA08AAAAAAA08AAAAAAAA20AAAA02AAAA0DF00
+0FD0AAAAAAAAAAA08AAAAAAA06AAAAAAAAA0AAAA02AAA50FF00
+0FF0AAAAAAAAAAA09AAAAAAA05AAAAAAAAA01AAA00AAA00F000
+02F01AAAAAAAAAA0AAAAAAAA05AAAAAAAAA40AAA00AAA0FF000
+00F00AAAAAAAAA90AAAAAAAA08AAAAAAAAAA02AA20AA00FA000
+00FE0AAAAAAAAA80AAAAAAA90AAAAAAAAAAA30AA40AA0DF0000
+00EF06AAAAAAAA90AAAAAAA20AAAAAAAAAAAA00A30A00FF0000
+000F00AAAAAAAAA07AAAAAA03AAAAAAAAAAAA60A00A0CF00000
+000FA0AAAAAAAAA00AAAAA60AAAAAAAAAAAAAA000300FF00000
+000FF07AAAAAAAA903AAAA00AAAAAAAAAAAAAA70090EF000000
+0000F00AAAAAAAAA501AAA09AAAAAAAAAAAAAAA0000FA02AD10
+0000FE0AAAAAAAAAA0000008AAAAAAAAAAAAAAAA00FFFFFFFF6
+00007F00AAAAAAAA00F8000008AAAAAAAAAAAA80000000000FF
+00000FC0AAAAAAA00FFFF00A00AAAAAAAAAAAA00AA3002500FF
+00000DF00AAAAA00FFFB00AA90AAAAAAAAAAAA08AAAAA700CF3
+000000FF03AAA10E30000AAA00AAAAAAAAAAAA001200000FF90
+0000002F802A1093028AAAA000AAAAAAAAAAAA010000BFFF100
+0000000DF9000BFD00011000C0AAAAAAAAAAAA0FFFFFFF20000
+00000000CFFFFFFFF40000BFD0AAAAAAAAAAA60F21000000000
+0000000000EFF000FFFFFFFFD0AAAAAAAAAAA20F00000000000
+000000000000000000000007E0AAAAAAAAAAA00F00000000000
+000000000000000000000006F0AAAAAAAAAAA00F00000000000
+000000000000000000000004F0AAAAAAAAAAA06F00000000000
+000000000000000000000002F0AAAAAAAAAAA0CF00000000000
+000000000000000000000000F09AAAAAAAAAA0FF00000000000
+000000000000000000000000F07AAAAAAAAA80F900000000000
+000000000000000000000000F03AAAAAAAAA10F000000000000
+000000000000000000000000F00AAAAAAAAA07F000000000000
+0000000000000000000000005F07AAAAAAA00F4000000000000
+0000000000000000000000000F108AAAA500FF0000000000000
+00000000000000000000000008F00000000FF00000000000000
+00000000000000000000000000DFF717FFFB000000000000000
+0000000000000000000000000000FFFFF000000000000000000
+}
+sprite $flask [51x65/16] {
+00000F0F0000000000000000000000000000000000000000000
+00000EFF0000000000000000000000000000000000000000000
+000000FF0000000000000000000000000000000000000000000
+000000FFFFF0000000000000000000000000000000000000000
+00000FFFFFF0000000000000000000000000000000000000000
+00000FFFF08FFF2000000000000000000000000000000000000
+00000FA8662FFFF300000000000000000000000000000000000
+0001FFFFD5004FFFF0000000000000000000000000000000000
+00FFFCDFFFF0FF94101B0000000000000000000000000000000
+006DFFFFFF50004A000FFF00000000000000000000000000000
+0FFFFFA00500000001B3FF20000000000000000000000000000
+FF70FE0D100002BFFF000000000000000000000000000000000
+F0F02F003EFFFA0000000000000000000000000000000000000
+F0F00F4FFFF3000000000000000000000000000000000000000
+4DFFFFFFAE000000F6000000000000000000000000000000000
+0FFFFFE000000000F5000000000000000000000000000000000
+0FFFFFFFF010000000400000000000000000000000000000000
+04FFFFF10056000000700000000000000000000000000000000
+00FFFF0003F0000000B00000000000000000000000000000000
+00FF7FE5CD00000000E00000000000000000000000000000000
+00FCFFF0E801007903F00000000000000000000000000000000
+0040FFF0FC02F00E10B00000000000000000000000000000000
+000F0FDABD11FF02C1200000000000000000000000000000000
+000F0FF90EFE110000010000000000000000000000000000000
+0005DFFFE0F00000000C0000000000000000000000000000000
+0000D6FFFAFC0000000E0000000000000000000000000000000
+0000DBFFF002000000020000000000000000000000000000000
+000005FFFFF0ACF80003D000000000000000000000000000000
+00000ECFFFFFFFE9F009F000000000000000000000000000000
+000000EFFFE800FFE0002F00000000000000000000000000000
+00000050FFFA0EFF10000080000000000000000000000000000
+0000000F0FFF50FFFF000A10000000000000000000000000000
+00000000FEFFFF1F1FF0000F000000000000000000000000000
+0000000060FFFBFFFF000000F00000000000000000000000000
+000000000F0FF607FB1F10050F0000000000000000000000000
+0000000000E1FFFBFF9FFF000DF000000000000000000000000
+00000000000D0FFFFFFEFFF000EF30000000000000000000000
+000000000000F1FFF8F4F2EF0000FF000000000000000000000
+0000000000000F0DFBFDFFFFF000007D000000007F900000000
+00000000000000BFFFEFFFFCA0000006FF500009FF000000000
+0000000000000002FAC3FFFFFFC01FF400FFFFAFF0000070000
+00000000000000000966CFFFFFFFDE0AEB300F60028FFF6C87F
+00000000000000000009B0488FFFFFFEF4BFFFFFFFFFFFFFFFF
+0000000000000000000000D908FFFFFFFFFFFFFFFFFFFAF3000
+000000000000000000000000015DFC720006FFFFC8200000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000F00000000000000000000000002F00000000
+B300000258600FFF000000000000000000000005FFF00000000
+0FFFEEEEFF600AFF000000000000000000000000FFF00000000
+01FF00000F0000FF0000000000000000000000000FF00000000
+00FF0000010000FF0000000000000000000000000FF00000000
+00FF0000000000FF0000000000000000000000000FF00000000
+00FF0000000000FF0000000000000000000000000FF00000000
+00FF0000E00000FF0000000140000000034000000FF00000000
+00FF78BF900000FF00000BFCFF70000CFCFFF0000FF00CFFFF0
+00FF89CF600000FF0000FF400FF0000F1000F0000FF001F2000
+00FF0006600000FF000012000FF0000FE00000000FF07F00000
+00FF0000100000FF000000000FF0000FFFC000000FFDFE00000
+00FF0000000000FF000002FFBFF00000AFFF90000FFCFF00000
+00FF0000000000FF0000FF000FF00000009FF0000FF00FF0000
+00FF0000000000FF0002FD000FF000C00007F0000FF00AFF000
+0FFF0000000000FF4000FF00CFFFC0DF000EF0000FF000FFF00
+FFFFFF0000000FFFFF007FFF04F6002FFFFF0007FFFFF00FFFF
+}
+sprite $gunicorn [51x31/16] {
+000080000004000000000000000000000000000000000000000
+000000880002888888700000000000000000000000000000000
+000000038885888888885000000000000000000000000000000
+000000000588888888888200000000000000000000000000000
+000000000008888888888800000000000000000000000000000
+000000000008888888888880000000000000000000000000000
+000000000008888888888881000000000000000000000000000
+000000000008888888888888000000000000000000000000000
+000000000008880088888888810001488888886000000000000
+000000000008880048888888888888888888888830000000000
+000000000004800018888888888888888888888888000000000
+000000000000000008888888888888888888888888800000000
+000000000000000008888888888888888888888888860000000
+000000000000000008888888888888888888888888880000000
+000000000000000008888888888888888888888888887000000
+000000000000000088888888888888888888888885888000000
+000000000000001888888888888888888888888880888400000
+000000000000028888888888888888888888888880188800000
+000000000000088888888888888888888888888880088800000
+000000000000888884088880000000038888788880078880000
+000000000000888200038880000000008888088888008880000
+000000000001886000008887000000008888008888204885000
+000000000001882000008888000000008888000888800011000
+000000000000888000002888100000008883000088800000000
+000000000000888400000788800000038880000008840000000
+000000000000288850000088800000068800000008880000000
+000000000000008800000088800000088800000008880000000
+000000000000000111111188811111188811100008880000000
+000001111111111111111188811111188611111118881111100
+000000000000001111111188311111154111111114761111110
+000000000000000000000000111111111111111110000000000
+}
+sprite $jaeger [51x51/16] {
+000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000CC000000000000000000
+0000000000000000000000000000000CC000C00000000000000
+000000000000000000000000000000CC00CC000000000000000
+000000000000000000000000000000CC0CCC000000000000000
+0000000000000000077700000000CCCCCCC0000000000000000
+0000000000000007777777770000CCCCCCC0000000000000000
+0000000000000077777777777770CCCC0000000000000000000
+00000000000077777777777777770C0BBB00000000000000000
+000000000000777777777777777000BB0B00000000000000000
+000000000007777777777777777000B0BB00000000000000000
+00000000007777777777777777000BBBBB07777000000000000
+0000000000777777777777700CCC0BBBBB07770000000000000
+000000BBB0777777777000CCCCCCBBBBBB77000000000000000
+000000BBBB0000000CCCCCCCCC0000000000000000000000000
+000000B22B0CCCCCCCCCCCC00700077700BB000000000000000
+000000BBB9B0CCCCCCC000777000770BBBBBB00000000000000
+0000000BBBB000000777777770000BBBBBBBB00000000000000
+0000077BB000777777777777000BBBBBBBBBBB0000000000000
+00007770000000077777700000BBBBBBBBBBBB0000000000000
+0000000000000000000000000B0000BBBBBBBB0000000000000
+00000000BBBBBB00000BBBBB0000000BBBBBBB0000000000000
+0000000BBBBBBBBBBBBBBBBB00000000BBBBBBB000000000000
+0000000BBBBBB0000BBBBBBB00000000BBBBBBB000000000000
+0000000BBBB0000000BBBBBB00220000BBBBBBB000000000000
+0000000BBBB00000000BBBBB00222000BBBBBBB000000000000
+0000000BBB000000000BBBBB0022000BBBBBBBB000000000000
+0000000BBB000120000BBBBBB00000BBBBBBBBBB00000000000
+00000000BBB00222000BBBBBBBBBBBBBBBBBBBBB00000000000
+00000000BBB0022000BB2222BBBBBBBBBBBBBBBB00000000000
+00000000BBBB00000BB22222CCC0BBBBBBBBBBBB00000000000
+000000000BBBBBBBBB0C000CCCCCBBBBBBBBBBBB00000000000
+000000000BBBBBBBBCCCCCCCCCC0BBBBBBBBBBBB00000000000
+000000000BBBBBBBACCCC0ABBBBBBBBBBBBBBBB0CCC00000000
+0000000000BBBBBBB000B0B0BBBBBBBBBBBBBBBCCCCC0000000
+0000000000BBBBBBBBBBB0B0BBBBBBBBBBBBBBBBCCCC0000000
+00000000CCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB0CCCC000000
+00000000CC0BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCC000000
+00000000CC0BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCC000000
+0000022CCCC0BBBBBBBBBBBBBBBBBBBBBBBBBBBBB0CC0220000
+0000000CCCC0BBBBBBBBBBBBBBBBBBBBBBBBBBBBB0022000000
+00000000CCC00000BBBBBBBBBBBBBBBBBBB0000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000002222200000000000000000000
+000000000000000000000000022222200000000000000000000
+000000000000000000000000000222000000000000000000000
+000000000000222222000122222222200000000000000000000
+000000000222000000000022200122000000000000000000000
+000022222222200000000000000000000000000000000000000
+000020200110000000000000000000000000000000000000000
+000000000010000000000000000000000000000000000000000
+}
+
+sprite $jaeger_black [51x51/16] {
+000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000F000000000000000000
+0000000000000000000000000000000FF000F00000000000000
+000000000000000000000000000000FFF0F0000000000000000
+000000000000000000000000000000FF00FF000000000000000
+0000000000000000FFFFFF0000000FFFFFF0000000000000000
+00000000000000F00000000FFF00FFFFFF00000000000000000
+0000000000000F000000000000FFFFFF0F00000000000000000
+000000000000F000000000000000FFFFFF00000000000000000
+00000000000F000000000000000F0FFF0F00000000000000000
+0000000000F0000000000000000F00F0FF000FF000000000000
+000000000000000000000000000F0FFFFF00000F00000000000
+0000000000000000000000000FFF0FFFFF0000F000000000000
+0000000FF0000000000000FFFFFFFFFFFF00FF0000000000000
+000000FFFF00000000FFFFFFFF0FF00000FF000000000000000
+000000F0FFFFFFFFFFFFFFF000F0F000FFFF000000000000000
+0000000FF0F0FFFFFFF000000FF0F0FFFFFFF00000000000000
+0000000FFFFF000000000000FF0FFFFFFFFFF00000000000000
+0000F000FFFFF0000000000FF0FFFFFFFFFFFF0000000000000
+0000F0000FF00FFF00000FFF0F0000FFFFFFFF0000000000000
+000000FFFFFFFF00FFFFFF0F00FFFF00FFFFFF0000000000000
+00000000FFFFFFFFF0FFFFFF0FFFFFF0FFFFFF0000000000000
+00000000FFFFF0000FFFFFF0FFFFFFFF0FFFFFF000000000000
+00000000FFF00FFFF0FFFFF0FFFFFFFF0FFFFFF000000000000
+0000000FFF0FFFFFFF0FFFF0FF00FFFF0FFFFFF000000000000
+00000000FF0FFFFFFFF0FFF0FF000FFF0FFFFFF000000000000
+00000000FF0FFFFFFFF0FFF0FFF0FFF0FFFFFFF000000000000
+00000000FF0FFF0FFFF0FFFF0FFFFF00FFFFFFFF00000000000
+00000000FF0FF000FFF0FFFFF00000FFFFFFFFFF00000000000
+00000000FF0FFF0FFF0FF000FFFFFFFFFFFFFFFF00000000000
+000000000FF0FFFFF00F00000FF0FFFFFFFFFFFF00000000000
+000000000FFF00000FF00000FFFF0FFFFFFFFFFF00000000000
+000000000FFFFFFFFFFFFFFFFFF0FFFFFFFFFFFF00000000000
+0000000000FFFFFFF0FFF00FFFFFFFFFFFFFFFFFFFF00000000
+0000000000FFFFFFFF000FFFFFFFFFFFFFFFFFF0FFFF0000000
+000000000FFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFF0000000
+00000000FF0FFFFFFFFFFFFFFFFFFFFFFFFFFFFF0FFFF000000
+00000000FF0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000
+00000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000
+00000FF0FFF0FFFFFFFFFFFFFFFFFFFFFFFFFFFFF0FF0FF0000
+00000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00F0000000
+00000000FFF00000000FFFFFFFFFFFFFF000000000000000000
+000000000000000000000000000000000000000000000000000
+00000000000000000000000000FFFFF00000000000000000000
+0000000000000000000000000FFFFFF00000000000000000000
+000000000000000FF0000000000FFFF00000000000000000000
+000000000000FFFFFF000FFFFFFFFFF00000000000000000000
+00000000FFF0000000000000000F0F000000000000000000000
+0000FFFFFFFFF00000000000000000000000000000000000000
+0000F0F0F000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000
+}
+
+sprite $jaeger_white [51x51/16] {
+000000000000000000000000000000001000000000000000000
+000000000000000000000000000000022000000000000000000
+000000000000000000000000000000222000200000000000000
+000000000000000000000000000000220022000000000000000
+000000000000000000000000000000220222000000000000000
+000000000000000220002220000022222220000000000000000
+000000000000002000000000220022222220000000000000000
+000000000000020000000000000222220000000000000000000
+000000000000100000000000000022022200000000000000000
+000000000002000000000000000202220200000000000000000
+000000000020000000000000000200202202222200000000000
+000000000000000000000000000212222200000200000000000
+000000000000000000000000122202222200002000000000000
+000000222000000000000222222222222200200000000000000
+000000222202000022222222200220000022000000000000000
+000000201222222222222200002020002222000000000000000
+000000222020222222100000020220222222200000000000000
+000002022220000000000000220222222222200000000000000
+000020012222220000000102202222222222220000000000000
+000020000220002200000220022222222222220000000000000
+000000222222220012222222200000222222220000000000000
+000000002222222222222222000000022222222000000000000
+000000022222222222222222000000002222222000000000000
+000000022222000002222222000000002222222000000000000
+000000022220000000222222002200002222222000000000000
+000000022220000000022222002220002222222000000000000
+000000022220000000022222100200022222222200000000000
+000000002220022000022222220000222222222200000000000
+000000002220022200022222222222222222222200000000000
+000000002220022000220000222222222222222200000000000
+000000002222000002220000200222222222222200000000000
+000000000222222222222222000022222222222200000000000
+000000000222222222000000000222222222222200000000000
+000000000222222220000222222222222222222022200000000
+000000000022222222022020222222222222222022220000000
+000000000022222222222020222222222222222202222000000
+000000002212222222222222222222222222222202222000000
+000000002202222222222222222222222222222222222000000
+000000002222222222222222222222222222222220222000000
+000002202220222222222222222222222222222220220220000
+000000002220222222222222222222222222222220002000000
+000000002220000002222222222222222220000000000000000
+000000000000000000000000000000000000000000000000000
+000000000000000000000000001222200000000000000000000
+000000000000000000000000022222200000000000000000000
+000000000000000000000000000222000000000000000000000
+000000000000222222000022222222200000000000000000000
+000000000222000000000022200102000000000000000000000
+000022222222200000000000000000000000000000000000000
+000020202210000000000000000000000000000000000000000
+000000000020000000000000000000000000000000000000000
+}
+sprite $django [51x65/16] {
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000888888888880
+000000000000000000000008888888888200000000000000000
+000000000000000000000008888888888200000000000000000
+000000000000000000000008888888888200000000000000000
+000000000000000000000008888888888200000000000000000
+000000000000000113321008888888888200000000000000000
+000000000003888888888888888888888200000000000000000
+000000000888888888888888888888888200000088888888888
+000000078888888888888888888888888200000088888888888
+000000888888888888888888888888888200000088888888888
+000008888888888888888888888888888200000088888888888
+000088888888888888888888888888888200000088888888888
+000888888888888888888888888888888200000088888888888
+005888888888888888888888888888888200000088888888888
+008888888888888873000158888888888200000088888888888
+058888888888887000000008888888888200000088888888888
+088888888888850000000008888888888200000088888888888
+088888888888700000000008888888888200000088888888888
+488888888888000000000008888888888200000088888888888
+888888888887000000000008888888888200000088888888888
+888888888883000000000008888888888200000088888888888
+888888888880000000000008888888888200000088888888888
+888888888880000000000008888888888200000088888888888
+888888888880000000000008888888888200000088888888888
+888888888880000000000008888888888200000088888888888
+888888888880000000000008888888888200000088888888888
+888888888886000000000008888888888200000088888888888
+788888888888000000000008888888888200000088888888888
+088888888888200000000008888888888200000088888888888
+088888888888800000000008888888888200000088888888888
+088888888888881000000008888888888200000088888888888
+008888888888888820000008888888888200000088888888888
+008888888888888888888888888888888200000088888888888
+000888888888888888888888888888888200000088888888888
+000088888888888888888888888888888200000088888888888
+000018888888888888888888888888888200000088888888888
+000000888888888888888888888888888200000088888888888
+000000058888888888888888888888888200000088888888888
+000000000288888888888888888888888200000088888888887
+000000000000168888888888888741000000000488888888883
+000000000000000000000000000000000000000788888888880
+000000000000000000000000000000000000000888888888880
+000000000000000000000000000000000000002888888888880
+000000000000000000000000000000000000008888888888880
+000000000000000000000000000000000000048888888888830
+000000000000000000000000000000000000088888888888800
+000000000000000000000000000000000000888888888888800
+000000000000000000000000000000000018888888888888000
+000000000000000000000000000000000788888888888886000
+000000000000000000000000000000068888888888888880000
+000000000000000000000000000000588888888888888800000
+000000000000000000000000000000003888888888888000000
+000000000000000000000000000000000018888888880000000
+000000000000000000000000000000000000088888000000000
+000000000000000000000000000000000000000820000000000
+}
+sprite $kibana [51x68/16] {
+777777777777777777777777777777777777777777777777776
+777777777777777777777777777777777777777777777777770
+777777777777777777777777777777777777777777777777700
+777777777777777777777777777777777777777777777777000
+777777777777777777777777777777777777777777777770000
+777777777777777777777777777777777777777777777710000
+777777777777777777777777777777777777777777777500000
+777777777777777777777777777777777777777777777000000
+777777777777777777777777777777777777777777770000000
+777777777777777777777777777777777777777777700000000
+777777777777777777777777777777777777777777000000000
+777777777777777777777777777777777777777772000000000
+777777777777777777777777777777777777777750000000000
+777777777777777777777777777777777777777700000000000
+777777777777777777777777777777777777777000000000000
+777777777777777777777777777777777777770000000000000
+777777777777777777777777777777777777700000000000000
+777777777777777777777777777777777777200000000000000
+777777777777777777777777777777777775000000000000000
+777777777777777777777777777777777770000000000000000
+777777777777777777777777777777777700000000000000000
+777777777777777777777777777777777000000000000000000
+777777777777777777777777777777770000000000000000000
+777777777777777777777777777777710000000000000000000
+777777777777777777777777777777400000000000000000000
+BAA987777777777777777777777777000000000000000000000
+CCCCCCCCCCC9777777777777777770000000000000000000000
+CCCCCCCCCCCCCCCB77777777777700000000000000000000000
+CCCCCCCCCCCCCCCCCCC77777777000000000000000000000000
+CCCCCCCCCCCCCCCCCCCCCB77771000000000000000000000000
+CCCCCCCCCCCCCCCCCCCCCCCC740000000000000000000000000
+CCCCCCCCCCCCCCCCCCCCCCCCC90000000000000000000000000
+CCCCCCCCCCCCCCCCCCCCCCCC999900000000000000000000000
+CCCCCCCCCCCCCCCCCCCCCCC9999999000000000000000000000
+CCCCCCCCCCCCCCCCCCCCCC99999999910000000000000000000
+CCCCCCCCCCCCCCCCCCCCC999999999666000000000000000000
+CCCCCCCCCCCCCCCCCCCCB999999996666600000000000000000
+CCCCCCCCCCCCCCCCCCCC9999999966666663000000000000000
+CCCCCCCCCCCCCCCCCCC99999999866666666600000000000000
+CCCCCCCCCCCCCCCCCC999999999666666666660000000000000
+CCCCCCCCCCCCCCCCC9999999996666666666666000000000000
+CCCCCCCCCCCCCCCC99999999966666666666666600000000000
+CCCCCCCCCCCCCCCB99999999666666666666666660000000000
+CCCCCCCCCCCCCCC999999997666666666666666666000000000
+CCCCCCCCCCCCCC9999999986666666666666666666300000000
+CCCCCCCCCCCCC99999999966666666666666666666600000000
+CCCCCCCCCCCC999999999666666666666666666666660000000
+CCCCCCCCCCC9999999996666666666666666666666666000000
+CCCCCCCCCCB9999999966666666666666666666666666000000
+CCCCCCCCCC99999999666666666666666666666666666600000
+CCCCCCCCC999999998666666666666666666666666666620000
+CCCCCCCC9999999986666666666666666666666666666660000
+CCCCCCC99999999966666666666666666666666666666662000
+CCCCCC999999999666666666666666666666666666666666000
+CCCCCA999999996666666666666666666666666666666666000
+CCCCC9999999966666666666666666666666666666666666600
+CCCC99999999866666666666666666666666666666666666600
+CCC999999998666666666666666666666666666666666666600
+CC9999999996666666666666666666666666666666666666660
+C99999999966666666666666666666666666666666666666660
+B99999999666666666666666666666666666666666666666660
+999999996666666666666666666666666666666666666666660
+999999986666666666666666666666666666666666666666663
+999999966666666666666666666666666666666666666666666
+999999666666666666666666666666666666666666666666666
+999996666666666666666666666666666666666666666666666
+999966666666666666666666666666666666666666666666666
+999566666666666666666666666666666666666666666666666
+}
+sprite $python [51x51/16] {
+000000000000000000049999999999700000000000000000000
+000000000000000069999999999999999900000000000000000
+000000000000000999999999999999999998000000000000000
+000000000000009999999999999999999999900000000000000
+000000000000099990009999999999999999900000000000000
+000000000000099900002999999999999999990000000000000
+000000000000099900001999999999999999990000000000000
+000000000000099980009999999999999999990000000000000
+000000000000099999999999999999999999990000000000000
+000000000000099999999999999999999999990000000000000
+000000000000099999999999999999999999990000000000000
+000000000000033333333333369999999999990000000000000
+000000000000000000000000049999999999990000000000000
+000000999999999999999999999999999999990222222200000
+000099999999999999999999999999999999990222222221000
+000999999999999999999999999999999999990222222222000
+009999999999999999999999999999999999990222222222200
+029999999999999999999999999999999999990222222222320
+099999999999999999999999999999999999990222222223330
+099999999999999999999999999999999999980222222233330
+499999999999999999999999999999999999910222222333331
+999999999999999999999999999999999999900222223333333
+999999999999999999999999999999999999000222233333333
+999999999999999999999999999999999990002222333333333
+999999999999999999999999999999993000022223333333333
+999999999999999000000000000000000000222233333333333
+999999999999970000222222222222222222222333333333333
+999999999999900022222222222222222222223333333333333
+999999999999000222222222222222222222233333333333333
+999999999999002222222222222222222222333333333333333
+599999999998002222222222222222222223333333333333330
+099999999997022222222222222222222223333333333333330
+099999999997022222222222222222222233333333333333330
+089999999997022222222222222222222333333333333333300
+009999999997022222222222222222223333333333333333300
+000999999997022222222222222222233333333333333333000
+000299999997022222222222222222333333333333333330000
+000009999997022222222222222223333333333333331000000
+000000000000022222222222200000000000000000000000000
+000000000000022222222222222333333333330000000000000
+000000000000022222222222223333333333330000000000000
+000000000000022222222222233333333333330000000000000
+000000000000022222222222333333330333330000000000000
+000000000000022222222223333333200023330000000000000
+000000000000022222222233333333000003330000000000000
+000000000000022222222333333333000013330000000000000
+000000000000002222223333333333300033320000000000000
+000000000000001222233333333333333333300000000000000
+000000000000000122333333333333333333000000000000000
+000000000000000002333333333333333300000000000000000
+000000000000000000000233333333100000000000000000000
+}
+sprite $mongodb [102x29/16] {
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000003800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000057770000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000277687000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000777688200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+007777688800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+007777688870000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+077777688880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+077777688887000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+177777688888000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+777777688888000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+777777688888400000000000000000000000000000000000000000000000000000000000000088888888870000088888888200
+777777688888600000000000000000000000000000000000000000000000000000000000000000880000488400000880008840
+777777688888700000000000000000000000000000000000000000000000000000000000000000880000008820000880000880
+777777788888700000000000000000000000000000000000000000000000000000000000000000880000001880000880000880
+7777777888886000000901A60008900000004AB5000000700BC10000002A9200200009C8000000880000000880000880001800
+77777778888820003CCBCBCCC9CCCC00000C305CC000CCC9CBCC00000C106CCC100CB00CC50000880000000882000885468000
+177777788888000000CC000CC0001C8000C70002CC000BC0000CC000CC000CC000AC0000CC0000880000000882000881258880
+077777688888000000CB0004C0000CC004C00000CC000BC0000CC000CC000CC000CC00006C5000880000000881000880000887
+077777688884000000CB0003C0000CC009C00000CC000BC0000CC000CC000CB000CC00000C8000880000000880000880000088
+007777688880000000CB0003C0000CC007C30000CC000BC0000CC0001CC39C0000CC00000C5000880000000870000880000088
+001777788800000000CB0004C0000CC000CC0000CC000BC0000CC00000C3000000CC00003C0000880000008800000880000681
+000677588600000000CC0005C0000CC000CC6000C0000BC0000CC0003CC00000000CC000C70000887000288000001880003850
+00007758700000002CCCC0CCCC70CCCC0009CCCB0000CCCCB0CCCC000CCCCCCA0001CCCC100048888888500000088888885000
+000004540000000000000000000000000000000000000000000000000C1004CC00000000000000000000000000000000000000
+00000050000000000000000000000000000000000000000000000000C000000C00000000000000000000000000000000000000
+00000050000000000000000000000000000000000000000000000000C000000C00000000000000000000000000000000000000
+00000050000000000000000000000000000000000000000000000000CC0000C000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000CCCC90000000000000000000000000000000000000000
+}
+sprite $rabbitmq [51x54/16] {
+077777777700000000002777777773000000000000000000000
+777777777760000000007777777777000000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000017777777777100000000000000000000
+777777777770000000037777777777300000000000000000000
+777777777776111111377777777777732222222222222222200
+777777777777777777777777777777777777777777777777776
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777666666777777777777
+777777777777777777777777777777710000000077777777777
+777777777777777777777777777777700000000007777777777
+777777777777777777777777777777600000000007777777777
+777777777777777777777777777777600000000007777777777
+777777777777777777777777777777600000000007777777777
+777777777777777777777777777777600000000007777777777
+777777777777777777777777777777600000000007777777777
+777777777777777777777777777777700000000007777777777
+777777777777777777777777777777700000000017777777777
+777777777777777777777777777777770000000177777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+777777777777777777777777777777777777777777777777777
+077777777777777777777777777777777777777777777777770
+}
+
+
+skinparam roundCorner 15
+skinparam actor {
+BorderColor black
+BackgroundColor Gold
+}
+skinparam database {
+BorderColor black
+BackgroundColor Aquamarine
+}
+
+title <size:32>Схема архитектуры сервиса уведомлений
+
+
+actor/ Manager
+node "Админ-панель" as admin_panel #palegreen;line:green;text:blue {
+    component "<$nginx>" as nginx_notification_admin
+    component "<$gunicorn>\nuWSGI web server" as gunicorn #lightyellow {
+    component "<$django>\nnotify_app" as django
+    }
+    nginx_notification_admin <==> gunicorn
+}
+node "Сервис Notification API" as notification_api #palegreen;line:green;text:blue {
+    component "<$nginx>" as nginx_notification
+    component "<$gunicorn>\nuASGI web server" as uvicorn #lightyellow {
+    component "<img:FastAPI.png>\nNotification-API" as notification_web_api
+    }
+    nginx_notification <==> uvicorn
+}
+node "Кластер базы данных уведомлений" as notification_db #palegreen;line:green;text:blue {
+    database "<$mongodb>\nPrimary" as mongodb_notification_primary
+    database "<$mongodb>\nSecondary" as mongodb_notification_secondary_1
+    database "<$mongodb>\nSecondary" as mongodb_notification_secondary_2
+    database "<$mongodb>\nSecondary hidden" as mongodb_notification_secondary_3
+
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_1
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_2
+    mongodb_notification_primary <-down-> mongodb_notification_secondary_3
+}
+node "Генератор автоматических уведомлений" as scheduler #palegreen;line:green;text:blue {
+    collections "<$python>\nScheduler" as script_scheduler
+    component "<img:cron.png>\nCron" as crontab
+    database "<$redis>\nCache" as redis_scheduler
+
+    crontab -> script_scheduler
+    redis_scheduler <-> script_scheduler
+}
+node "Брокер отчетных событий" as queues_reporting_events #palegreen;line:green;text:blue {
+    queue "<$rabbitmq>\nReporting events queues                      " as rabbitmq_reporting_events
+}
+
+node "Брокер уведомлений" as queue_events #palegreen;line:green;text:blue {
+    queue "<$rabbitmq>\nHigh, Medium, Low Priority Message Queues" as rabbitmq_message_queues
+}
+
+node "Обработчики уведомлений (workers)" as workers #palegreen;line:green;text:blue {
+component "Websocket workers" as websocket_workers #yellow {
+    collections "<$python>\nWS worker 1...\nWS worker n" as ws_workers
+    }
+component "Email workers" as email_workers #yellow {
+    collections "<$python>\nE-mail worker 1...\nE-mail worker n" as em_workers
+    }
+    database "<$redis>\nCache" as redis_workers
+    ws_workers <- -> redis_workers
+    em_workers <- -> redis_workers
+}
+
+node "Сервис UGC" as ugc_service #aliceblue;line:blue;text:blue {
+    note as note1
+    Пользовательские события,
+    требующие отправки уведомления
+    end note
+}
+node "Сервис Auth API" as auth_service #aliceblue;line:blue;text:blue {
+    note as note2
+    Предоставление расширенной
+    информации о пользователе
+    (Имя, фамилия, адрес электронной
+    почты, телефон и т.д.)
+    end note
+
+}
+node "Сервис Async API" as async_service #aliceblue;line:blue;text:blue {
+    note as note3
+    Предоставление расширенной
+    информации о фильмах
+    (название, жанры, год выпуска и т.д.)
+    end note
+}
+node "Админ-панель управления\nконтентом онлайн-кинотеатра" as movies_admin_service #aliceblue;line:blue;text:blue {
+    note as note4
+    Автоматические уведомления
+    о добавлении новых фильмов,
+    выходе новой серии и т.д.
+    end note
+}
+ugc_service -[hidden]- movies_admin_service
+movies_admin_service -[hidden]- auth_service
+auth_service -[hidden]- async_service
+
+node "Кластер базы данных сервиса UGC" as ugc_db #aliceblue;line:blue;text:blue {
+    database "<$mongodb>\nPrimary" as mongodb_ugc_primary
+    database "<$mongodb>\nSecondary" as mongodb_ugc_secondary_1
+    database "<$mongodb>\nSecondary" as mongodb_ugc_secondary_2
+
+    mongodb_ugc_primary <- -> mongodb_ugc_secondary_1
+    mongodb_ugc_primary <- -> mongodb_ugc_secondary_2
+}
+node "Кластер базы данных PostgreSQL" as postgres #palegreen;line:green;text:blue {
+    database "<$postgresql>\nPrimary" as postgres_primary
+    database "<$postgresql>\nSecondary" as postgres_secondary_1
+    database "<$postgresql>\nSecondary" as postgres_secondary_2
+
+    postgres_primary <- -> postgres_secondary_1
+    postgres_primary <- -> postgres_secondary_2
+}
+node "Сервис Auth API - signup" as auth_service1 #aliceblue;line:blue;text:blue {
+    note as note5
+    http-запрос с данными
+    для подтверждения e-mail
+    пользователя при регистрации
+    end note
+}
+
+component external_email_service #aliceblue;line:blue;text:blue [
+<b>Внешний сервис
+<b>e-mail рассылок
+- - -
+REST API для отправки
+почтовых сообщений и
+отслеживания доставки,
+прочтения
+]
+
+component ws_clients #aliceblue;line:blue;text:blue [
+<b>WebSocket-клиенты
+- - -
+Отображение уведомлений
+в браузере клиента
+]
+
+Manager <- -> nginx_notification_admin
+django <=[#brown,thickness=4]=> postgres_primary
+
+notification_web_api <-[#brown,dashed,thickness=4]-> mongodb_notification_primary
+ugc_service <<-[#green,dashed,thickness=4]-|> rabbitmq_reporting_events
+rabbitmq_reporting_events <|-[#green,dashed,thickness=4]->> movies_admin_service
+
+rabbitmq_reporting_events <<-[#red,dashed,thickness=4]-|> notification_web_api
+rabbitmq_reporting_events <<-[#red,dashed,thickness=4]-|> notification_web_api
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> ws_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> ws_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> em_workers
+rabbitmq_message_queues  <<-[#red,dashed,thickness=3]-|> em_workers
+em_workers <-[#blue,dashed,thickness=3]-> external_email_service
+
+notification_web_api <<-[#green,dashed,thickness=8]-|> rabbitmq_message_queues
+nginx_notification_admin <==> nginx_notification
+
+mongodb_notification_primary <-[#brown,dashed,thickness=4]-> ws_workers
+mongodb_notification_primary <-[#brown,dashed,thickness=4]-> em_workers
+postgres_primary <-[#brown,dashed,thickness=4]-> ws_workers
+postgres_primary <-[#brown,dashed,thickness=4]-> em_workers
+ws_workers <.[thickness=3].> async_service
+em_workers <.[thickness=3].> async_service
+ws_workers <.[thickness=3].> auth_service
+em_workers <.[thickness=3].> auth_service
+
+script_scheduler <-[#brown,dashed,thickness=4]-> postgres_primary
+mongodb_ugc_secondary_2 <-[#brown,dashed,thickness=4]-> script_scheduler
+django ==> crontab
+nginx_notification <.[thickness=3].> script_scheduler
+auth_service1 <.[thickness=3].> nginx_notification
+ws_workers -> ws_clients
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 16:29:17 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

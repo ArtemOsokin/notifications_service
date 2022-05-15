@@ -33,8 +33,11 @@ role_request_create_parser.add_argument(
 
 users_ids_request_parser = authorization_parser.copy()
 users_ids_request_parser.add_argument(
-    'status', type=str, action='split'
+    'status', action='split'
 )
 users_ids_request_parser.add_argument(
-    'roles', type=str, action='split'
+    'roles', action='split'
+)
+users_ids_request_parser.add_argument(
+    'with_userinfo', type=bool
 )
