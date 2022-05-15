@@ -38,6 +38,3 @@ users_ids_request_parser.add_argument(
 users_ids_request_parser.add_argument(
     'roles', action='split'
 )
-users_ids_request_parser.add_argument(
-    'with_userinfo', type=bool
-)
