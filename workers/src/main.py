@@ -22,7 +22,7 @@ class EmailWorker(BaseWorker):
     async def do_action(self, body) -> None:
         if body.need_enrich:
             await self.enrich_data()
-        self.mailer.send_mail(body.sender, body.recipient, body.subj, body.msg_content)
+        await self.mailer.send_mail(body.sender, body.recipient, body.subj, body.msg_content)
 
     async def enrich_data(self) -> None:
         pass

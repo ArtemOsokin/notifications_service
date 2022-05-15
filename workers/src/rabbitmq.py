@@ -5,6 +5,8 @@ from aio_pika import ExchangeType, connect
 from aio_pika.abc import AbstractIncomingMessage
 
 from base_worker import MessageBroker
+from message_model import Queues
+
 import logging
 
 LOG_FORMAT = ('%(levelname) -10s %(asctime)s %(name) -30s %(funcName) '
@@ -34,7 +36,7 @@ class RabbitBroker(MessageBroker):
 
     async def connect_to_broker(self) -> None:
         # Perform connection
-        connection = await connect("amqp://guest:guest@localhost/")
+        connection = await connect(self._amqp_url)
 
         async with connection:
             # Creating a channel
@@ -46,15 +48,10 @@ class RabbitBroker(MessageBroker):
                 self.EXCHANGE, self.EXCHANGE_TYPE,
             )
 
-            # Declaring random queue
-            queue = await channel.declare_queue(durable=True)
+            for queue in Queues:
+                new_queue = await channel.declare_queue(name=queue.value, durable=True)
+                await new_queue.bind(direct_logs_exchange, routing_key=queue.routing_key)
+                await new_queue.consume(self.on_message)
 
-            await queue.bind(direct_logs_exchange, routing_key="low")
-            await queue.bind(direct_logs_exchange, routing_key="medium")
-            await queue.bind(direct_logs_exchange, routing_key="high")
-
-            # Start listening the random queue
-            await queue.consume(self.on_message)
-
-            print(" [*] Waiting for messages. To exit press CTRL+C")
+            print(" [*] Waiting for messages.")
             await asyncio.Future()
