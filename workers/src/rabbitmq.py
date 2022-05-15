@@ -35,7 +35,10 @@ class RabbitBroker(MessageBroker):
 
     async def connect_to_broker(self) -> None:
         # Perform connection
-        connection = await connect(self._amqp_url)
+        connection = await connect(host="notification_rabbitmq",
+                                   port=5672,
+                                   login="rabbit",
+                                   password="rabbit_password")
 
         async with connection:
             # Creating a channel
@@ -44,7 +47,7 @@ class RabbitBroker(MessageBroker):
 
             # Declare an exchange
             direct_logs_exchange = await channel.declare_exchange(
-                self.EXCHANGE, self.EXCHANGE_TYPE,
+                self.EXCHANGE, self.EXCHANGE_TYPE, durable=True
             )
 
             for queue in Queues:
