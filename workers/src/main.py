@@ -3,6 +3,7 @@ from rabbitmq import RabbitBroker
 from sendgrid_service import SendGridMailer
 import logging
 import asyncio
+from websocket_module import WebSocketNotifier
 
 LOG_FORMAT = ('%(levelname) -10s %(asctime)s %(name) -30s %(funcName) '
               '-35s %(lineno) -5d: %(message)s')
@@ -16,7 +17,7 @@ class EmailWorker(BaseWorker):
         self.mailer = SendGridMailer()
 
     async def connect_to_queue(self) -> None:
-        self.consumer.run()
+        await self.consumer.run()
 
     async def do_action(self, body) -> None:
         if body.need_enrich:
@@ -30,12 +31,10 @@ class EmailWorker(BaseWorker):
 async def main():
     logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
     worker = EmailWorker()
+    ws_notifier = WebSocketNotifier()
+    await ws_notifier.connect()
     await worker.connect_to_queue()
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    asyncio.ensure_future(main())
-    loop.run_forever()
-    # loop.run_until_complete(main())
-    # asyncio.run(main())
+    asyncio.run(main())
 

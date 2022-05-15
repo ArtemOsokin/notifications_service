@@ -1,38 +1,24 @@
 import asyncio
-import websockets  # Установите этот пакет, если у вас его нет
+import websockets
 
-peoples = {}  # Словарь будет содержать ник подключившегося человека и указатель на его websocket-соединение.
-# Это понадобится для маршрутизации сообщений между пользователями
 
-async def welcome(websocket: websockets.WebSocketServerProtocol) -> str:
-    # При подключнии к серверу попросим указать свой ник и пополним им словарь peoples
-    await websocket.send('Представьтесь!') # Метод websocket.send отправляет сообщение пользователю
-    name = await websocket.recv()  # websocket.recv ожидает получения сообщения
-    await websocket.send('Чтобы поговорить, напишите "<имя>: <сообщение>". Например: Ира: купи хлеб.')
-    await websocket.send('Посмотреть список участников можно командой "?"')
-    peoples[name.strip()] = websocket
-    return name
+class WebSocketNotifier:
+    connections = {}
 
-async def receiver(websocket: websockets.WebSocketServerProtocol, path: str) -> None:
-    name = await welcome(websocket)
-    while True:
-        # Получаем сообщение от абонента и решаем, что с ним делать
-        message = (await websocket.recv()).strip()
-        if message == '?':  # На знак вопроса вернём список ников подключившихся людей
-            await websocket.send(', '.join(peoples.keys()))
-            continue
-        else:  # Остальные сообщения попытаемся проанализировать и отправить нужному собеседнику
-            to, text = message.split(': ', 1)
-            if to in peoples:
-                # Пересылаем сообщение в канал получателя, указав отправителя
-                await peoples[to].send(f'Сообщение от {name}: {text}')
-            else:
-                await websocket.send(f'Пользователь {to} не найден')
+    def __init__(self, port = 8765, address = "localhost"):
+        self.port = port
+        self.address = address
 
-# Создаём сервер, который будет обрабатывать подключения
-ws_server = websockets.serve(receiver, "localhost", 8765)
+    async def connect(self):
+        await websockets.serve(self.register, self.address, self.port)
+            # await asyncio.Future()
 
-# Запускаем event-loop
-loop = asyncio.get_event_loop()
-loop.run_until_complete(ws_server)
-loop.run_forever()
+    async def register(self, websocket, user_id):
+        self.connections[user_id] = websocket
+        try:
+            await websocket.wait_closed()
+        finally:
+            self.connections[user_id].remove(websocket)
+
+    async def send_notify(self, user_id, notify_message):
+        self.connections[user_id].send(notify_message)
