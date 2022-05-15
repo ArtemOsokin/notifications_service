@@ -15,5 +15,5 @@ COPY ./requirements.txt .
 RUN pip install -r requirements.txt --no-cache-dir
 
 # copy project
-COPY . /usr/src/
+COPY ./src /usr/src/
 CMD python3 ./main.py

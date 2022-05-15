@@ -5,7 +5,7 @@ import websockets
 class WebSocketNotifier:
     connections = {}
 
-    def __init__(self, port = 8765, address = "localhost"):
+    def __init__(self, port = 8765, address = "0.0.0.0"):
         self.port = port
         self.address = address
 

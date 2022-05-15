@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 
 import orjson
 
@@ -15,7 +16,8 @@ LOGGER = logging.getLogger(__name__)
 class EmailWorker(BaseWorker):
 
     def __init__(self):
-        self.amqp_url = 'amqp://guest:guest@localhost:5672/%2F'
+        rabbit_host = os.environ.get('RABBIT_HOST')
+        self.amqp_url = 'amqp://rabbit:rabbit_password@notification_rabbitmq:5672/%2F'
         self.consumer = RabbitBroker(self.amqp_url, self.do_action)
         self.mailer = SendGridMailer()
 
