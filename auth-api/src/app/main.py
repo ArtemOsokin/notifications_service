@@ -33,7 +33,7 @@ def create_app():
     init_limiter(app)
     init_oauth(app)
     app.app_context().push()
-    init_tracer(app)
+    # init_tracer(app)
     app.cli.add_command(create_superuser)
 
     @app.before_request

@@ -30,3 +30,11 @@ role_request_create_parser.add_argument(
 role_request_create_parser.add_argument(
     'description', type=str, required=True, location='form',
 )
+
+users_ids_request_parser = authorization_parser.copy()
+users_ids_request_parser.add_argument(
+    'status', type=str, action='split'
+)
+users_ids_request_parser.add_argument(
+    'roles', type=str, action='split'
+)

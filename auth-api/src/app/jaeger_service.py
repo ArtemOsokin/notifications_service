@@ -17,7 +17,7 @@ def init_tracer(app: Flask):
         return
 
     trace.set_tracer_provider(
-        TracerProvider(resource=Resource.create({SERVICE_NAME: 'Auth API Team8'}))
+        TracerProvider(resource=Resource.create({SERVICE_NAME: 'Auth API Team3'}))
     )
     tracer_provider = trace.get_tracer_provider()
 
@@ -41,5 +41,6 @@ if settings.JAEGER.ENABLED:
 
 
 def span_callback(span: Span, response: requests.Response):
-    if span and span.is_recording():
-        span.set_attribute('http.request_id', request.headers.get('X-Request-Id'))
+    # if span and span.is_recording():
+    #     span.set_attribute('http.request_id', request.headers.get('X-Request-Id'))
+    pass

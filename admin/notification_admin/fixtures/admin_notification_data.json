@@ -84,7 +84,10 @@
       "priority": "low",
       "template": "91b5a97a-c20b-4665-9624-a49033d387af",
       "context": {
-        "user_categories": ["active"]
+        "user_categories": {
+          "status": ["active"],
+          "roles": []
+        }
       },
       "scheduled_datetime": "2022-05-13T18:00:00Z",
       "execution_datetime": null
