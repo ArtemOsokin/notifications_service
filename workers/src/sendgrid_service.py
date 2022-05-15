@@ -9,7 +9,6 @@ class SendGridMailer:
 
     async def send_mail(self, sender, recipient, subj, msg_content):
         print("MAILER STUB")
-        # return
         mail = Mail(from_email=sender,
                     to_emails=recipient,
                     subject=subj,

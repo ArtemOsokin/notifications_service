@@ -1,5 +1,4 @@
 import asyncio
-import sys
 
 from aio_pika import ExchangeType, connect
 from aio_pika.abc import AbstractIncomingMessage

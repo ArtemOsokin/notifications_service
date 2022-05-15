@@ -1,8 +1,11 @@
+import asyncio
+import logging
+
+import orjson
+
 from base_worker import BaseWorker
 from rabbitmq import RabbitBroker
 from sendgrid_service import SendGridMailer
-import logging
-import asyncio
 from websocket_module import WebSocketNotifier
 
 LOG_FORMAT = ('%(levelname) -10s %(asctime)s %(name) -30s %(funcName) '
@@ -20,9 +23,13 @@ class EmailWorker(BaseWorker):
         await self.consumer.run()
 
     async def do_action(self, body) -> None:
-        if body.need_enrich:
+        notification = orjson.loads(body)
+        if notification.need_enrich:
             await self.enrich_data()
-        await self.mailer.send_mail(body.sender, body.recipient, body.subj, body.msg_content)
+        await self.mailer.send_mail(notification.payoad.sender,
+                                    notification.payoad.user_email,
+                                    notification.subj,
+                                    notification.msg_content)
 
     async def enrich_data(self) -> None:
         pass
