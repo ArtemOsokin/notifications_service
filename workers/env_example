@@ -1,1 +1,17 @@
 SENDGRID_API_KEY="your_sendgrid_api_key"
+
+RABBIT_USERNAME=rabbit
+RABBIT_PASSWORD=rabbit_password
+RABBIT_HOST=notification_rabbitmq
+RABBIT_HEARTBEAT=600
+RABBIT_BLOCKED_CONNECTION_TIMEOUT=300
+RABBIT_EXCHANGE=email
+RABBIT_EXCHANGE_TYPE=direct
+
+POSTGRES_HOST=notify_db
+POSTGRES_PORT=5432
+POSTGRES_BASE_NAME=notification_database
+POSTGRES_USER=django_user
+POSTGRES_PASSWORD=user1234
+
+REST_AUTH_API_URL: str = Field('http://auth-api:8088/api/v1/')
