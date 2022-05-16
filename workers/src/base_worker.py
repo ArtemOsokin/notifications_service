@@ -1,4 +1,8 @@
 import abc
+from typing import Callable, Optional
+
+from message_model import Queues
+
 
 class BaseWorker:
     @abc.abstractmethod
@@ -7,7 +11,7 @@ class BaseWorker:
         pass
 
     @abc.abstractmethod
-    def do_action(self, data) -> None:
+    def do_action(self, data: bytes) -> None:
         """Выполнить действие"""
         pass
 
@@ -24,7 +28,7 @@ class Enricher:
         pass
 
     @abc.abstractmethod
-    def get_data(self) -> dict:
+    def get_data(self, request) -> Optional[tuple]:
         """Получить данные"""
         pass
 
@@ -36,6 +40,6 @@ class MessageBroker:
         pass
 
     @abc.abstractmethod
-    def connect_to_queue(self) -> None:
+    def connect_to_queue(self, queue: Queues, callback: Callable) -> None:
         """Подключиться к очереди сообщений"""
         pass

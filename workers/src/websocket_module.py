@@ -1,17 +1,16 @@
-import asyncio
 import websockets
 
 
 class WebSocketNotifier:
     connections = {}
 
-    def __init__(self, port = 8765, address = "0.0.0.0"):
+    def __init__(self, port=8765, address="0.0.0.0"):
         self.port = port
         self.address = address
 
     async def connect(self):
         await websockets.serve(self.register, self.address, self.port)
-            # await asyncio.Future()
+        # await asyncio.Future()
 
     async def register(self, websocket, user_id):
         self.connections[user_id] = websocket
