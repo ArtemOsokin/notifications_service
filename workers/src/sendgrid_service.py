@@ -9,7 +9,6 @@ class SendGridMailer:
     sg = SendGridAPIClient(api_key=os.environ.get("SENDGRID_API_KEY"))
 
     async def send_mail(self, sender, recipient, subj, msg_content):
-        print("MAILER STUB")
         mail = Mail(
             from_email=sender,
             to_emails=recipient,
