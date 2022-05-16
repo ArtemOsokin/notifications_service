@@ -2,6 +2,7 @@ import os
 from pydantic import BaseSettings
 from functools import lru_cache
 
+
 class Settings(BaseSettings):
     DB_DSN: dict = {
         'dbname': os.environ.get('DB_NAME'),
